@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Premium Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- AOS Library CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+</head>
+<body>
+
+<div class="navbar">
+
+  <!-- LEFT : LOGO -->
+   <div class="logo">
+    <h1 style="background: linear-gradient(90deg, #ff4fd8, #9b5cff); -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; font-size: large;">ZAWA STUDIO</h1>
+    
+  </div>
+
+
+  <!-- RIGHT : links + search + icons -->
+
+<div class="nav-center">
+    <a href="index.html" class="nav-link">Home</a>
+
+    <div class="shop-dropdown">
+        <a href="product.html" class="nav-link">Shop</a>
+
+        <div class="dropdown-menu">
+            <a href="bouquet.html">Bouquet</a>
+            <a href="gajray.html">Gajray</a>
+            <a href="headband.html">Headband</a>
+            <a href="bags.html">Bags</a>
+            <a href="handbag.html">Handbag</a>
+            <a href="phonecase.html">PhoneCase</a>
+            <a href="keychain.html">Keychain</a>
+            <a href="pouch.html">Pouch</a>
+            <a href="wallet.html">Wallet</a>
+        </div>
+    </div>
+
+    <a href="aboutus.html" class="nav-link">AboutUs</a>
+
+    
+<div class="shop-dropdown">
+  <a href="faqs.html" class="nav-link">FAQ's</a>
+    <div class="dropdown-menu">
+      
+      <a href="returnpolicy.html">Return Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+</div>
+</div>
+</div>
+  <div class="nav-right">
+    <!-- icons -->
+    <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+    <a href="login.html"><i class="fa-regular fa-user"></i></a>
+<!-- search -->
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<section class="hero">
+  <div>
+    <h1>Experience Shopping with Intelligence</h1>
+    <p>Modern design. Premium feel. Smart experience.</p>
+    <button class="btn" onclick="location.href='product.html'">Explore Products</button>
+  </div>
+</section>
+
+<section class="feature"  data-aos="fade-up">
+  <div class="glass">
+    <h2>Elegant Products</h2>
+    <p>Designed with precision and beauty in mind.</p>
+  </div>
+  <img src="assets/img/crochet purple gajray.jpeg" data-aos="zoom-in">
+</section>
+
+<section class="feature"  data-aos="fade-up">
+  <img src="assets/img/bouquet1 .jpeg">
+  <div class="glass">
+    <h2>Premium Experience</h2>
+    <p>Scroll. Feel. Experience the difference.</p>
+  </div>
+</section>
+
+<div class="footer">
+  © 2026 Premium Shop. All rights reserved.
+</div>
+<script>
+  AOS.init({
+    duration: 1200, // animation duration in ms
+    once: true,     // animation happens only once
+    easing: 'ease-in-out', // easing function
+  });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const features = document.querySelectorAll('.feature');
+
+  function animateOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85; // 85% of viewport height
+
+    features.forEach(feature => {
+      const featureTop = feature.getBoundingClientRect().top;
+
+      // Animate the feature section
+      if (featureTop < triggerBottom) {
+        feature.classList.add('animate');
+
+        // Animate child elements
+        const img = feature.querySelector('img');
+        const glass = feature.querySelector('.glass');
+        if(img) img.classList.add('animate');
+        if(glass) glass.classList.add('animate');
+
+      } else {
+        // Remove animation so it triggers again on scroll back
+        feature.classList.remove('animate');
+        const img = feature.querySelector('img');
+        const glass = feature.querySelector('.glass');
+        if(img) img.classList.remove('animate');
+        if(glass) glass.classList.remove('animate');
+      }
+    });
+  }
+
+  // Run on scroll and on page load
+  window.addEventListener('scroll', animateOnScroll);
+  animateOnScroll(); // initial check
+});
+</script>
+    <script>
+  // Get the input and search icon
+  const searchInput = document.querySelector(".search-box input");
+  const searchBtn = document.querySelector(".search-box i");
+
+  // Redirect on click of the search icon
+  searchBtn.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if(query) {
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    }
+  });
+
+  // Redirect on Enter key press
+  searchInput.addEventListener("keypress", (e) => {
+    if(e.key === "Enter") {
+      e.preventDefault();
+      const query = searchInput.value.trim();
+      if(query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    }
+  });
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

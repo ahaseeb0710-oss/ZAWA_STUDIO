@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Premium Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- AOS Library CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+</head>
+<body>
+<div class="navbar">
+
+  <!-- LEFT : LOGO -->
+   <div class="logo">
+    <h1 style="background: linear-gradient(90deg, #ff4fd8, #9b5cff); -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; font-size: large;">ZAWA STUDIO</h1>
+    
+  </div>
+
+
+  <!-- RIGHT : links + search + icons -->
+
+<div class="nav-center">
+    <a href="index.html" class="nav-link">Home</a>
+
+    <div class="shop-dropdown">
+        <a href="product.html" class="nav-link">Shop</a>
+
+        <div class="dropdown-menu">
+            <a href="bouquet.html">Bouquet</a>
+            <a href="gajray.html">Gajray</a>
+            <a href="headband.html">Headband</a>
+            <a href="bags.html">Bags</a>
+            <a href="handbag.html">Handbag</a>
+            <a href="phonecase.html">PhoneCase</a>
+            <a href="keychain.html">Keychain</a>
+            <a href="pouch.html">Pouch</a>
+            <a href="wallet.html">Wallet</a>
+        </div>
+    </div>
+
+    <a href="aboutus.html" class="nav-link">AboutUs</a>
+
+    
+<div class="shop-dropdown">
+  <a href="faqs.html" class="nav-link">FAQ's</a>
+    <div class="dropdown-menu">
+      
+      <a href="returnpolicy.html">Return Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+</div>
+</div>
+</div>
+    
+  <div class="nav-right">
+    <!-- icons -->
+    <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+    <a href="login.html"><i class="fa-regular fa-user"></i></a>
+<!-- search -->
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+  </div>
+
+</div>
+ <div class="shop-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <h3>Categories</h3>
+            <ul class="category-list">
+                <li><a href="bouquet.html">Bouquet</a></li>
+                <li><a href="gajray.html">Gajray</a></li>
+                <li><a href="headband.html">Headband</a></li>
+                <li><a href="bags.html">Bags</a></li>
+                <li><a href="handbag.html">Handbag</a></li>
+                <li><a href="phonecase.html">PhoneCase</a></li>
+                <li><a href="keychain.html">Keychain</a></li>
+                <li><a href="pouch.html">Pouch</a></li>
+                <li><a href="wallet.html">Wallet</a></li>
+            </ul>
+
+            <div class="filter-section">
+                <h3>Price</h3>
+
+                <div class="price-values">
+                    <span id="minPrice">$30</span>
+                    <span id="maxPrice">$3000</span>
+                </div>
+
+                <input type="range" min="30" max="3000" value="3000" class="price-slider" id="priceRange">
+
+                <button class="filter-btn" id="applyFilter">FILTER</button>
+            </div>
+
+
+        </aside>
+
+         <div class="product-grid">
+            <!-- product start -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/bouquet1 .jpeg" alt="">
+                </div>
+
+                <div class="product-info">
+                    <p class="category">BOUQUET</p>
+                    <h5 class="name">Crochet purple rose bouquet</h5>
+                    <p class="price">$329.00</p>
+                </div>
+            </div>
+            <!-- product end -->
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/bouquet2.jpeg" alt="">
+                </div>
+
+                <div class="product-info">
+                    <p class="category">BOUQUET</p>
+                    <h5 class="name">Crochet sunflower bouquet</h5>
+                    <p class="price">$329.00</p>
+                </div>
+            </div>
+
+            
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/tullip.jpeg" alt="">
+                </div>
+
+                <div class="product-info">
+                    <p class="category">TULLIP</p>
+                    <h5 class="name">Crochet tulips</h5>
+                    <p class="price">$9.00</p>
+                </div>
+            </div>
+
+          </div>
+
+  <script>
+  // Get the input and search icon
+  const searchInput = document.querySelector(".search-box input");
+  const searchBtn = document.querySelector(".search-box i");
+
+  // Redirect on click of the search icon
+  searchBtn.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if(query) {
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    }
+  });
+
+  // Redirect on Enter key press
+  searchInput.addEventListener("keypress", (e) => {
+    if(e.key === "Enter") {
+      e.preventDefault();
+      const query = searchInput.value.trim();
+      if(query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    }
+  });
+</script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
+   
