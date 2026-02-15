@@ -1,175 +1,499 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Premium Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- AOS Library CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  
 </head>
+
 <body>
 
-<div class="navbar">
 
-  <!-- LEFT : LOGO -->
-   <div class="logo">
-    <h1 style="background: linear-gradient(90deg, #ff4fd8, #9b5cff); -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; font-size: large;">ZAWA STUDIO</h1>
-    
-  </div>
 
 
   <!-- RIGHT : links + search + icons -->
 
-<div class="nav-center">
-    <a href="index.html" class="nav-link">Home</a>
+  <nav class="navbar">
 
-    <div class="shop-dropdown">
-        <a href="product.html" class="nav-link">Shop</a>
+    <!-- LEFT -->
+    <div class="nav-left">
 
+      <a href="index.html">HOME</a>
+
+      <!-- SHOP DROPDOWN -->
+      <div class="nav-dropdown">
+        <a href="product.html">SHOP</a>
         <div class="dropdown-menu">
-            <a href="bouquet.html">Bouquet</a>
-            <a href="gajray.html">Gajray</a>
-            <a href="headband.html">Headband</a>
-            <a href="bags.html">Bags</a>
-            <a href="handbag.html">Handbag</a>
-            <a href="phonecase.html">PhoneCase</a>
-            <a href="keychain.html">Keychain</a>
-            <a href="pouch.html">Pouch</a>
-            <a href="wallet.html">Wallet</a>
+          <a href="bouquet.html">Bouquet</a>
+          <a href="gajray.html">Gajray</a>
+          <a href="headband.html">Headband</a>
+          <a href="bags.html">Bags</a>
+          <a href="handbag.html">Handbag</a>
+          <a href="phonecase.html">PhoneCase</a>
+          <a href="keychain.html">Keychain</a>
+          <a href="pouch.html">Pouch</a>
+          <a href="wallet.html">Wallet</a>
         </div>
+      </div>
+
+      <a href="aboutus.html">ABOUT</a>
+
+      <!-- FAQ DROPDOWN -->
+      <div class="nav-dropdown">
+        <a href="faqs.html">FAQ</a>
+        <div class="dropdown-menu">
+          <a href="returnpolicy.html">Return Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+      <a href="contact.html">CONTACT</a>
+
     </div>
 
-    <a href="aboutus.html" class="nav-link">AboutUs</a>
+    <!-- CENTER LOGO -->
+    <div class="logo">
+      <a href="index.html" style="text-decoration: none;">
+        <h1>ZAWA <span>STUDIO</span></h1>
+      </a>
+    </div>
 
+<!-- RIGHT -->
+<div class="nav-right">
+  <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
+  <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+  <div class="cart-icon">
+   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+    <span id="cartCount">0</span>
+</div>
+
+
+  <!-- SEARCH -->
+  <div class="search-box">
+    <input type="text" placeholder="Search...">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+
+
+
+
+  </nav>
+
+
+
+
+  <section class="hero">
+
+    <img src="assets/img/hero-image-BED3Zb5z.jpg" class="hero-img" alt="Crochet">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+      <p class="hero-tag">HANDCRAFTED WITH SOUL</p>
+
+      <h1 class="hero-title">
+        The Art of <br>
+        <span class="crochet-text">Crochet</span>
+      </h1>
+
+      <p class="hero-description">
+        Each piece is a unique work of art, meticulously handcrafted to
+        celebrate the beauty of artisan fashion.
+      </p>
+
+      <button class="btn" onclick="location.href='product.html'">
+        Explore Products
+      </button>
+      <button class="custom-btn" onclick="location.href='contact.html'">Custom Orders</button>
+
+    </div>
+
+  </section>
+
+
+  <!-- COLLECTION SECTION -->
+<section class="section">
+
+  <div class="products">
+
+    <div class="product-card">
+  <div class="image-wrapper">
+    <img src="assets/img/handbag2.jpeg" alt="">
+  </div>
+  <a href="handbag.html" style="text-decoration: none;"><div class="category">HANDBAGS</div></a>
+  <div class="product-title" onclick="location.href=''">Crochet ruffle handbag</div>
+</div>
+
+
+    <div class="product-card">
+  <div class="image-wrapper">
+    <img src="assets/img/teddypouch.jpeg" alt="">
     
-<div class="shop-dropdown">
-  <a href="faqs.html" class="nav-link">FAQ's</a>
-    <div class="dropdown-menu">
-      
-      <a href="returnpolicy.html">Return Policy</a>
-      <a href="terms.html">Terms & Conditions</a>
+  </div>
+
+  <a href="pouch.html" style="text-decoration: none;"><div class="category">POUCH</div></a>
+  <div class="product-title" onclick="location.href=''">Crochet teddy pouch</div>
 </div>
+
+
+    <div class="product-card">
+  <div class="image-wrapper">
+    <img src="assets/img/wallet1.jpeg" alt="">
+    
+  </div>
+
+  <a href="wallet.html" style="text-decoration: none;"><div class="category">WALLET</div></a>
+  <div class="product-title" onclick="location.href=''">Crochet wallet</div>
 </div>
+
+
+    <div class="product-card">
+  <div class="image-wrapper">
+    <img src="assets/img/bouquet1 .jpeg" alt="">
+    
+  </div>
+
+  <a href="bouquet.html" style="text-decoration: none;"><div class="category">BOUQUET</div></a>
+  <div class="product-title" onclick="location.href=''">Crochet purple rose bouquet</div>
 </div>
-  <div class="nav-right">
-    <!-- icons -->
-    <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-    <a href="login.html"><i class="fa-regular fa-user"></i></a>
-<!-- search -->
-    <div class="search-box">
-      <input type="text" placeholder="Search...">
-      <i class="fa-solid fa-magnifying-glass"></i>
+ 
+
+  </div>
+
+</section>
+
+
+
+    <!-- TESTIMONIAL TITLE -->
+    <div class="testimonial">
+      <div class="subtitle">TESTIMONIALS</div>
+      <div class="title">Voices of Elegance</div>
+      <div class="divider"></div>
     </div>
+    <section class="testimonials">
+  <div class="testimonial-container">
+
+    <div class="testimonial-card">
+      <p class="quote">
+        "The craftsmanship is extraordinary. Each stitch tells a story of dedication and artistry."
+      </p>
+      <div class="line"></div>
+      <h4>AMARA J.</h4>
+      <span>New York</span>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="quote">
+        "I've never worn anything that feels so uniquely mine. ZAWA pieces are wearable art."
+      </p>
+      <div class="line"></div>
+      <h4>SOFIA M.</h4>
+      <span>Paris</span>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="quote">
+        "The quality and attention to detail rivals the finest luxury houses. Truly exceptional."
+      </p>
+      <div class="line"></div>
+      <h4>ELENA K.</h4>
+      <span>London</span>
+    </div>
+
   </div>
 
-</div>
+  </section>
+
+  <!-- INSTAGRAM SECTION -->
+  <section class="instagram-section">
+    <div class="insta-header">
+      <div class="insta-icon">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </div>
+
+    <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+      style="text-decoration: none;">
+      <p class="insta-handle">@ZAWASTUDIO</p>
+    </a>
+    <h2>Shop Our Instagram</h2>
+    <div class="divider"></div>
+    </div>
+
+    <div class="insta-grid">
+
+
+      <div class="insta-item">
+        <a href="https://www.instagram.com/p/DQRPgRSjWJU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="><img
+            src="assets/img/494fa0ea-a38b-4198-9fd5-b24865fe2ae9.png" alt="Product" style="height: 400px;"></a>
+        <div class="insta-overlay">
+          <div class="insta-like-box">
+            <!-- Instagram SVG Icon -->
+            <svg viewBox="0 0 24 24" class="insta-icon" style="margin-left: 13px;">
+              <path fill="currentColor"
+                d="M7.8,2H16.2A5.8,5.8,0,0,1,22,7.8V16.2A5.8,5.8,0,0,1,16.2,22H7.8A5.8,5.8,0,0,1,2,16.2V7.8A5.8,5.8,0,0,1,7.8,2M12,7.5A4.5,4.5,0,1,0,16.5,12,4.5,4.5,0,0,0,12,7.5M17.8,6.3A1.1,1.1,0,1,0,18.9,7.4,1.1,1.1,0,0,0,17.8,6.3Z" />
+            </svg>
+
+            <p>30 likes</p>
+             <br>
+            <a href="https://www.instagram.com/p/DQO1IIijQc6/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
+          target="_blank" class="insta-item"><p>See post</p></a>
+          </div>
+        </div>
+      </div>
 
 
 
+      <div class="insta-item">
+
+        <img src="assets/img/insta2.jpeg" alt="Product" style="height: 400px;">
+        <div class="insta-overlay">
+          <div class="insta-like-box">
+            <!-- Instagram SVG Icon -->
+            <svg viewBox="0 0 24 24" class="insta-icon" style="margin-left: 13px;">
+              <path fill="currentColor"
+                d="M7.8,2H16.2A5.8,5.8,0,0,1,22,7.8V16.2A5.8,5.8,0,0,1,16.2,22H7.8A5.8,5.8,0,0,1,2,16.2V7.8A5.8,5.8,0,0,1,7.8,2M12,7.5A4.5,4.5,0,1,0,16.5,12,4.5,4.5,0,0,0,12,7.5M17.8,6.3A1.1,1.1,0,1,0,18.9,7.4,1.1,1.1,0,0,0,17.8,6.3Z" />
+            </svg>
+
+            <p>27 likes</p>
+            <br>
+            <a href="https://www.instagram.com/p/DRKKxK1DZU-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+          target="_blank" class="insta-item"><p>See post</p></a>
+          </div>
+        </div>
+      </div>
 
 
-<section class="hero">
-  <div>
-    <h1>Experience Shopping with Intelligence</h1>
-    <p>Modern design. Premium feel. Smart experience.</p>
-    <button class="btn" onclick="location.href='product.html'">Explore Products</button>
-  </div>
-</section>
+      <div class="insta-item">
+        <img src="assets/img/insta3.jpeg" alt="Product" style="height: 400px; " >
+        <div class="insta-overlay">
+          <div class="insta-like-box">
+            <!-- Instagram SVG Icon -->
+            <svg viewBox="0 0 24 24" class="insta-icon"  style="margin-left: 13px;">
+              <path fill="currentColor"
+                d="M7.8,2H16.2A5.8,5.8,0,0,1,22,7.8V16.2A5.8,5.8,0,0,1,16.2,22H7.8A5.8,5.8,0,0,1,2,16.2V7.8A5.8,5.8,0,0,1,7.8,2M12,7.5A4.5,4.5,0,1,0,16.5,12,4.5,4.5,0,0,0,12,7.5M17.8,6.3A1.1,1.1,0,1,0,18.9,7.4,1.1,1.1,0,0,0,17.8,6.3Z" />
+            </svg>
 
-<section class="feature"  data-aos="fade-up">
-  <div class="glass">
-    <h2>Elegant Products</h2>
-    <p>Designed with precision and beauty in mind.</p>
-  </div>
-  <img src="assets/img/crochet purple gajray.jpeg" data-aos="zoom-in">
-</section>
+            <p>31 likes</p>
+             <br>
+            <a href="https://www.instagram.com/p/DRCXdXvDSHL/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
+          target="_blank" class="insta-item"><p>See post</p></a>
+          </div>
+        </div>
+      </div>
 
-<section class="feature"  data-aos="fade-up">
-  <img src="assets/img/bouquet1 .jpeg">
-  <div class="glass">
-    <h2>Premium Experience</h2>
-    <p>Scroll. Feel. Experience the difference.</p>
-  </div>
-</section>
 
-<div class="footer">
-  © 2026 Premium Shop. All rights reserved.
-</div>
-<script>
-  AOS.init({
-    duration: 1200, // animation duration in ms
-    once: true,     // animation happens only once
-    easing: 'ease-in-out', // easing function
-  });
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const features = document.querySelectorAll('.feature');
+      <div class="insta-item">
+        <img src="assets/img/insta4.jpeg" alt="Product" style="height: 400px;">
 
-  function animateOnScroll() {
-    const triggerBottom = window.innerHeight * 0.85; // 85% of viewport height
+        <div class="insta-overlay">
+          <div class="insta-like-box">
+            <!-- Instagram SVG Icon -->
+            <svg viewBox="0 0 24 24" class="insta-icon"  style="margin-left: 13px;">
+              <path fill="currentColor"
+                d="M7.8,2H16.2A5.8,5.8,0,0,1,22,7.8V16.2A5.8,5.8,0,0,1,16.2,22H7.8A5.8,5.8,0,0,1,2,16.2V7.8A5.8,5.8,0,0,1,7.8,2M12,7.5A4.5,4.5,0,1,0,16.5,12,4.5,4.5,0,0,0,12,7.5M17.8,6.3A1.1,1.1,0,1,0,18.9,7.4,1.1,1.1,0,0,0,17.8,6.3Z" />
+            </svg>
 
-    features.forEach(feature => {
-      const featureTop = feature.getBoundingClientRect().top;
+            <p>24 likes</p>
+             <br>
+            <a href="https://www.instagram.com/p/DUaOGQ2jSTC/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ=="
+          target="_blank" class="insta-item"><p>See post</p></a>
+          </div>
+        </div>
+      </div>
 
-      // Animate the feature section
-      if (featureTop < triggerBottom) {
-        feature.classList.add('animate');
 
-        // Animate child elements
-        const img = feature.querySelector('img');
-        const glass = feature.querySelector('.glass');
-        if(img) img.classList.add('animate');
-        if(glass) glass.classList.add('animate');
+    </div>
+  </section>
 
-      } else {
-        // Remove animation so it triggers again on scroll back
-        feature.classList.remove('animate');
-        const img = feature.querySelector('img');
-        const glass = feature.querySelector('.glass');
-        if(img) img.classList.remove('animate');
-        if(glass) glass.classList.remove('animate');
-      }
+
+  <!-- footer -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <h2 style="margin-right: 83px;"><span class="zawa">ZAWA</span> STUDIO</h2>
+
+        <p>Luxury handcrafted crochet pieces, made with love and intention.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links" >
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="product.html">Shop</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="returnpolicy.html">Shipping & Returns</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-social">
+        <h4>FOLLOW US</h4>
+        <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          style="text-decoration: none;">
+          <p class="zawa_studio">
+            <i class="fa-brands fa-instagram"></i>
+            @zawastudio
+          </p>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
+    </div>
+
+  </footer>
+
+
+  <script>
+    AOS.init({
+      duration: 1200, // animation duration in ms
+      once: true,     // animation happens only once
+      easing: 'ease-in-out', // easing function
     });
-  }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const features = document.querySelectorAll('.feature');
 
-  // Run on scroll and on page load
-  window.addEventListener('scroll', animateOnScroll);
-  animateOnScroll(); // initial check
-});
-</script>
-    <script>
-  // Get the input and search icon
-  const searchInput = document.querySelector(".search-box input");
-  const searchBtn = document.querySelector(".search-box i");
+      function animateOnScroll() {
+        const triggerBottom = window.innerHeight * 0.85; // 85% of viewport height
 
-  // Redirect on click of the search icon
-  searchBtn.addEventListener("click", () => {
-    const query = searchInput.value.trim();
-    if(query) {
-      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-    }
-  });
+        features.forEach(feature => {
+          const featureTop = feature.getBoundingClientRect().top;
 
-  // Redirect on Enter key press
-  searchInput.addEventListener("keypress", (e) => {
-    if(e.key === "Enter") {
-      e.preventDefault();
+          // Animate the feature section
+          if (featureTop < triggerBottom) {
+            feature.classList.add('animate');
+
+            // Animate child elements
+            const img = feature.querySelector('img');
+            const glass = feature.querySelector('.glass');
+            if (img) img.classList.add('animate');
+            if (glass) glass.classList.add('animate');
+
+          } else {
+            // Remove animation so it triggers again on scroll back
+            feature.classList.remove('animate');
+            const img = feature.querySelector('img');
+            const glass = feature.querySelector('.glass');
+            if (img) img.classList.remove('animate');
+            if (glass) glass.classList.remove('animate');
+          }
+        });
+      }
+
+      // Run on scroll and on page load
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // initial check
+    });
+  </script>
+  <script>
+    // Get the input and search icon
+    const searchInput = document.querySelector(".search-box input");
+    const searchBtn = document.querySelector(".search-box i");
+
+    // Redirect on click of the search icon
+    searchBtn.addEventListener("click", () => {
       const query = searchInput.value.trim();
-      if(query) {
+      if (query) {
         window.location.href = `search.html?q=${encodeURIComponent(query)}`;
       }
+    });
+
+    // Redirect on Enter key press
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navbar = document.querySelector(".navbar");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    });
+  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    // Hide button if user is not logged in
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      logoutBtn.style.display = "none";
     }
+
+    // Logout functionality
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("user");
+      localStorage.removeItem("loggedIn");
+      window.location.href = "login.html";
+    });
   });
 </script>
-<script src="assets/js/main.js"></script>
+
+  
+  <script>
+// Check login status
+function updateNavbar() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const loggedIn = localStorage.getItem("loggedIn") === "true";
+
+  const userNameEl = document.getElementById("userName");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const loginIcon = document.getElementById("loginIcon");
+
+  if(user && loggedIn) {
+    userNameEl.textContent = user.name;
+    userNameEl.style.display = "inline";
+    logoutBtn.style.display = "inline-block";
+    loginIcon.style.display = "none";
+  } else {
+    userNameEl.style.display = "none";
+    logoutBtn.style.display = "none";
+    loginIcon.style.display = "inline-block";
+  }
+}
+
+// Logout function
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("loggedIn");
+  // Keep user info if you want to retain email for future
+  // localStorage.removeItem("user");
+  updateNavbar();
+  window.location.href = "login.html";
+});
+
+// Run on page load
+updateNavbar();
+</script>
+<script src="assets/js/cart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>

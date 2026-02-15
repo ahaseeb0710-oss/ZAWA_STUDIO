@@ -14,63 +14,73 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 </head>
 <body>
-<div class="navbar">
-
-  <!-- LEFT : LOGO -->
-   <div class="logo">
-    <h1 style="background: linear-gradient(90deg, #ff4fd8, #9b5cff); -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; font-size: large;">ZAWA STUDIO</h1>
-    
-  </div>
-
 
   <!-- RIGHT : links + search + icons -->
 
-<div class="nav-center">
-    <a href="index.html" class="nav-link">Home</a>
+  <nav class="navbar">
 
-    <div class="shop-dropdown">
-        <a href="product.html" class="nav-link">Shop</a>
+    <!-- LEFT -->
+    <div class="nav-left">
 
+      <a href="index.html">HOME</a>
+
+      <!-- SHOP DROPDOWN -->
+      <div class="nav-dropdown">
+        <a href="product.html">SHOP</a>
         <div class="dropdown-menu">
-            <a href="bouquet.html">Bouquet</a>
-            <a href="gajray.html">Gajray</a>
-            <a href="headband.html">Headband</a>
-            <a href="bags.html">Bags</a>
-            <a href="handbag.html">Handbag</a>
-            <a href="phonecase.html">PhoneCase</a>
-            <a href="keychain.html">Keychain</a>
-            <a href="pouch.html">Pouch</a>
-            <a href="wallet.html">Wallet</a>
+          <a href="bouquet.html">Bouquet</a>
+          <a href="gajray.html">Gajray</a>
+          <a href="headband.html">Headband</a>
+          <a href="bags.html">Bags</a>
+          <a href="handbag.html">Handbag</a>
+          <a href="phonecase.html">PhoneCase</a>
+          <a href="keychain.html">Keychain</a>
+          <a href="pouch.html">Pouch</a>
+          <a href="wallet.html">Wallet</a>
         </div>
+      </div>
+
+      <a href="aboutus.html">ABOUT</a>
+
+      <!-- FAQ DROPDOWN -->
+      <div class="nav-dropdown">
+        <a href="faqs.html">FAQ</a>
+        <div class="dropdown-menu">
+          <a href="returnpolicy.html">Return Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+      <a href="contact.html">CONTACT</a>
+
     </div>
 
-    <a href="aboutus.html" class="nav-link">AboutUs</a>
-
-    
-<div class="shop-dropdown">
-  <a href="faqs.html" class="nav-link">FAQ's</a>
-    <div class="dropdown-menu">
-      
-      <a href="returnpolicy.html">Return Policy</a>
-      <a href="terms.html">Terms & Conditions</a>
-</div>
-</div>
-</div>
-    
-  <div class="nav-right">
-    <!-- icons -->
-    <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-    <a href="login.html"><i class="fa-regular fa-user"></i></a>
-<!-- search -->
-    <div class="search-box">
-      <input type="text" placeholder="Search...">
-      <i class="fa-solid fa-magnifying-glass"></i>
+    <!-- CENTER LOGO -->
+    <div class="logo">
+      <a href="index.html" style="text-decoration: none;">
+        <h1>ZAWA <span>STUDIO</span></h1>
+      </a>
     </div>
-  </div>
 
+    <!-- RIGHT -->
+    <div class="nav-right">
+      <a href=""><i class="fa-brands fa-instagram"></i></a>
+      <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+       <div class="cart-icon">
+   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+    <span id="cartCount">0</span>
 </div>
+
+      <!-- SEARCH -->
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+
+  </nav>
+
+
+
  <div class="shop-layout">
 
         <!-- SIDEBAR -->
@@ -147,6 +157,48 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
           </div>
 
+
+           <!-- footer -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <h2 style="margin-right: 83px;"><span class="zawa">ZAWA</span> STUDIO</h2>
+
+        <p>Luxury handcrafted crochet pieces, made with love and intention.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links" >
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="product.html">Shop</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="returnpolicy.html">Shipping & Returns</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-social">
+        <h4>FOLLOW US</h4>
+        <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          style="text-decoration: none;">
+          <p class="zawa_studio">
+            <i class="fa-brands fa-instagram"></i>
+            @zawastudio
+          </p>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
+    </div>
+
+  </footer>
   <script>
   // Get the input and search icon
   const searchInput = document.querySelector(".search-box input");
@@ -171,6 +223,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     }
   });
 </script>
+<script src="assets/js/cart.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <title>Product</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         .product-grid {
@@ -17,62 +18,78 @@
             font-size: medium;
             font-weight: 800;
         }
+        .price{
+            color: #000;
+        }
     </style>
 </head>
 
 <body>
-    <div class="navbar">
+
+    <!-- RIGHT : links + search + icons -->
+
+    <nav class="navbar">
+
+        <!-- LEFT -->
+        <div class="nav-left">
+
+            <a href="index.html">HOME</a>
+
+            <!-- SHOP DROPDOWN -->
+            <div class="nav-dropdown">
+                <a href="product.html">SHOP</a>
+                <div class="dropdown-menu">
+                    <a href="bouquet.html">Bouquet</a>
+                    <a href="gajray.html">Gajray</a>
+                    <a href="headband.html">Headband</a>
+                    <a href="bags.html">Bags</a>
+                    <a href="handbag.html">Handbag</a>
+                    <a href="phonecase.html">PhoneCase</a>
+                    <a href="keychain.html">Keychain</a>
+                    <a href="pouch.html">Pouch</a>
+                    <a href="wallet.html">Wallet</a>
+                </div>
+            </div>
+
+            <a href="aboutus.html">ABOUT</a>
+
+            <!-- FAQ DROPDOWN -->
+            <div class="nav-dropdown">
+                <a href="faqs.html">FAQ</a>
+                <div class="dropdown-menu">
+                    <a href="returnpolicy.html">Return Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+            <a href="contact.html">CONTACT</a>
+
+        </div>
+
+        <!-- CENTER LOGO -->
         <div class="logo">
-            <h1 style="background: linear-gradient(90deg, #ff4fd8, #9b5cff); -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; font-size: large;">ZAWA STUDIO</h1>
-
+            <a href="index.html" style="text-decoration: none;">
+                <h1>ZAWA <span>STUDIO</span></h1>
+            </a>
         </div>
-<div class="nav-center">
-    <a href="index.html" class="nav-link">Home</a>
 
-    <div class="shop-dropdown">
-        <a href="product.html" class="nav-link">Shop</a>
-
-        <div class="dropdown-menu">
-            <a href="bouquet.html">Bouquet</a>
-            <a href="gajray.html">Gajray</a>
-            <a href="headband.html">Headband</a>
-            <a href="bags.html">Bags</a>
-            <a href="handbag.html">Handbag</a>
-            <a href="phonecase.html">PhoneCase</a>
-            <a href="keychain.html">Keychain</a>
-            <a href="pouch.html">Pouch</a>
-            <a href="wallet.html">Wallet</a>
-        </div>
-    </div>
-
-    <a href="aboutus.html" class="nav-link">AboutUs</a>
-
-    
-<div class="shop-dropdown">
-  <a href="faqs.html" class="nav-link">FAQ's</a>
-    <div class="dropdown-menu">
-      
-      <a href="returnpolicy.html">Return Policy</a>
-      <a href="terms.html">Terms & Conditions</a>
-</div>
-</div>
-</div>
-
+        <!-- RIGHT -->
         <div class="nav-right">
-            <!-- icons -->
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="login.html"><i class="fa-regular fa-user"></i></a>
-            <!-- search -->
+              <div class="cart-icon">
+   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+    <span id="cartCount">0</span>
+</div>
+
+            <!-- SEARCH -->
             <div class="search-box">
                 <input type="text" placeholder="Search...">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
         </div>
 
-    </div>
-    </div>
+    </nav>
+
     <div class="shop-layout">
 
         <!-- SIDEBAR -->
@@ -110,7 +127,7 @@
 
         <!-- YOUR EXISTING PRODUCTS -->
         <div class="product-grid">
-            <!-- product start -->
+            <!-- First Product: Crochet Purple Rose Bouquet -->
             <div class="product-card">
                 <div class="product-img">
                     <img src="assets/img/bouquet1 .jpeg" alt="">
@@ -118,12 +135,19 @@
 
                 <div class="product-info">
                     <p class="category">BOUQUET</p>
-                    <h5 class="name">Crochet purple rose bouquet</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">CROCHET PURPLE ROSE BOUQUET</h5>
+                    <p class="price">Rs.1500</p>
+
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="1" data-name="Crochet purple rose bouquet"
+                        data-price="1500" data-image="assets/img/bouquet1 .jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
-            <!-- product end -->
 
+            <!-- Second Product: Crochet Sunflower Bouquet -->
             <div class="product-card">
                 <div class="product-img">
                     <img src="assets/img/bouquet2.jpeg" alt="">
@@ -132,9 +156,18 @@
                 <div class="product-info">
                     <p class="category">BOUQUET</p>
                     <h5 class="name">Crochet sunflower bouquet</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.1500</p>
+
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="2" data-name="Crochet sunflower bouquet" data-price="1500"
+                        data-image="assets/img/bouquet2.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
+
+
 
             <div class="product-card">
                 <div class="product-img">
@@ -144,7 +177,13 @@
                 <div class="product-info">
                     <p class="category">GAJRAY</p>
                     <h5 class="name">Crochet Flower gajray</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.500</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="3" data-name="Crochet Flower gajray" data-price="500"
+                        data-image="assets/img/crochet gajry1.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -157,7 +196,13 @@
                 <div class="product-info">
                     <p class="category">GAJRAY</p>
                     <h5 class="name">Crochet red rose gajray</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.600</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="4" data-name="Crochet red rose gajray" data-price="600"
+                        data-image="assets/img/crochet gajray2.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
 
             </div>
@@ -170,7 +215,13 @@
                 <div class="product-info">
                     <p class="category">GAJRAY</p>
                     <h5 class="name">Crochet purple rose gajray</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.600</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="5" data-name="Crochet purple rose gajray" data-price="450"
+                        data-image="assets/img/crochet purple gajray.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -181,8 +232,14 @@
 
                 <div class="product-info">
                     <p class="category">HEADBAND</p>
-                    <h5 class="name">Crochet headbandm</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Crochet headband with red bow</h5>
+                    <p class="price">Rs.350</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="6" data-name="Crochet headband" data-price="350"
+                        data-image="assets/img/headband1.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -194,8 +251,14 @@
 
                 <div class="product-info">
                     <p class="category">HEADBAND</p>
-                    <h5 class="name">Crochet headband</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Crochet headband with pink bow</h5>
+                    <p class="price">Rs.350</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="7" data-name="Crochet purple rose gajray" data-price="350"
+                        data-image="assets/img//headband2.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -207,8 +270,14 @@
 
                 <div class="product-info">
                     <p class="category">HEADBAND</p>
-                    <h5 class="name">Crochet headband</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Crochet headband with white bow</h5>
+                    <p class="price">Rs.350</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="8" data-name="Crochet purple rose gajray" data-price="350"
+                        data-image="assets/img/headband3.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -220,7 +289,13 @@
                 <div class="product-info">
                     <p class="category">HANDBAG</p>
                     <h5 class="name">Crochet handbag</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.2000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="9" data-name="Crochet handbag" data-price="2000"
+                        data-image="assets/img/handbag.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -232,7 +307,13 @@
                 <div class="product-info">
                     <p class="category">HANDBAG</p>
                     <h5 class="name">Crochet ruffle handbag</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.2200</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="10" data-name="Crochet ruffle handbag" data-price="2200"
+                        data-image="assets/img/handbag2.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -245,6 +326,12 @@
                     <p class="category">KEYCHAIN</p>
                     <h5 class="name">Crochet purple bow keychain</h5>
                     <p class="price">$329.00</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="11" data-name="Crochet purple bow keychain" data-price="450"
+                        data-image="assets/img/keychain1.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -258,6 +345,12 @@
                     <p class="category">KEYCHAIN</p>
                     <h5 class="name">Crochet lilly keychain</h5>
                     <p class="price">$329.00</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="12" data-name="Crochet lilly keychain" data-price="450"
+                        data-image="assets/img/keychain2.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -271,6 +364,12 @@
                     <p class="category">KEYCHAIN</p>
                     <h5 class="name">Crochet strawberry with daise keychain</h5>
                     <p class="price">$329.00</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="13" data-name="Crochet strawberry with daise keychain" data-price="450"
+                        data-image="assets/img/keychain3.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -284,6 +383,12 @@
                     <p class="category">KEYCHAIN</p>
                     <h5 class="name">Couple Star and moon keychain</h5>
                     <p class="price">$329.00</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="14" data-name="Couple Star and moon keychain" data-price="450"
+                        data-image="assets/img/keychain4.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -297,6 +402,12 @@
                     <p class="category">KEYCHAIN</p>
                     <h5 class="name">Crochet mini flower bouquet keychain</h5>
                     <p class="price">$329.00</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="15" data-name="Crochet mini flower bouquet keychain" data-price="450"
+                        data-image="assets/img/keychain5.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -309,6 +420,12 @@
                     <p class="category">KEYCHAIN</p>
                     <h5 class="name">Crochet chick keychain</h5>
                     <p class="price">$329.00</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="16" data-name="Crochet chick keychain" data-price="450"
+                        data-image="assets/img/keychain6.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -321,18 +438,30 @@
                     <p class="category">KEYCHAIN</p>
                     <h5 class="name">Crochet name keychain</h5>
                     <p class="price">$329.00</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="17" data-name="Crochet name keychain" data-price="450"
+                        data-image="assets/img/keychain7.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
             <div class="product-card">
                 <div class="product-img">
-                    <img src="assets/img/phonecase1.jpeg" alt="">
+                    <img src="assets/img/phonecase1.jpeg" alt="" >
                 </div>
 
                 <div class="product-info">
                     <p class="category">CASE</p>
-                    <h5 class="name">Crochet phone case</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Crochet phone case purple</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="18" data-name="Crochet phone case purple" data-price="1000"
+                        data-image="assets/img/phonecase1.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -343,8 +472,14 @@
 
                 <div class="product-info">
                     <p class="category">CASE</p>
-                    <h5 class="name">Crochet phone case</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Crochet phone case red</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="19" data-name="Crochet phone case red" data-price="1000"
+                        data-image="assets/img/phonecase2.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -356,8 +491,14 @@
 
                 <div class="product-info">
                     <p class="category">CASE</p>
-                    <h5 class="name">Crochet phone case</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Crochet phone case blue</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="20" data-name="Crochet phone case blue" data-price="1000"
+                        data-image="assets/img/crochet purple gajray.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -370,23 +511,15 @@
                 <div class="product-info">
                     <p class="category">POUCH</p>
                     <h5 class="name">Crochet Snoopy pouch</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.600</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="21" data-name="Crochet Snoopy pouch" data-price="600"
+                        data-image="assets/img/snoopypouch1.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
-
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/snoopypouch2.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">POUCH</p>
-                    <h5 class="name">Crochet Snoopy pouch</h5>
-                    <p class="price">$329.00</p>
-                </div>
-            </div>
-
 
             <div class="product-card">
                 <div class="product-img">
@@ -396,7 +529,13 @@
                 <div class="product-info">
                     <p class="category">POUCH</p>
                     <h5 class="name">Crochet teddy pouch</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.600</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="22" data-name="Crochet teddy pouch" data-price="600"
+                        data-image="assets/img/teddypouch.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -408,7 +547,13 @@
                 <div class="product-info">
                     <p class="category">POUCH</p>
                     <h5 class="name">Crochet hello kitty pouch</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.600</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="23" data-name="Crochet hello kitty pouch" data-price="600"
+                        data-image="assets/img/pouch3.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -420,7 +565,13 @@
                 <div class="product-info">
                     <p class="category">WALLET</p>
                     <h5 class="name">Crochet wallet</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.1200</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="24" data-name="Crochet wallet" data-price="1200"
+                        data-image="assets/img/wallet1.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -432,7 +583,13 @@
                 <div class="product-info">
                     <p class="category">WALLET</p>
                     <h5 class="name">Crochet wallet with Pearls</h5>
-                    <p class="price">$329.00</p>
+                    <p class="price">Rs.1200</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="25" data-name="Crochet wallet with Pearls" data-price="1200"
+                        data-image="assets/img/wallet2.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -444,8 +601,14 @@
 
                 <div class="product-info">
                     <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Daisy tote bag</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="26" data-name="Daisy tote bag" data-price="1000"
+                        data-image="assets/img/totebag1.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -457,8 +620,14 @@
 
                 <div class="product-info">
                     <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Bow tote bag</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="27" data-name="Bow tote bag" data-price="1000"
+                        data-image="assets/img/totebag2.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -470,8 +639,14 @@
 
                 <div class="product-info">
                     <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Customize name tote bag</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="28" data-name="Customize name tote bag" data-price="1000"
+                        data-image="assets/img/totebag3.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -483,8 +658,14 @@
 
                 <div class="product-info">
                     <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Sunflower tote bag</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="29" data-name="Sunflower tote bag" data-price="1000"
+                        data-image="assets/img/totebag4.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -496,8 +677,14 @@
 
                 <div class="product-info">
                     <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Cherry tote bag</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="30" data-name="Cherry tote bag" data-price="1000"
+                        data-image="assets/img/totebag5.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -509,8 +696,14 @@
 
                 <div class="product-info">
                     <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Flower tote bag</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="31" data-name="Flower tote bag" data-price="1000"
+                        data-image="assets/img/totebag6.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -521,8 +714,14 @@
                 </div>
                 <div class="product-info">
                     <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
+                    <h5 class="name">Flower heart tote bag</h5>
+                    <p class="price">Rs.1000</p>
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="32" data-name="Flower heart tote bag" data-price="1000"
+                        data-image="assets/img/totebag7.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -536,9 +735,19 @@
                 <div class="product-info">
                     <p class="category">TULLIP</p>
                     <h5 class="name">Crochet tulips</h5>
-                    <p class="price">$9.00</p>
+                    <p class="price">Rs.600</p>
+
+                    <input type="number" min="1" value="1" class="qty">
+
+                    <button class="add-to-cart-btn" data-id="33" data-name="Crochet purple rose gajray" data-price="600"
+                        data-image="assets/img/tullip.jpeg">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
+
+
+
             <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
         </div>
 
@@ -552,6 +761,48 @@
     </div>
 
 
+
+    <!-- footer -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Brand -->
+            <div class="footer-brand">
+                <h2 style="margin-right: 83px;"><span class="zawa">ZAWA</span> STUDIO</h2>
+
+                <p>Luxury handcrafted crochet pieces, made with love and intention.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="product.html">Shop</a></li>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="returnpolicy.html">Shipping & Returns</a></li>
+                </ul>
+            </div>
+
+            <!-- Social -->
+            <div class="footer-social">
+                <h4>FOLLOW US</h4>
+                <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    style="text-decoration: none;">
+                    <p class="zawa_studio">
+                        <i class="fa-brands fa-instagram"></i>
+                        @zawastudio
+                    </p>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
+        </div>
+
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -606,33 +857,42 @@
             });
         });
     </script>
+<script>
+document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 
-    <script>
-        const priceRange = document.getElementById("priceRange");
-        const minPrice = document.getElementById("minPrice");
-        const maxPrice = document.getElementById("maxPrice");
-        const filterBtn = document.getElementById("applyFilter");
+    button.addEventListener("click", function () {
 
-        // Update price text while dragging
-        priceRange.addEventListener("input", () => {
-            maxPrice.textContent = `$${priceRange.value}`;
-        });
+        const productCard = this.closest(".product-card");
+        const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
 
-        // FILTER click
-        filterBtn.addEventListener("click", () => {
-            const max = Number(priceRange.value);
+        const product = {
+            id: this.dataset.id,
+            name: this.dataset.name,
+            price: Number(this.dataset.price),   // IMPORTANT
+            image: this.dataset.image,
+            quantity: quantity
+        };
 
-            document.querySelectorAll(".product-card").forEach(card => {
-                const priceEl = card.querySelector(".price");
-                if (!priceEl) return;
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-                // Extract number from "$329.00"
-                const price = Number(priceEl.textContent.replace(/[^0-9.]/g, ""));
+        const existing = cart.find(item => item.id === product.id);
 
-                card.style.display = price <= max ? "block" : "none";
-            });
-        });
-    </script>
+        if (existing) {
+            existing.quantity += quantity;
+        } else {
+            cart.push(product);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Product added to cart!");
+    });
+
+});
+
+</script>
+
+
     <script>
         // Get the input and search icon
         const searchInput = document.querySelector(".search-box input");
@@ -657,7 +917,7 @@
             }
         });
     </script>
-
+<script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- AOS Library CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #2b0036, #120018);
+  color:#f5e6ff;
+}
+
+.contact-section{
+  padding:80px 20px;
+  text-align:center;
+}
+
+.contact-section small{
+  letter-spacing:4px;
+  color:#f1d18a;
+}
+
+.contact-section h1{
+  font-family: 'Playfair Display', serif;
+  font-size:48px;
+  margin-top:10px;
+  margin-bottom:50px;
+}
+
+.contact-card{
+  max-width:650px;
+  margin:auto;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:40px;
+  border-radius:20px;
+  backdrop-filter: blur(10px);
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  text-align:left;
+}
+
+label{
+  font-size:14px;
+}
+
+input, textarea{
+  width:100%;
+  padding:14px;
+  border-radius:8px;
+  border:none;
+  background:rgba(255,255,255,0.08);
+  color:white;
+  font-size:14px;
+  outline:none;
+}
+
+textarea{
+  height:120px;
+  resize:none;
+}
+
+button{
+  margin-top:10px;
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  background:#d8c7aa;
+  color:#2b0036;
+  font-weight:500;
+  cursor:pointer;
+  transition:0.3s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+button:hover{
+  background:#e9dcc6;
+}
+
+.social{
+  margin-top:40px;
+}
+
+.social p{
+  margin-bottom:15px;
+  color:#ffffff;
+}
+
+.social-icons{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  font-size:22px;
+}
+
+.social-icons a{
+  color:#f5e6ff;
+  transition:0.3s;
+}
+
+.social-icons a:hover{
+  color:#d8c7aa;
+}
+
+@media(max-width:600px){
+  .contact-section h1{
+    font-size:36px;
+  }
+
+  .contact-card{
+    padding:25px;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- RIGHT : links + search + icons -->
+
+  <nav class="navbar">
+
+    <!-- LEFT -->
+    <div class="nav-left">
+
+      <a href="index.html">HOME</a>
+
+      <!-- SHOP DROPDOWN -->
+      <div class="nav-dropdown">
+        <a href="product.html">SHOP</a>
+        <div class="dropdown-menu">
+          <a href="bouquet.html">Bouquet</a>
+          <a href="gajray.html">Gajray</a>
+          <a href="headband.html">Headband</a>
+          <a href="bags.html">Bags</a>
+          <a href="handbag.html">Handbag</a>
+          <a href="phonecase.html">PhoneCase</a>
+          <a href="keychain.html">Keychain</a>
+          <a href="pouch.html">Pouch</a>
+          <a href="wallet.html">Wallet</a>
+        </div>
+      </div>
+
+      <a href="aboutus.html">ABOUT</a>
+
+      <!-- FAQ DROPDOWN -->
+      <div class="nav-dropdown">
+        <a href="faqs.html">FAQ</a>
+        <div class="dropdown-menu">
+          <a href="returnpolicy.html">Return Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+      <a href="contact.html">CONTACT</a>
+
+    </div>
+
+    <!-- CENTER LOGO -->
+    <div class="logo">
+      <a href="index.html" style="text-decoration: none;">
+        <h1>ZAWA <span>STUDIO</span></h1>
+      </a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="nav-right">
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
+      <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+       <div class="cart-icon">
+   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+    <span id="cartCount">0</span>
+</div>
+      
+
+      <!-- SEARCH -->
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+
+  </nav>
+
+<section class="contact-section">
+
+  <small>GET IN TOUCH</small>
+  <h1>Contact Us</h1>
+
+  <div class="contact-card">
+    <form id="contact-form">
+      
+      <div>
+        <label>Name</label>
+        <input type="text" name="user_name" placeholder="Your name" required>
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input type="email" name="user_email" placeholder="you@example.com" required>
+      </div>
+
+      <div>
+        <label>Message</label>
+        <textarea name="message" placeholder="Tell us about your custom order or question..." required></textarea>
+      </div>
+
+      <button type="submit">
+        <i class="fa fa-paper-plane"></i> Send Message
+      </button>
+
+    </form>
+  </div>
+
+  <div class="social">
+    <p>Or connect with us on social media</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
+      <a href="mailto:zarajawed15@example.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+
+</section>
+
+<script>
+(function(){
+  emailjs.init("ydfCcmdSiJYKZXoRM");
+})();
+
+document.getElementById("contact-form")
+.addEventListener("submit", function(event){
+  event.preventDefault();
+
+  emailjs.sendForm(
+    "service_jrersi9", 
+    "template_1879d1k", 
+    this
+  ).then(function(response){
+      console.log("SUCCESS!", response.status, response.text);
+      alert("Message sent successfully!");
+      document.getElementById("contact-form").reset();
+  }, function(error){
+      console.log("FAILED...", error);
+      alert("Error: " + JSON.stringify(error));
+  });
+});
+</script>
+
+ <!-- footer -->
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <h2 style="margin-right: 83px;"><span class="zawa">ZAWA</span> STUDIO</h2>
+
+        <p>Luxury handcrafted crochet pieces, made with love and intention.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links" >
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="product.html">Shop</a></li>
+          <li><a href="aboutus.html">About</a></li>
+          <li><a href="returnpolicy.html">Shipping & Returns</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-social">
+        <h4>FOLLOW US</h4>
+        <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          style="text-decoration: none;">
+          <p class="zawa_studio">
+            <i class="fa-brands fa-instagram"></i>
+            @zawastudio
+          </p>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
+    </div>
+
+  </footer>
+<script src="assets/js/cart.js"></script>
+</body>
+</html>
