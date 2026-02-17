@@ -165,183 +165,111 @@
       © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
     </div>
 
-  </footer>
+   <script>
+        document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 
-  <script>
-    function addToCart(product) {
+            button.addEventListener("click", function () {
 
-      if (localStorage.getItem("loggedIn") !== "true") {
-        alert("Please login first!");
-        window.location.href = "login.html";
-        return;
-      }
+                // 🔐 LOGIN CHECK
+                if (localStorage.getItem("loggedIn") !== "true") {
+                    alert("Please login first to add items to cart!");
 
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    localStorage.setItem("redirectAfterLogin", window.location.href);
 
-      cart.push(product);
+                    window.location.href = "login.html";
+                    return;
+                }
 
-      localStorage.setItem("cart", JSON.stringify(cart));
 
-      alert("Added to Cart!");
-    }
+                const productCard = this.closest(".product-card");
+                const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
 
-  </script>
+                const product = {
+                    id: this.dataset.id,
+                    name: this.dataset.name,
+                    price: Number(this.dataset.price),
+                    image: this.dataset.image,
+                    quantity: quantity
+                };
 
-  <script>
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+                const existing = cart.find(item => item.id === product.id);
 
-      const wishlistButtons = document.querySelectorAll(".wishlist-btn");
-      const addToCartButtons = document.querySelectorAll(".add-to-cart-btn"); // if you have cart
+                if (existing) {
+                    existing.quantity += quantity;
+                } else {
+                    cart.push(product);
+                }
 
-      // If not logged in, block actions
-      if (!currentUser) {
-        wishlistButtons.forEach(btn => {
-          btn.addEventListener("click", () => {
-            alert("Please login to add items to your wishlist.");
-            window.location.href = "login.html";
-          });
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                alert("Product added to cart!");
+            });
+
         });
 
-        addToCartButtons.forEach(btn => {
-          btn.addEventListener("click", () => {
-            alert("Please login to add items to your cart.");
-            window.location.href = "login.html";
-          });
+
+    </script>
+
+
+    <script>
+        // Get the input and search icon
+        const searchInput = document.querySelector(".search-box input");
+        const searchBtn = document.querySelector(".search-box i");
+
+        // Redirect on click of the search icon
+        searchBtn.addEventListener("click", () => {
+            const query = searchInput.value.trim();
+            if (query) {
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
         });
-        return;
-      }
 
-      // Wishlist functionality (per user)
-      let wishlists = JSON.parse(localStorage.getItem("wishlists")) || {};
-      if (!wishlists[currentUser.email]) wishlists[currentUser.email] = [];
-
-      wishlistButtons.forEach(btn => {
-        const productId = btn.getAttribute("data-id");
-        if (wishlists[currentUser.email].some(item => item.id === productId)) {
-          btn.textContent = "♥ Added";
-          btn.classList.add("added");
-        }
-
-        btn.addEventListener("click", () => {
-          if (wishlists[currentUser.email].some(item => item.id === productId)) {
-            alert("Item already in wishlist!");
-            return;
-          }
-
-          const productName = btn.getAttribute("data-name");
-          const productPrice = btn.getAttribute("data-price");
-          wishlists[currentUser.email].push({ id: productId, name: productName, price: productPrice });
-          localStorage.setItem("wishlists", JSON.stringify(wishlists));
-          btn.textContent = "♥ Added";
-          btn.classList.add("added");
-          alert(`${productName} added to your wishlist!`);
+        // Redirect on Enter key press
+        searchInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+                }
+            }
         });
-      });
-    });
-  </script>
-  <script>
-    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const priceRange = document.getElementById("priceRange");
+            const applyFilter = document.getElementById("applyFilter");
+            const minPriceLabel = document.getElementById("minPrice");
+            const maxPriceLabel = document.getElementById("maxPrice");
+            const productCards = document.querySelectorAll(".product-card");
 
-      button.addEventListener("click", function () {
+            // Update max price label when slider changes
+            priceRange.addEventListener("input", () => {
+                maxPriceLabel.textContent = `Rs.${priceRange.value}`;
+            });
 
-        // 🔐 LOGIN CHECK
-        if (localStorage.getItem("loggedIn") !== "true") {
-          alert("Please login first to add items to cart!");
-          window.location.href = "login.html";
-          return;
-        }
+            // Apply filter when button clicked
+            applyFilter.addEventListener("click", () => {
+                const maxPrice = Number(priceRange.value);
 
-        const productCard = this.closest(".product-card");
-        const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
+                productCards.forEach(card => {
+                    const priceText = card.querySelector(".price").textContent.trim();
+                    const priceNumber = Number(priceText.replace(/[^0-9]/g, "")); // remove Rs. and other chars
 
-        const product = {
-          id: this.dataset.id,
-          name: this.dataset.name,
-          price: Number(this.dataset.price),
-          image: this.dataset.image,
-          quantity: quantity
-        };
-
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        const existing = cart.find(item => item.id === product.id);
-
-        if (existing) {
-          existing.quantity += quantity;
-        } else {
-          cart.push(product);
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        alert("Product added to cart!");
-      });
-
-    });
-
-
-  </script>
-
-
-  <script>
-    // Get the input and search icon
-    const searchInput = document.querySelector(".search-box input");
-    const searchBtn = document.querySelector(".search-box i");
-
-    // Redirect on click of the search icon
-    searchBtn.addEventListener("click", () => {
-      const query = searchInput.value.trim();
-      if (query) {
-        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-      }
-    });
-
-    // Redirect on Enter key press
-    searchInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const query = searchInput.value.trim();
-        if (query) {
-          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-        }
-      }
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const priceRange = document.getElementById("priceRange");
-      const applyFilter = document.getElementById("applyFilter");
-      const minPriceLabel = document.getElementById("minPrice");
-      const maxPriceLabel = document.getElementById("maxPrice");
-      const productCards = document.querySelectorAll(".product-card");
-
-      // Update max price label when slider changes
-      priceRange.addEventListener("input", () => {
-        maxPriceLabel.textContent = `Rs.${priceRange.value}`;
-      });
-
-      // Apply filter when button clicked
-      applyFilter.addEventListener("click", () => {
-        const maxPrice = Number(priceRange.value);
-
-        productCards.forEach(card => {
-          const priceText = card.querySelector(".price").textContent.trim();
-          const priceNumber = Number(priceText.replace(/[^0-9]/g, "")); // remove Rs. and other chars
-
-          if (priceNumber <= maxPrice) {
-            card.style.display = "block"; // show product
-          } else {
-            card.style.display = "none"; // hide product
-          }
+                    if (priceNumber <= maxPrice) {
+                        card.style.display = "block"; // show product
+                    } else {
+                        card.style.display = "none"; // hide product
+                    }
+                });
+            });
         });
-      });
-    });
-  </script>
+    </script>
 
-  <script src="assets/js/cart.js"></script>
-  <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

@@ -168,81 +168,7 @@
 
     </footer>
 
-    <script>
-        function addToCart(product) {
-
-            if (localStorage.getItem("loggedIn") !== "true") {
-                alert("Please login first!");
-                window.location.href = "login.html";
-                return;
-            }
-
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-            cart.push(product);
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-
-            alert("Added to Cart!");
-        }
-
-    </script>
-
-    <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
-            const wishlistButtons = document.querySelectorAll(".wishlist-btn");
-            const addToCartButtons = document.querySelectorAll(".add-to-cart-btn"); // if you have cart
-
-            // If not logged in, block actions
-            if (!currentUser) {
-                wishlistButtons.forEach(btn => {
-                    btn.addEventListener("click", () => {
-                        alert("Please login to add items to your wishlist.");
-                        window.location.href = "login.html";
-                    });
-                });
-
-                addToCartButtons.forEach(btn => {
-                    btn.addEventListener("click", () => {
-                        alert("Please login to add items to your cart.");
-                        window.location.href = "login.html";
-                    });
-                });
-                return;
-            }
-
-            // Wishlist functionality (per user)
-            let wishlists = JSON.parse(localStorage.getItem("wishlists")) || {};
-            if (!wishlists[currentUser.email]) wishlists[currentUser.email] = [];
-
-            wishlistButtons.forEach(btn => {
-                const productId = btn.getAttribute("data-id");
-                if (wishlists[currentUser.email].some(item => item.id === productId)) {
-                    btn.textContent = "♥ Added";
-                    btn.classList.add("added");
-                }
-
-                btn.addEventListener("click", () => {
-                    if (wishlists[currentUser.email].some(item => item.id === productId)) {
-                        alert("Item already in wishlist!");
-                        return;
-                    }
-
-                    const productName = btn.getAttribute("data-name");
-                    const productPrice = btn.getAttribute("data-price");
-                    wishlists[currentUser.email].push({ id: productId, name: productName, price: productPrice });
-                    localStorage.setItem("wishlists", JSON.stringify(wishlists));
-                    btn.textContent = "♥ Added";
-                    btn.classList.add("added");
-                    alert(`${productName} added to your wishlist!`);
-                });
-            });
-        });
-    </script>
-    <script>
+      <script>
         document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 
             button.addEventListener("click", function () {
@@ -250,9 +176,13 @@
                 // 🔐 LOGIN CHECK
                 if (localStorage.getItem("loggedIn") !== "true") {
                     alert("Please login first to add items to cart!");
+
+                    localStorage.setItem("redirectAfterLogin", window.location.href);
+
                     window.location.href = "login.html";
                     return;
                 }
+
 
                 const productCard = this.closest(".product-card");
                 const quantity = parseInt(productCard.querySelector(".qty").value) || 1;

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-   
+
 
 </head>
 
@@ -90,7 +90,9 @@
         </div>
 
         <div class="product-info">
-            <a href="bouquet.html" class="nameofproduct"><p class="category" >BOUQUET</p></a>
+            <a href="bouquet.html" class="nameofproduct">
+                <p class="category">BOUQUET</p>
+            </a>
 
             <h5 class="name">CROCHET PURPLE ROSE BOUQUET</h5>
 
@@ -169,7 +171,7 @@
 
 
 
-   
+
     <script>
         document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 
@@ -178,9 +180,13 @@
                 // 🔐 LOGIN CHECK
                 if (localStorage.getItem("loggedIn") !== "true") {
                     alert("Please login first to add items to cart!");
+
+                    localStorage.setItem("redirectAfterLogin", window.location.href);
+
                     window.location.href = "login.html";
                     return;
                 }
+
 
                 const productCard = this.closest(".product-card");
                 const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
