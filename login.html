@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="auth-container">
+  <h2>Login</h2>
+
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required minlength="6">
+
+
+  <button onclick="login()">Login</button>
+  <p>Don't have an account?
+   <a href="signup.html">Sign Up</a>
+</p>
+
+</div>
+
+<script>
+function login(){
+
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  // 🔴 Empty Check
+  if(!email || !password){
+      alert("Please fill all fields!");
+      return;
+  }
+
+  // 🔴 Check if account exists
+  if(!storedUser){
+      alert("No account found! Please sign up first.");
+      return;
+  }
+
+  // 🔴 Match Email & Password
+  if(storedUser.email === email && storedUser.password === password){
+
+      localStorage.setItem("loggedIn","true");
+      alert("Login Successful!");
+      window.location.href = "index.html";
+
+  } else {
+      alert("Invalid Email or Password!");
+  }
+}
+</script>
+
+
+</body>
+</html>

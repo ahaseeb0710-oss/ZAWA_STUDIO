@@ -10,8 +10,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
+  <style>
+    .nameofproduct {
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -64,12 +67,13 @@
 
     <!-- RIGHT -->
     <div class="nav-right">
-      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
-      <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-        <div class="cart-icon">
-   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-    <span id="cartCount">0</span>
-</div>
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+          class="fa-brands fa-instagram"></i></a>
+
+      <div class="cart-icon">
+        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+        <span id="cartCount">0</span>
+      </div>
 
       <!-- SEARCH -->
       <div class="search-box">
@@ -116,48 +120,60 @@
     </aside>
 
     <div class="product-grid">
-    <div class="product-card">
-      <div class="product-img">
-        <img src="assets/img/crochet gajry1.jpeg" alt="">
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/crochet gajry1.jpeg" alt="">
+        </div>
+
+        <div class="product-info">
+          <p class="category">GAJRAY</p>
+          <a href="Flowergajray.html" class="nameofproduct">
+            <h5 class="name">CROCHET FLOWER GAJRAY</h5>
+          </a>
+          <p class="price">Rs.500</p>
+        
+        </div>
       </div>
 
-      <div class="product-info">
-        <p class="category">GAJRAY</p>
-        <h5 class="name">Crochet Flower gajray</h5>
-        <p class="price">$329.00</p>
-      </div>
-    </div>
+      <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/crochet gajray2.jpeg" alt="">
+                </div>
 
+                <div class="product-info">
+                    <p class="category">GAJRAY</p>
+                    <a href="redrosegajray.html"  class="nameofproduct"><h5 class="name">CROCHET RED ROSE GAJRAY</h5></a>
+                    <p class="price">Rs.600</p>
+                  
+                </div>
 
-    <div class="product-card">
-      <div class="product-img">
-        <img src="assets/img/crochet gajray2.jpeg" alt="">
-      </div>
+            </div>
 
-      <div class="product-info">
-        <p class="category">GAJRAY</p>
-        <h5 class="name">Crochet red rose gajray</h5>
-        <p class="price">$329.00</p>
-      </div>
+   
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/crochet purple gajray.jpeg" alt="">
+                </div>
+                <div class="product-info">
+                    <p class="category">GAJRAY</p>
+                    <a href="purplerosegajray.html" class="nameofproduct"><h5 class="name">CROCHET PURPLE ROSE GAJRAY</h5></a>
+                    <p class="price">Rs.600</p>
+                </div>
+            </div>
 
-    </div>
-
-    <div class="product-card">
-      <div class="product-img">
-        <img src="assets/img/crochet purple gajray.jpeg" alt="">
-      </div>
-
-      <div class="product-info">
-        <p class="category">GAJRAY</p>
-        <h5 class="name">Crochet purple rose gajray</h5>
-        <p class="price">$329.00</p>
-      </div>
-    </div>
-</div>
+    <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
+  </div>
 
 
 
- <!-- footer -->
+  </div>
+  <!-- copy product-card for all products -->
+  </div>
+
+  </div>
+  </div>
+
+  <!-- footer -->
   <footer class="footer">
 
     <div class="footer-container">
@@ -170,7 +186,7 @@
       </div>
 
       <!-- Quick Links -->
-      <div class="footer-links" >
+      <div class="footer-links">
         <h4>QUICK LINKS</h4>
         <ul>
           <li><a href="product.html">Shop</a></li>
@@ -198,32 +214,34 @@
     </div>
 
   </footer>
-    <script>
-      // Get the input and search icon
-      const searchInput = document.querySelector(".search-box input");
-      const searchBtn = document.querySelector(".search-box i");
+  <script>
+    // Get the input and search icon
+    const searchInput = document.querySelector(".search-box input");
+    const searchBtn = document.querySelector(".search-box i");
 
-      // Redirect on click of the search icon
-      searchBtn.addEventListener("click", () => {
+    // Redirect on click of the search icon
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.trim();
+      if (query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
+
+    // Redirect on Enter key press
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
         const query = searchInput.value.trim();
         if (query) {
           window.location.href = `search.html?q=${encodeURIComponent(query)}`;
         }
-      });
+      }
+    });
+  </script>
 
-      // Redirect on Enter key press
-      searchInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          const query = searchInput.value.trim();
-          if (query) {
-            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-          }
-        }
-      });
-    </script>
-    <script src="assets/js/cart.js"></script>
-    <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

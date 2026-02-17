@@ -381,3 +381,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+function toggleProfile(){
+  const box = document.getElementById("profileBox");
+  box.style.display = box.style.display === "block" ? "none" : "block";
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if(user){
+    document.getElementById("profileName").innerText = user.firstName + " " + user.lastName;
+    document.getElementById("profileEmail").innerText = user.email;
+  }
+}
+
+function logout(){
+  localStorage.setItem("loggedIn","false");
+  alert("Logged Out!");
+  window.location.href = "login.html";
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="auth-container">
+  <h2>Create Account</h2>
+
+  <input type="text" id="firstName" placeholder="First Name">
+  <input type="text" id="lastName" placeholder="Last Name">
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password" required minlength="6">
+
+
+  <button onclick="register()">Sign Up</button>
+
+  <p>Already have account? <a href="login.html">Login</a></p>
+</div>
+
+<script>
+function register(){
+
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  // 🔴 Empty Field Check
+  if(!firstName || !lastName || !email || !password){
+      alert("All fields are required!");
+      return;
+  }
+
+  // 🔴 Email Format Check
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if(!email.match(emailPattern)){
+      alert("Please enter valid email address!");
+      return;
+  }
+
+  // 🔴 Password Length Check
+  if(password.length < 6){
+      alert("Password must be at least 6 characters!");
+      return;
+  }
+
+  const user = {
+      firstName,
+      lastName,
+      email,
+      password
+  };
+
+  localStorage.setItem("user", JSON.stringify(user));
+  alert("Account Created Successfully!");
+  window.location.href = "login.html";
+}
+</script>
+
+
+</body>
+</html>

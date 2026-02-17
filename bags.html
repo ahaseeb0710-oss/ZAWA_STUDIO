@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Premium Shop</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- AOS Library CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
+  <style>
+    .nameofproduct {
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- RIGHT : links + search + icons -->
@@ -63,12 +68,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
     <!-- RIGHT -->
     <div class="nav-right">
-      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
-      
-       <div class="cart-icon">
-   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-    <span id="cartCount">0</span>
-</div>
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+          class="fa-brands fa-instagram"></i></a>
+
+      <div class="cart-icon">
+        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+        <span id="cartCount">0</span>
+      </div>
 
       <!-- SEARCH -->
       <div class="search-box">
@@ -80,134 +86,152 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   </nav>
 
 
- <div class="shop-layout">
+  <div class="shop-layout">
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-            <h3>Categories</h3>
-            <ul class="category-list">
-                <li><a href="bouquet.html">Bouquet</a></li>
-                <li><a href="gajray.html">Gajray</a></li>
-                <li><a href="headband.html">Headband</a></li>
-                <li><a href="bags.html">Bags</a></li>
-                <li><a href="handbag.html">Handbag</a></li>
-                <li><a href="phonecase.html">PhoneCase</a></li>
-                <li><a href="keychain.html">Keychain</a></li>
-                <li><a href="pouch.html">Pouch</a></li>
-                <li><a href="wallet.html">Wallet</a></li>
-            </ul>
+      <h3>Categories</h3>
+      <ul class="category-list">
+        <li><a href="bouquet.html">Bouquet</a></li>
+        <li><a href="gajray.html">Gajray</a></li>
+        <li><a href="headband.html">Headband</a></li>
+        <li><a href="bags.html">Bags</a></li>
+        <li><a href="handbag.html">Handbag</a></li>
+        <li><a href="phonecase.html">PhoneCase</a></li>
+        <li><a href="keychain.html">Keychain</a></li>
+        <li><a href="pouch.html">Pouch</a></li>
+        <li><a href="wallet.html">Wallet</a></li>
+      </ul>
 
-            <div class="filter-section">
-                <h3>Price</h3>
+      <div class="filter-section">
+        <h3>Price</h3>
 
-                <div class="price-values">
-                    <span id="minPrice">$30</span>
-                    <span id="maxPrice">$3000</span>
-                </div>
+        <div class="price-values">
+          <span id="minPrice">$30</span>
+          <span id="maxPrice">$3000</span>
+        </div>
 
-                <input type="range" min="30" max="3000" value="3000" class="price-slider" id="priceRange">
+        <input type="range" min="30" max="3000" value="3000" class="price-slider" id="priceRange">
 
-                <button class="filter-btn" id="applyFilter">FILTER</button>
-            </div>
-
-
-        </aside>
- 
-<!-- product-section -->
- <div class="product-grid">
-<div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/totebag1.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
-                </div>
-            </div>
+        <button class="filter-btn" id="applyFilter">FILTER</button>
+      </div>
 
 
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/totebag2.jpeg" alt="">
-                </div>
+    </aside>
 
-                <div class="product-info">
-                    <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
-                </div>
-            </div>
-
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/totebag3.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
-                </div>
-            </div>
+    <!-- product-section -->
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/totebag1.jpeg" alt="">
+        </div>
+        <div class="product-info">
+          <p class="category">BAGS</p>
+          <a href="DAISYTOTEBAG.html" class="nameofproduct">
+            <h5 class="name">DAISY TOTE BAG</h5>
+          </a>
+          <p class="price">Rs.1000</p>
+        </div>
+      </div>
 
 
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/totebag4.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
-                </div>
-            </div>
-
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/totebag5.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
-                </div>
-            </div>
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/totebag2.jpeg" alt="">
+        </div>
+        <div class="product-info">
+          <p class="category">BAGS</p>
+          <a href="BOWTOTEBAG.html" class="nameofproduct">
+            <h5 class="name">BOW TOTE BAG</h5>
+          </a>
+          <p class="price">Rs.1000</p>
+        </div>
+      </div>
 
 
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/totebag6.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
-                </div>
-            </div>
-
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/totebag7.jpeg" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="category">BAGS</p>
-                    <h5 class="name">Tote bag</h5>
-                    <p class="price">$329.00</p>
-                </div>
-            </div>
-</div>
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/totebag3.jpeg" alt="">
+        </div>
+        <div class="product-info">
+          <p class="category">BAGS</p>
+          <a href="CUSTOMIZENAMETOTEBAG.html" class="nameofproduct">
+            <h5 class="name">CUSTOMIZE NAME TOTE BAG</h5>
+          </a>
+          <p class="price">Rs.1000</p>
+        </div>
+      </div>
 
 
- <!-- footer -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/totebag4.jpeg" alt="">
+        </div>
+        <div class="product-info">
+          <p class="category">BAGS</p>
+          <a href="SUNFLOWERTOTEBAG.html" class="nameofproduct">
+            <h5 class="name">SUNFLOWER TOTE BAG</h5>
+          </a>
+          <p class="price">Rs.1000</p>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/totebag5.jpeg" alt="">
+        </div>
+        <div class="product-info">
+          <p class="category">BAGS</p>
+          <a href="CHERRYTOTEBAG.html" class="nameofproduct">
+            <h5 class="name">CHERRY TOTE BAG</h5>
+          </a>
+          <p class="price">Rs.1000</p> 
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/totebag6.jpeg" alt="">
+        </div>
+        <div class="product-info">
+          <p class="category">BAGS</p>
+          <a href="FLOWERTOTEBAG.html" class="nameofproduct">
+            <h5 class="name">FLOWER TOTE BAG</h5>
+          </a>
+          <p class="price">Rs.1000</p>
+        </div>
+      </div>
+
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/totebag7.jpeg" alt="">
+        </div>
+        <div class="product-info">
+          <p class="category">BAGS</p>
+          <a href="FLOWERHEARTTOTEBAG.html" class="nameofproduct">
+            <h5 class="name">FLOWER HEART TOTE BAG</h5>
+          </a>
+          <p class="price">Rs.1000</p>
+        </div>
+      </div>
+
+
+      <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
+    </div>
+
+
+
+  </div>
+  <!-- copy product-card for all products -->
+  </div>
+
+  </div>
+  </div>
+  <!-- footer -->
   <footer class="footer">
 
     <div class="footer-container">
@@ -220,7 +244,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       </div>
 
       <!-- Quick Links -->
-      <div class="footer-links" >
+      <div class="footer-links">
         <h4>QUICK LINKS</h4>
         <ul>
           <li><a href="product.html">Shop</a></li>
@@ -249,31 +273,32 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
   </footer>
   <script>
-  // Get the input and search icon
-  const searchInput = document.querySelector(".search-box input");
-  const searchBtn = document.querySelector(".search-box i");
+    // Get the input and search icon
+    const searchInput = document.querySelector(".search-box input");
+    const searchBtn = document.querySelector(".search-box i");
 
-  // Redirect on click of the search icon
-  searchBtn.addEventListener("click", () => {
-    const query = searchInput.value.trim();
-    if(query) {
-      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-    }
-  });
-
-  // Redirect on Enter key press
-  searchInput.addEventListener("keypress", (e) => {
-    if(e.key === "Enter") {
-      e.preventDefault();
+    // Redirect on click of the search icon
+    searchBtn.addEventListener("click", () => {
       const query = searchInput.value.trim();
-      if(query) {
+      if (query) {
         window.location.href = `search.html?q=${encodeURIComponent(query)}`;
       }
-    }
-  });
-</script>
-<script src="assets/js/cart.js"></script>
-<script src="assets/js/main.js"></script>
+    });
+
+    // Redirect on Enter key press
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
 </html>
-   

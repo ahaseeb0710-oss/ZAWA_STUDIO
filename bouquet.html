@@ -10,8 +10,11 @@
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
+<style>
+  .nameofproduct{
+    text-decoration: none;
+  }
+</style>
 </head>
 <body>
 
@@ -64,7 +67,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     <!-- RIGHT -->
     <div class="nav-right">
       <a href=""><i class="fa-brands fa-instagram"></i></a>
-      <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+
        <div class="cart-icon">
    <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
     <span id="cartCount">0</span>
@@ -117,48 +120,57 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
          <div class="product-grid">
             <!-- product start -->
-            <div class="product-card">
+           <div class="product-card">
                 <div class="product-img">
                     <img src="assets/img/bouquet1 .jpeg" alt="">
                 </div>
-
                 <div class="product-info">
                     <p class="category">BOUQUET</p>
-                    <h5 class="name">Crochet purple rose bouquet</h5>
-                    <p class="price">$329.00</p>
+                    <a href="purplerosebouquet.html" class="nameofproduct"><h5 class="name">CROCHET PURPLE ROSE BOUQUET</h5></a>
+                    <p class="price">Rs.1500</p>
+                 
                 </div>
             </div>
             <!-- product end -->
 
-            <div class="product-card">
+              <div class="product-card">
                 <div class="product-img">
                     <img src="assets/img/bouquet2.jpeg" alt="">
                 </div>
-
                 <div class="product-info">
                     <p class="category">BOUQUET</p>
-                    <h5 class="name">Crochet sunflower bouquet</h5>
-                    <p class="price">$329.00</p>
+                    <a href="sunflowerbouquet.html" class="nameofproduct"><h5 class="name">CROCHET SUNFLOWER BOUQUET</h5></a>
+                    <p class="price">Rs.1500</p>
+                   
                 </div>
             </div>
 
             
-            <div class="product-card">
+             <div class="product-card">
                 <div class="product-img">
                     <img src="assets/img/tullip.jpeg" alt="">
                 </div>
-
                 <div class="product-info">
                     <p class="category">TULLIP</p>
-                    <h5 class="name">Crochet tulips</h5>
-                    <p class="price">$9.00</p>
+                   <a href="CROCHETTULIPS.html" class="nameofproduct"><h5 class="name">CROCHET TULIPS</h5></a>
+                    <p class="price">Rs.600</p>
+          
                 </div>
             </div>
+            <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
+        </div>
 
-          </div>
 
 
-           <!-- footer -->
+    </div>
+    <!-- copy product-card for all products -->
+    </div>
+
+    </div>
+    </div>
+
+
+  <!-- footer -->
   <footer class="footer">
 
     <div class="footer-container">
@@ -199,6 +211,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     </div>
 
   </footer>
+
   <script>
   // Get the input and search icon
   const searchInput = document.querySelector(".search-box input");
@@ -223,6 +236,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     }
   });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="assets/js/cart.js"></script>
 <script src="assets/js/main.js"></script>
 </body>

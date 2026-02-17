@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Product</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="assets/css/product.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
   <!-- RIGHT : links + search + icons -->
 
   <nav class="navbar">
@@ -15,7 +30,7 @@
           <a href="gajray.html">Gajray</a>
           <a href="headband.html">Headband</a>
           <a href="bags.html">Bags</a>
-          <a href="handbag.html">Handbag</a>
+          <a href="handbag.html">HANDBAG</A>
           <a href="phonecase.html">PhoneCase</a>
           <a href="keychain.html">Keychain</a>
           <a href="pouch.html">Pouch</a>
@@ -46,12 +61,13 @@
 
     <!-- RIGHT -->
     <div class="nav-right">
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-        <div class="cart-icon">
-   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-    <span id="cartCount">0</span>
-</div>
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+          class="fa-brands fa-instagram"></i></a>
+
+      <div class="cart-icon">
+        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+        <span id="cartCount">0</span>
+      </div>
 
       <!-- SEARCH -->
       <div class="search-box">
@@ -66,7 +82,50 @@
 
 
 
-   <!-- footer -->
+  <!-- First Product: Crochet Purple Rose Bouquet -->
+  <div class="product-card">
+    <div class="product-img">
+      <img src="assets/img/crochet gajray2.jpeg" alt="Crochet Purple Rose Bouquet">
+    </div>
+
+    <div class="product-info">
+      <a href="gajray.html" class="nameofproduct">
+        <p class="category">GAJRAY</p>
+      </a>
+
+      <h5 class="name">CROCHET RED ROSE GAJRAY</h5>
+
+      <p class="price">Rs.600</p>
+      <p class="description">
+        This is a handmade crochet gajra made with soft yarn in red and white colors. It has a beautiful floral design
+        that looks elegant and traditional. Lightweight and comfortable to wear, it is perfect for weddings, festive
+        occasions, or traditional outfits, adding a graceful touch to your look.
+
+      </p>
+
+      <div class="product-action">
+        <input type="number" min="1" value="1" class="qty">
+
+        <button class="add-to-cart-btn" data-id="4" data-name="Crochet red rose gajray" data-price="600"
+          data-image="assets/img/crochet gajray2.jpeg">
+          Add to Cart
+        </button>
+        <hr class="product-divider">
+
+        <div class="product-extra">
+          <span>✦ HANDMADE TO ORDER</span>
+          <span>✦ PREMIUM YARN</span>
+          <span>✦ SHIPS IN 5–7 DAYS</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- footer -->
   <footer class="footer">
 
     <div class="footer-container">
@@ -79,7 +138,7 @@
       </div>
 
       <!-- Quick Links -->
-      <div class="footer-links" >
+      <div class="footer-links">
         <h4>QUICK LINKS</h4>
         <ul>
           <li><a href="product.html">Shop</a></li>
@@ -107,3 +166,182 @@
     </div>
 
   </footer>
+
+  <script>
+    function addToCart(product) {
+
+      if (localStorage.getItem("loggedIn") !== "true") {
+        alert("Please login first!");
+        window.location.href = "login.html";
+        return;
+      }
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      cart.push(product);
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      alert("Added to Cart!");
+    }
+
+  </script>
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+      const wishlistButtons = document.querySelectorAll(".wishlist-btn");
+      const addToCartButtons = document.querySelectorAll(".add-to-cart-btn"); // if you have cart
+
+      // If not logged in, block actions
+      if (!currentUser) {
+        wishlistButtons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            alert("Please login to add items to your wishlist.");
+            window.location.href = "login.html";
+          });
+        });
+
+        addToCartButtons.forEach(btn => {
+          btn.addEventListener("click", () => {
+            alert("Please login to add items to your cart.");
+            window.location.href = "login.html";
+          });
+        });
+        return;
+      }
+
+      // Wishlist functionality (per user)
+      let wishlists = JSON.parse(localStorage.getItem("wishlists")) || {};
+      if (!wishlists[currentUser.email]) wishlists[currentUser.email] = [];
+
+      wishlistButtons.forEach(btn => {
+        const productId = btn.getAttribute("data-id");
+        if (wishlists[currentUser.email].some(item => item.id === productId)) {
+          btn.textContent = "♥ Added";
+          btn.classList.add("added");
+        }
+
+        btn.addEventListener("click", () => {
+          if (wishlists[currentUser.email].some(item => item.id === productId)) {
+            alert("Item already in wishlist!");
+            return;
+          }
+
+          const productName = btn.getAttribute("data-name");
+          const productPrice = btn.getAttribute("data-price");
+          wishlists[currentUser.email].push({ id: productId, name: productName, price: productPrice });
+          localStorage.setItem("wishlists", JSON.stringify(wishlists));
+          btn.textContent = "♥ Added";
+          btn.classList.add("added");
+          alert(`${productName} added to your wishlist!`);
+        });
+      });
+    });
+  </script>
+  <script>
+    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+
+      button.addEventListener("click", function () {
+
+        // 🔐 LOGIN CHECK
+        if (localStorage.getItem("loggedIn") !== "true") {
+          alert("Please login first to add items to cart!");
+          window.location.href = "login.html";
+          return;
+        }
+
+        const productCard = this.closest(".product-card");
+        const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
+
+        const product = {
+          id: this.dataset.id,
+          name: this.dataset.name,
+          price: Number(this.dataset.price),
+          image: this.dataset.image,
+          quantity: quantity
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const existing = cart.find(item => item.id === product.id);
+
+        if (existing) {
+          existing.quantity += quantity;
+        } else {
+          cart.push(product);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Product added to cart!");
+      });
+
+    });
+
+
+  </script>
+
+
+  <script>
+    // Get the input and search icon
+    const searchInput = document.querySelector(".search-box input");
+    const searchBtn = document.querySelector(".search-box i");
+
+    // Redirect on click of the search icon
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.trim();
+      if (query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
+
+    // Redirect on Enter key press
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const priceRange = document.getElementById("priceRange");
+      const applyFilter = document.getElementById("applyFilter");
+      const minPriceLabel = document.getElementById("minPrice");
+      const maxPriceLabel = document.getElementById("maxPrice");
+      const productCards = document.querySelectorAll(".product-card");
+
+      // Update max price label when slider changes
+      priceRange.addEventListener("input", () => {
+        maxPriceLabel.textContent = `Rs.${priceRange.value}`;
+      });
+
+      // Apply filter when button clicked
+      applyFilter.addEventListener("click", () => {
+        const maxPrice = Number(priceRange.value);
+
+        productCards.forEach(card => {
+          const priceText = card.querySelector(".price").textContent.trim();
+          const priceNumber = Number(priceText.replace(/[^0-9]/g, "")); // remove Rs. and other chars
+
+          if (priceNumber <= maxPrice) {
+            card.style.display = "block"; // show product
+          } else {
+            card.style.display = "none"; // hide product
+          }
+        });
+      });
+    });
+  </script>
+
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

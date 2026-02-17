@@ -67,7 +67,7 @@
 <!-- RIGHT -->
 <div class="nav-right">
   <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
-  <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+  
   <div class="cart-icon">
    <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
     <span id="cartCount">0</span>
@@ -80,6 +80,32 @@
     <i class="fa-solid fa-magnifying-glass"></i>
   </div>
 
+<!-- RIGHT SIDE -->
+<div class="nav-right">
+
+  <div class="auth-area">
+
+    <!-- Login / Signup Buttons -->
+    <div id="authButtons">
+      <a href="login.html" class="auth-link">Login</a>
+      <a href="signup.html" class="auth-link">Sign Up</a>
+    </div>
+
+    <!-- Profile Icon -->
+    <div class="profile" id="profileArea" onclick="toggleProfile()">
+      <i class="fa-solid fa-user"></i>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <div class="profile-dropdown" id="profileDropdown">
+      <p id="userName"></p>
+      <p id="userEmail"></p>
+      <button onclick="logout()">Logout</button>
+    </div>
+
+  </div>
+
+</div>
 
 
 
@@ -128,7 +154,7 @@
     <img src="assets/img/handbag2.jpeg" alt="">
   </div>
   <a href="handbag.html" style="text-decoration: none;"><div class="category">HANDBAGS</div></a>
-  <div class="product-title" onclick="location.href=''">Crochet ruffle handbag</div>
+  <div class="product-title" onclick="location.href='CROCHETRUFFLEHANDBAG.html'">Crochet ruffle handbag</div>
 </div>
 
 
@@ -139,7 +165,7 @@
   </div>
 
   <a href="pouch.html" style="text-decoration: none;"><div class="category">POUCH</div></a>
-  <div class="product-title" onclick="location.href=''">Crochet teddy pouch</div>
+  <div class="product-title" onclick="location.href='CROCHET EDDYPOUCH.html'">Crochet teddy pouch</div>
 </div>
 
 
@@ -150,7 +176,7 @@
   </div>
 
   <a href="wallet.html" style="text-decoration: none;"><div class="category">WALLET</div></a>
-  <div class="product-title" onclick="location.href=''">Crochet wallet</div>
+  <div class="product-title" onclick="location.href='CROCHETWALLET.html'">Crochet wallet</div>
 </div>
 
 
@@ -161,7 +187,7 @@
   </div>
 
   <a href="bouquet.html" style="text-decoration: none;"><div class="category">BOUQUET</div></a>
-  <div class="product-title" onclick="location.href=''">Crochet purple rose bouquet</div>
+  <div class="product-title" onclick="location.href='purplerosebouquet.html'">Crochet purple rose bouquet</div>
 </div>
  
 
@@ -491,6 +517,42 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
 // Run on page load
 updateNavbar();
 </script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const loggedIn = localStorage.getItem("loggedIn");
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if(loggedIn === "true" && user){
+      document.getElementById("authButtons").style.display = "none";
+      document.getElementById("profileArea").style.display = "block";
+
+      document.getElementById("userName").innerText =
+          user.firstName + " " + user.lastName;
+
+      document.getElementById("userEmail").innerText =
+          user.email;
+  } else {
+      document.getElementById("authButtons").style.display = "block";
+      document.getElementById("profileArea").style.display = "none";
+  }
+
+});
+
+function toggleProfile(){
+  const dropdown = document.getElementById("profileDropdown");
+  dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+}
+
+function logout(){
+  localStorage.setItem("loggedIn","false");
+  location.reload();
+}
+
+</script>
+
 <script src="assets/js/cart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="assets/js/main.js"></script>

@@ -1,0 +1,171 @@
+        /* FULL PAGE BACKGROUND */
+        body {
+            background: #2b0036;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+        }
+
+        /* MAIN CONTAINER */
+        .product-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 120px;
+            padding: 100px 8%;
+            max-width: 1400px;
+            margin: auto;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        /* IMAGE SIDE */
+        .product-img {
+            width: 600px;
+            height: 650px;
+        }
+
+        .product-img {
+            background: transparent !important;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+
+        /* RIGHT SIDE */
+        .product-info {
+            max-width: 520px;
+            text-align: left;
+        }
+
+        /* CATEGORY */
+        .product-info .category {
+            letter-spacing: 6px;
+            font-size: 13px;
+            color: #c8a2c8;
+            margin-bottom: 20px;
+        }
+
+        /* TITLE */
+        .product-info .name {
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* PRICE */
+        .product-info .price {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #e5d3ff;
+        }
+
+        /* ACTION SECTION */
+        .product-action {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        /* QTY INPUT */
+        .product-action .qty {
+            width: 80px;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* BUTTON */
+        .product-action .add-to-cart-btn {
+            background: #e8d8c3;
+            color: #2b0036;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .product-action .add-to-cart-btn:hover {
+            background: #ffffff;
+        }
+
+        @media(max-width: 1100px) {
+            .product-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+
+            .product-info {
+                text-align: center;
+            }
+
+            .product-img {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+            }
+
+            .product-img img {
+                height: auto;
+            }
+        }
+
+        /* Divider line */
+        .product-divider {
+            margin: 40px 0 25px;
+            border: none;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .product-extra {
+            display: flex;
+            flex-direction: column;
+            /* stack vertically */
+            gap: 18px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #cfaaff;
+        }
+
+
+        .product-extra span {
+            opacity: 0.85;
+        }
+
+        .product-info .description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #d8c6e6;
+            margin-bottom: 35px;
+            max-width: 480px;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-action {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 40px;
+            /* space before handmade section */
+        }
+
+        .nameofproduct{
+            text-decoration: none;
+        }
