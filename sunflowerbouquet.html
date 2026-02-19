@@ -84,9 +84,21 @@
 
   <!-- First Product: Crochet Purple Rose Bouquet -->
   <div class="product-card">
-    <div class="product-img">
-      <img src="assets/img/bouquet2.jpeg" alt="Crochet Purple Rose Bouquet">
+<div class="product-img">
+    <div class="slider-track">
+
+        <img src="assets/img/bouquet2.jpeg" alt="">
+        <img src="assets/img/" alt="">
+
+        <video class="slider-video" autoplay muted loop playsinline>
+            <source src="assets/img/sunflower-bouquet.mp4" type="video/mp4">
+        </video>
+
     </div>
+
+    <div class="slider-dots"></div>
+</div>
+
 
     <div class="product-info">
       <a href="bouquet.html" class="nameofproduct"><p class="category" >BOUQUET</p></a>
@@ -165,6 +177,87 @@
 
   </footer>
 
+<script>
+const track = document.querySelector('.slider-track');
+const slides = Array.from(track.children);
+const dotsContainer = document.querySelector('.slider-dots');
+
+let index = 0;
+let speed = 3500; // ⏱ CHANGE SPEED (ms) → slower: 5000 | faster: 2000
+let startX = 0;
+let isDragging = false;
+
+/* clone first slide for infinite effect */
+track.appendChild(slides[0].cloneNode(true));
+
+/* dots */
+slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dotsContainer.appendChild(dot);
+
+    dot.addEventListener('click', () => {
+        index = i;
+        moveSlider();
+        resetAutoSlide();
+    });
+});
+
+const dots = dotsContainer.children;
+
+function moveSlider() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    [...dots].forEach(d => d.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+}
+
+function autoSlide() {
+    index++;
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    if (index === slides.length) {
+        setTimeout(() => {
+            track.style.transition = 'none';
+            index = 0;
+            track.style.transform = 'translateX(0)';
+            track.offsetHeight;
+            track.style.transition = 'transform 0.6s ease';
+        }, 600);
+    }
+
+    [...dots].forEach(d => d.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+}
+
+let sliderInterval = setInterval(autoSlide, speed);
+
+function resetAutoSlide() {
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(autoSlide, speed);
+}
+
+/* 👆 swipe support */
+track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+});
+
+track.addEventListener('touchend', e => {
+    if (!isDragging) return;
+    let endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
+
+    if (diff > 50) index++;
+    if (diff < -50) index--;
+
+    if (index < 0) index = slides.length - 1;
+
+    moveSlider();
+    resetAutoSlide();
+    isDragging = false;
+});
+</script>
    <script>
         document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 

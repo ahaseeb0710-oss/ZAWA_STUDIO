@@ -1223,3 +1223,68 @@ margin-top: 40px;
   border-radius:8px;
   cursor:pointer;
 }
+
+
+
+
+.product-img {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 280px;
+}
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-track img {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;   /* 🔥 THIS IS THE KEY FIX */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+
+/* dots */
+.slider-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.slider-dots span {
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-dots span.active {
+    background: #fff;
+}
+
+
+/* images */
+.slider-track img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* video slide */
+.slider-video {
+    min-width: 100%;      /* 🔥 MOST IMPORTANT */
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: black;
+}

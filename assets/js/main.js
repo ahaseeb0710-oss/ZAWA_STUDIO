@@ -120,7 +120,7 @@ const allProducts = [
   {
     name: "Crochet Bouquet",
     price: 3200,
-    image: "assets/img/bouquet1 .jpeg"
+    image: "assets/img/bouquet1.jpeg"
   },
   {
     name: "Pink Handbag",
