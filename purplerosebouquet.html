@@ -92,7 +92,7 @@
         <img src="assets/img/purpleboquet2.png" alt="">
 
         <video class="slider-video" autoplay muted loop playsinline>
-            <source src="assets/img/" type="video/mp4">
+            <source src="assets/img/purplebouquet.mp4" type="video/mp4">
         </video>
 
     </div>
@@ -126,10 +126,12 @@
                 <hr class="product-divider">
 
                 <div class="product-extra">
-                    <span>✦ HANDMADE TO ORDER</span>
-                    <span>✦ PREMIUM YARN</span>
-                    <span>✦ SHIPS IN 5–7 DAYS</span>
-                </div>
+          <span>✦ HANDMADE TO ORDER</span>
+          <br>
+          <span>✦ PREMIUM YARN</span>
+          <br>
+          <span>✦ SHIPS IN 5–7 DAYS</span>
+        </div>
 
             </div>
         </div>
@@ -187,14 +189,15 @@ const slides = Array.from(track.children);
 const dotsContainer = document.querySelector('.slider-dots');
 
 let index = 0;
-let speed = 3500; // ⏱ CHANGE SPEED (ms) → slower: 5000 | faster: 2000
-let startX = 0;
+let baseSpeed = 3500; // normal slide speed
+let sliderInterval;
 let isDragging = false;
+let startX = 0;
 
-/* clone first slide for infinite effect */
+// Clone first slide for infinite effect
 track.appendChild(slides[0].cloneNode(true));
 
-/* dots */
+/* Create dots */
 slides.forEach((_, i) => {
     const dot = document.createElement('span');
     if (i === 0) dot.classList.add('active');
@@ -203,45 +206,52 @@ slides.forEach((_, i) => {
     dot.addEventListener('click', () => {
         index = i;
         moveSlider();
-        resetAutoSlide();
     });
 });
 
 const dots = dotsContainer.children;
 
+/* Move slider to current index */
 function moveSlider() {
+    track.style.transition = 'transform 0.6s ease';
     track.style.transform = `translateX(-${index * 100}%)`;
 
+    // Update dots
     [...dots].forEach(d => d.classList.remove('active'));
-    if (dots[index]) dots[index].classList.add('active');
+    if (dots[index % slides.length]) dots[index % slides.length].classList.add('active');
+
+    handleCurrentSlide();
 }
 
-function autoSlide() {
-    index++;
-    track.style.transform = `translateX(-${index * 100}%)`;
-
-    if (index === slides.length) {
-        setTimeout(() => {
-            track.style.transition = 'none';
-            index = 0;
-            track.style.transform = 'translateX(0)';
-            track.offsetHeight;
-            track.style.transition = 'transform 0.6s ease';
-        }, 600);
-    }
-
-    [...dots].forEach(d => d.classList.remove('active'));
-    if (dots[index]) dots[index].classList.add('active');
-}
-
-let sliderInterval = setInterval(autoSlide, speed);
-
-function resetAutoSlide() {
+/* Handle current slide: if video, pause auto-slide and wait for it to end */
+function handleCurrentSlide() {
     clearInterval(sliderInterval);
-    sliderInterval = setInterval(autoSlide, speed);
+
+    const currentSlide = slides[index % slides.length];
+    const video = currentSlide.querySelector('video');
+
+    if (video) {
+        video.currentTime = 0;
+        video.play();
+
+        video.onended = () => {
+            index++;
+            moveSlider();
+        };
+    } else {
+        // Normal slide auto-play
+        sliderInterval = setInterval(() => {
+            index++;
+            if (index >= slides.length) index = 0; // loop back
+            moveSlider();
+        }, baseSpeed);
+    }
 }
 
-/* 👆 swipe support */
+// Start slider
+moveSlider();
+
+/* Swipe support */
 track.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
     isDragging = true;
@@ -258,7 +268,6 @@ track.addEventListener('touchend', e => {
     if (index < 0) index = slides.length - 1;
 
     moveSlider();
-    resetAutoSlide();
     isDragging = false;
 });
 </script>
