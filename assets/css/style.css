@@ -1230,7 +1230,7 @@ margin-top: 40px;
   border-radius:12px;
   display:none;
   width:220px;
-  box-shadow:0 0 20px rgba(255,0,200,0.4);
+  box-shadow:0 0 20px #c9a24d;
 }
 
 .profile-dropdown p{
@@ -1242,7 +1242,7 @@ margin-top: 40px;
   width:100%;
   padding:10px;
   margin-top:10px;
-  background:linear-gradient(45deg,#ff00cc,#8000ff);
+ background: #c9a24d;
   border:none;
   color:white;
   border-radius:8px;
