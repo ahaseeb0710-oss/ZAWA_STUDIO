@@ -88,11 +88,13 @@
     <div class="slider-track">
 
         <img src="assets/img/bouquet2.jpeg" alt="">
-        <img src="assets/img/" alt="">
+        <img src="assets/img/sunflowerbouquet2.jpg" alt="">
 
-        <video class="slider-video" autoplay muted loop playsinline>
-            <source src="assets/img/sunflower-bouquet.mp4" type="video/mp4">
-        </video>
+        <video class="slider-video" autoplay muted playsinline>
+    <source src="assets/img/sunflower-bouquet.mp4" type="video/mp4">
+</video>
+
+
 
     </div>
 
@@ -183,12 +185,8 @@ const slides = Array.from(track.children);
 const dotsContainer = document.querySelector('.slider-dots');
 
 let index = 0;
-let speed = 3500; // ⏱ CHANGE SPEED (ms) → slower: 5000 | faster: 2000
-let startX = 0;
-let isDragging = false;
-
-/* clone first slide for infinite effect */
-track.appendChild(slides[0].cloneNode(true));
+let speed = 3000; // ⏱ LONGER image time
+let interval;
 
 /* dots */
 slides.forEach((_, i) => {
@@ -205,59 +203,64 @@ slides.forEach((_, i) => {
 
 const dots = dotsContainer.children;
 
+function updateDots() {
+    [...dots].forEach(d => d.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+}
+
 function moveSlider() {
     track.style.transform = `translateX(-${index * 100}%)`;
+    updateDots();
 
-    [...dots].forEach(d => d.classList.remove('active'));
-    if (dots[index]) dots[index].classList.add('active');
-}
-
-function autoSlide() {
-    index++;
-    track.style.transform = `translateX(-${index * 100}%)`;
-
-    if (index === slides.length) {
-        setTimeout(() => {
-            track.style.transition = 'none';
-            index = 0;
-            track.style.transform = 'translateX(0)';
-            track.offsetHeight;
-            track.style.transition = 'transform 0.6s ease';
-        }, 600);
+    // ▶️ auto play video when slide becomes active
+    const current = slides[index];
+    if (current.tagName === 'VIDEO') {
+        current.currentTime = 0;
+        current.play();
     }
-
-    [...dots].forEach(d => d.classList.remove('active'));
-    if (dots[index]) dots[index].classList.add('active');
 }
 
-let sliderInterval = setInterval(autoSlide, speed);
+function nextSlide() {
+    index++;
+    if (index >= slides.length) index = 0;
+    moveSlider();
+}
+
+/* AUTO SLIDER */
+function startAutoSlide() {
+    interval = setInterval(() => {
+        const current = slides[index];
+
+        // ⛔ if video is active, wait for it to end
+        if (current.tagName === 'VIDEO') return;
+
+        nextSlide();
+    }, speed);
+}
 
 function resetAutoSlide() {
-    clearInterval(sliderInterval);
-    sliderInterval = setInterval(autoSlide, speed);
+    clearInterval(interval);
+    startAutoSlide();
 }
 
-/* 👆 swipe support */
-track.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
+/* 🎥 VIDEO END → MOVE SLIDER */
+slides.forEach(slide => {
+    if (slide.tagName === 'VIDEO') {
+        slide.addEventListener('ended', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+    }
 });
 
-track.addEventListener('touchend', e => {
-    if (!isDragging) return;
-    let endX = e.changedTouches[0].clientX;
-    let diff = startX - endX;
-
-    if (diff > 50) index++;
-    if (diff < -50) index--;
-
-    if (index < 0) index = slides.length - 1;
-
-    moveSlider();
-    resetAutoSlide();
-    isDragging = false;
-});
+/* START */
+moveSlider();
+startAutoSlide();
 </script>
+
+
+
+
    <script>
         document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 
