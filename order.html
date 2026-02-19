@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/site.webmanifest">
     <style>
         /* Base Styles */
 
@@ -120,7 +124,8 @@
             display: block;
             margin-top: 20px;
             padding: 12px;
-            background:hsl(0, 0%, 0%);;
+            background: hsl(0, 0%, 0%);
+            ;
             color: white;
             font-size: 16px;
             font-weight: 600;
@@ -202,10 +207,10 @@
         <div class="nav-right">
             <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
                     class="fa-brands fa-instagram"></i></a>
-              <div class="cart-icon">
-   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-    <span id="cartCount">0</span>
-</div>
+            <div class="cart-icon">
+                <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+                <span id="cartCount">0</span>
+            </div>
 
             <!-- SEARCH -->
             <div class="search-box">
@@ -254,29 +259,29 @@
             <label for="country">Country</label>
         </div>
 
-       <!-- Payment Selection Dropdown -->
-<div class="input-container" >
-    <select id="payment" required>
-        <option value="">Select Payment Method</option>
-        <option value="easypaisa">EasyPaisa</option>
-        <option value="banktransfer">Bank Transfer</option>
-    </select>
-</div>
+        <!-- Payment Selection Dropdown -->
+        <div class="input-container">
+            <select id="payment" required>
+                <option value="">Select Payment Method</option>
+                <option value="easypaisa">EasyPaisa</option>
+                <option value="banktransfer">Bank Transfer</option>
+            </select>
+        </div>
 
-<!-- EasyPaisa Account Details (Initially Hidden) -->
-<div id="easypaisaDetails" style="display:none; color: #000;">
-    <h3>EasyPaisa Account</h3>
-    <p>Account Number: <strong>0301-1234567</strong></p>
-    <p>Account Name: <strong>Your Name</strong></p>
-</div>
+        <!-- EasyPaisa Account Details (Initially Hidden) -->
+        <div id="easypaisaDetails" style="display:none; color: #000;">
+            <h3>EasyPaisa Account</h3>
+            <p>Account Number: <strong>0301-1234567</strong></p>
+            <p>Account Name: <strong>Your Name</strong></p>
+        </div>
 
-<!-- Bank Transfer Account Details (Initially Hidden) -->
-<div id="bankTransferDetails" style="display:none;  color: #000">
-    <h3>Bank Transfer Details</h3>
-    <p>Bank Name: <strong>Bank ABC</strong></p>
-    <p>Account Number: <strong>1234567890</strong></p>
-    <p>Account Name: <strong>Your Name</strong></p>
-</div>
+        <!-- Bank Transfer Account Details (Initially Hidden) -->
+        <div id="bankTransferDetails" style="display:none;  color: #000">
+            <h3>Bank Transfer Details</h3>
+            <p>Bank Name: <strong>Bank ABC</strong></p>
+            <p>Account Number: <strong>1234567890</strong></p>
+            <p>Account Name: <strong>Your Name</strong></p>
+        </div>
 
         <!-- Order Summary Section -->
         <div id="orderItems"></div>
@@ -298,28 +303,28 @@
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
         const orderItemsContainer = document.getElementById("orderItems");
         const orderTotal = document.getElementById("orderTotal");
-        
+
 
         // Function to render cart items on the order page
-// Delivery charge constant (in PKR)
-const DELIVERY_CHARGE = 300;
+        // Delivery charge constant (in PKR)
+        const DELIVERY_CHARGE = 300;
 
-function renderOrderItems() {
-    orderItemsContainer.innerHTML = "";  // Clear the container
-    let total = 0;
+        function renderOrderItems() {
+            orderItemsContainer.innerHTML = "";  // Clear the container
+            let total = 0;
 
-    // Ensure that the cart has items
-    if (cart.length > 0) {
-        cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
+            // Ensure that the cart has items
+            if (cart.length > 0) {
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
 
-            // Create order item div
-            const orderItemDiv = document.createElement("div");
-            orderItemDiv.classList.add("order-item");
+                    // Create order item div
+                    const orderItemDiv = document.createElement("div");
+                    orderItemDiv.classList.add("order-item");
 
-            // Populate order item info
-            orderItemDiv.innerHTML = `
+                    // Populate order item info
+                    orderItemDiv.innerHTML = `
                 <div class="order-item-info">
                     <div class="order-item-name">${item.name}</div>
                     <div class="order-item-price">PKR ${item.price.toFixed(2)}</div>
@@ -328,25 +333,25 @@ function renderOrderItems() {
                 <div class="order-item-price">Total: PKR ${itemTotal.toFixed(2)}</div>
             `;
 
-            orderItemsContainer.appendChild(orderItemDiv);
-        });
+                    orderItemsContainer.appendChild(orderItemDiv);
+                });
 
-        // Add the delivery charge to the total
-        let finalTotal = total + DELIVERY_CHARGE;
+                // Add the delivery charge to the total
+                let finalTotal = total + DELIVERY_CHARGE;
 
-        // Display order summary
-        orderTotal.innerHTML = `
+                // Display order summary
+                orderTotal.innerHTML = `
             <div>Subtotal: PKR ${total.toFixed(2)}</div>
             <div>Delivery Charge: PKR ${DELIVERY_CHARGE.toFixed(2)}</div>
             <div><strong>Grand Total: PKR ${finalTotal.toFixed(2)}</strong></div>
         `;
-    } else {
-        orderItemsContainer.innerHTML = "No items in the cart.";
-    }
-}
+            } else {
+                orderItemsContainer.innerHTML = "No items in the cart.";
+            }
+        }
 
-// Call the renderOrderItems function to display items on the page
-renderOrderItems();
+        // Call the renderOrderItems function to display items on the page
+        renderOrderItems();
 
 
         // Validate the form before submitting
@@ -406,21 +411,21 @@ renderOrderItems();
             validateOrderForm();  // Validate the form before proceeding
         });
 
-// Function to toggle the visibility of payment account details based on selection
-document.getElementById("payment").addEventListener("change", function() {
-    let selectedPaymentMethod = document.getElementById("payment").value;
-    
-    // Hide both account details sections initially
-    document.getElementById("easypaisaDetails").style.display = "none";
-    document.getElementById("bankTransferDetails").style.display = "none";
+        // Function to toggle the visibility of payment account details based on selection
+        document.getElementById("payment").addEventListener("change", function () {
+            let selectedPaymentMethod = document.getElementById("payment").value;
 
-    // Show the relevant account details based on the selected payment method
-    if (selectedPaymentMethod === "easypaisa") {
-        document.getElementById("easypaisaDetails").style.display = "block";
-    } else if (selectedPaymentMethod === "banktransfer") {
-        document.getElementById("bankTransferDetails").style.display = "block";
-    }
-});
+            // Hide both account details sections initially
+            document.getElementById("easypaisaDetails").style.display = "none";
+            document.getElementById("bankTransferDetails").style.display = "none";
+
+            // Show the relevant account details based on the selected payment method
+            if (selectedPaymentMethod === "easypaisa") {
+                document.getElementById("easypaisaDetails").style.display = "block";
+            } else if (selectedPaymentMethod === "banktransfer") {
+                document.getElementById("bankTransferDetails").style.display = "block";
+            }
+        });
 
 
     </script>
