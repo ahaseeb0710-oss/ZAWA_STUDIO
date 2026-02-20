@@ -5,9 +5,54 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/site.webmanifest">
+
+  <style>
+    /* popup */
+    .cart-popup {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: #111;
+      color: #fff;
+      padding: 18px 22px;
+      border-radius: 14px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      transform: translateX(120%);
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 9999;
+      min-width: 260px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-popup.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .cart-popup i {
+      font-size: 26px;
+      color: #c59d5f;
+    }
+
+    .cart-popup h4 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .cart-popup p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,52 +64,66 @@
   <input type="email" id="email" placeholder="Email">
   <input type="password" id="password" placeholder="Password" required minlength="6">
 
-
   <button onclick="register()">Sign Up</button>
 
   <p>Already have account? <a href="login.html">Login</a></p>
 </div>
 
 <script>
-function register(){
+  function showPopup(title, message, icon = "✓") {
+    const popup = document.createElement("div");
+    popup.className = "cart-popup show";
+    popup.innerHTML = `
+      <i>${icon}</i>
+      <div>
+        <h4>${title}</h4>
+        <p>${message}</p>
+      </div>
+    `;
+    document.body.appendChild(popup);
 
-  const firstName = document.getElementById("firstName").value.trim();
-  const lastName = document.getElementById("lastName").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  // 🔴 Empty Field Check
-  if(!firstName || !lastName || !email || !password){
-      alert("All fields are required!");
-      return;
+    // Auto hide after 3 seconds
+    setTimeout(() => {
+      popup.classList.remove("show");
+      setTimeout(() => popup.remove(), 400);
+    }, 3000);
   }
 
-  // 🔴 Email Format Check
-  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-  if(!email.match(emailPattern)){
-      alert("Please enter valid email address!");
-      return;
+  function register() {
+    const firstName = document.getElementById("firstName").value.trim();
+    const lastName = document.getElementById("lastName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // 🔴 Empty Field Check
+    if(!firstName || !lastName || !email || !password){
+        showPopup("Error", "All fields are required!", "⚠️");
+        return;
+    }
+
+    // 🔴 Email Format Check
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if(!email.match(emailPattern)){
+        showPopup("Error", "Please enter valid email address!", "⚠️");
+        return;
+    }
+
+    // 🔴 Password Length Check
+    if(password.length < 6){
+        showPopup("Error", "Password must be at least 6 characters!", "⚠️");
+        return;
+    }
+
+    const user = { firstName, lastName, email, password };
+    localStorage.setItem("user", JSON.stringify(user));
+
+    showPopup("Success", "Account Created Successfully!", "✓");
+
+    setTimeout(() => {
+      window.location.href = "login.html";
+    }, 1000); // delay so popup shows
   }
-
-  // 🔴 Password Length Check
-  if(password.length < 6){
-      alert("Password must be at least 6 characters!");
-      return;
-  }
-
-  const user = {
-      firstName,
-      lastName,
-      email,
-      password
-  };
-
-  localStorage.setItem("user", JSON.stringify(user));
-  alert("Account Created Successfully!");
-  window.location.href = "login.html";
-}
 </script>
-
 
 </body>
 </html>

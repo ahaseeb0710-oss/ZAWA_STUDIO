@@ -9,18 +9,18 @@
   <!-- AOS Library CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
-<style>
-  .nameofproduct{
-    text-decoration: none;
-  }
-</style>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/site.webmanifest">
+  <style>
+    .nameofproduct {
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -73,12 +73,13 @@
 
     <!-- RIGHT -->
     <div class="nav-right">
-      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram"></i></a>
-      
-        <div class="cart-icon">
-   <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-    <span id="cartCount">0</span>
-</div>
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+          class="fa-brands fa-instagram"></i></a>
+
+      <div class="cart-icon">
+        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+        <span id="cartCount">0</span>
+      </div>
 
       <!-- SEARCH -->
       <div class="search-box">
@@ -124,43 +125,47 @@
     </aside>
 
     <div class="product-grid">
-    <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/handbag.jpeg" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="category">HANDBAG</p>
-                    <a href="Crochet handbag.html" class="nameofproduct"><h5 class="name">CROCHET HANDBAG</h5></a>
-                    <p class="price">Rs.2000</p>
-                </div>
-            </div>>
+      <div class="product-card">
+        <div class="product-img">
+          <img src="assets/img/handbag.jpeg" alt="">
+        </div>
+        <div class="product-info">
+          <p class="category">HANDBAG</p>
+          <a href="Crochet handbag.html" class="nameofproduct">
+            <h5 class="name">CROCHET HANDBAG</h5>
+          </a>
+          <p class="price">Rs.2000</p>
+        </div>
+      </div>>
 
       <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/handbag2.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">HANDBAG</p>
-                    <a href="CROCHETRUFFLEHANDBAG.html" class="nameofproduct"><h5 class="name">CROCHET RUFFLE HANDBAG</h5></a>
-                    <p class="price">Rs.2200</p>
-
-                </div>
-            </div>
-            <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
+        <div class="product-img">
+          <img src="assets/img/handbag2.jpeg" alt="">
         </div>
 
+        <div class="product-info">
+          <p class="category">HANDBAG</p>
+          <a href="CROCHETRUFFLEHANDBAG.html" class="nameofproduct">
+            <h5 class="name">CROCHET RUFFLE HANDBAG</h5>
+          </a>
+          <p class="price">Rs.2200</p>
 
-
+        </div>
+      </div>
+      <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
     </div>
-    <!-- copy product-card for all products -->
-    </div>
-
-    </div>
-    </div>
 
 
-     <!-- footer -->
+
+  </div>
+  <!-- copy product-card for all products -->
+  </div>
+
+  </div>
+  </div>
+
+
+  <!-- footer -->
   <footer class="footer">
 
     <div class="footer-container">
@@ -173,7 +178,7 @@
       </div>
 
       <!-- Quick Links -->
-      <div class="footer-links" >
+      <div class="footer-links">
         <h4>QUICK LINKS</h4>
         <ul>
           <li><a href="product.html">Shop</a></li>
@@ -201,33 +206,34 @@
     </div>
 
   </footer>
-    <script>
-      // Get the input and search icon
-      const searchInput = document.querySelector(".search-box input");
-      const searchBtn = document.querySelector(".search-box i");
+  <script>
+    // Get the input and search icon
+    const searchInput = document.querySelector(".search-box input");
+    const searchBtn = document.querySelector(".search-box i");
 
-      // Redirect on click of the search icon
-      searchBtn.addEventListener("click", () => {
+    // Redirect on click of the search icon
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.trim();
+      if (query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
+
+    // Redirect on Enter key press
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
         const query = searchInput.value.trim();
         if (query) {
           window.location.href = `search.html?q=${encodeURIComponent(query)}`;
         }
-      });
-
-      // Redirect on Enter key press
-      searchInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          const query = searchInput.value.trim();
-          if (query) {
-            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-          }
-        }
-      });
-    </script>
-      <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="assets/js/cart.js"></script>
-    <script src="assets/js/main.js"></script>
+      }
+    });
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

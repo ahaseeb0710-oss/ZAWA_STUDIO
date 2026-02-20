@@ -107,7 +107,6 @@
                 essentials secure. Lightweight and compact, this wallet adds a cozy handmade touch to your everyday use.
             </p>
             <div class="product-action">
-                <p class="price">Rs.1200</p>
                 <input type="number" min="1" value="1" class="qty">
                 <button class="add-to-cart-btn" data-id="24" data-name="Crochet wallet" data-price="1200"
                     data-image="assets/img/wallet1.jpeg">
@@ -172,53 +171,111 @@
 
     </footer>
 
-      <script>
-        document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+  <!-- Premium Cart Popup -->
+    <div id="cartPopup" class="cart-popup">
+        <div class="popup-content">
+            <i class="fa-solid fa-check-circle"></i>
+            <div>
+                <h4 id="popupTitle"></h4>
+                <p id="popupQty"></p>
+            </div>
+        </div>
+    </div>
 
-            button.addEventListener("click", function () {
+    <div id="loginPopup" class="login-popup">
+    <div class="login-popup-content">
+        <i class="fa-solid fa-lock"></i>
+        <div>
+            <h4>Login Required</h4>
+            <p>Please login to add items to your cart.</p>
+        </div>
+        <button id="loginNowBtn">Login</button>
+    </div>
+</div>
 
-                // 🔐 LOGIN CHECK
-                if (localStorage.getItem("loggedIn") !== "true") {
-                    alert("Please login first to add items to cart!");
-
-                    localStorage.setItem("redirectAfterLogin", window.location.href);
-
-                    window.location.href = "login.html";
-                    return;
-                }
 
 
-                const productCard = this.closest(".product-card");
-                const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-                const product = {
-                    id: this.dataset.id,
-                    name: this.dataset.name,
-                    price: Number(this.dataset.price),
-                    image: this.dataset.image,
-                    quantity: quantity
-                };
+    /* ===============================
+       LOGIN BUTTON REDIRECT
+    =============================== */
+    const loginBtn = document.getElementById("loginNowBtn");
+    if (loginBtn) {
+        loginBtn.addEventListener("click", function () {
+            window.location.href = "login.html";
+        });
+    }
 
-                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    /* ===============================
+       ADD TO CART FUNCTION
+    =============================== */
+    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 
-                const existing = cart.find(item => item.id === product.id);
+        button.addEventListener("click", function () {
 
-                if (existing) {
-                    existing.quantity += quantity;
-                } else {
-                    cart.push(product);
-                }
+            /* 🔐 LOGIN CHECK */
+            if (localStorage.getItem("loggedIn") !== "true") {
 
-                localStorage.setItem("cart", JSON.stringify(cart));
+                const loginPopup = document.getElementById("loginPopup");
+                loginPopup.classList.add("show");
 
-                alert("Product added to cart!");
-            });
+                // Save redirect page
+                localStorage.setItem("redirectAfterLogin", window.location.href);
+
+                // Auto hide popup
+                setTimeout(() => {
+                    loginPopup.classList.remove("show");
+                }, 4000);
+
+                return;
+            }
+
+            /* 🛒 ADD TO CART */
+            const productCard = this.closest(".product-card");
+            const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
+
+            const product = {
+                id: this.dataset.id,
+                name: this.dataset.name,
+                price: Number(this.dataset.price),
+                image: this.dataset.image,
+                quantity: quantity
+            };
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const existing = cart.find(item => item.id === product.id);
+
+            if (existing) {
+                existing.quantity += quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            /* 💎 PREMIUM CART POPUP */
+            const popup = document.getElementById("cartPopup");
+            const title = document.getElementById("popupTitle");
+            const qty = document.getElementById("popupQty");
+
+            title.textContent = product.name;
+            qty.textContent = `Quantity Added: ${quantity}`;
+
+            popup.classList.add("show");
+
+            setTimeout(() => {
+                popup.classList.remove("show");
+            }, 3500);
 
         });
 
+    });
 
-    </script>
-
+});
+</script>
 
     <script>
         // Get the input and search icon
@@ -274,7 +331,7 @@
             });
         });
     </script>
-
+<script src="assets/js/nav.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

@@ -4,71 +4,127 @@
   <title>Login</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/site.webmanifest">
+
+  <style>
+    /* popup */
+    .cart-popup {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: #111;
+      color: #fff;
+      padding: 18px 22px;
+      border-radius: 14px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      transform: translateX(120%);
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 9999;
+      min-width: 260px;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cart-popup.show {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .cart-popup i {
+      font-size: 26px;
+      color: #c59d5f;
+    }
+
+    .cart-popup h4 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .cart-popup p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
+  <div class="auth-container">
+    <h2>Login</h2>
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required minlength="6">
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? 
+      <a href="signup.html" style="text-decoration: none; color: blanchedalmond;">Sign Up</a>
+    </p>
+  </div>
 
-<div class="auth-container">
-  <h2>Login</h2>
+  <!-- Popup container (dynamic) -->
+  <div id="popup-container"></div>
 
-  <input type="text" id="name" placeholder="Your Name">
-  <input type="email" id="email" placeholder="Email" required>
-  <input type="password" id="password" placeholder="Password" required minlength="6">
+  <script>
+    function showPopup(title, message, icon = "✓") {
+      const popup = document.createElement("div");
+      popup.className = "cart-popup show";
+      popup.innerHTML = `
+        <i>${icon}</i>
+        <div>
+          <h4>${title}</h4>
+          <p>${message}</p>
+        </div>
+      `;
+      document.body.appendChild(popup);
 
+      // Auto hide after 3 seconds
+      setTimeout(() => {
+        popup.classList.remove("show");
+        setTimeout(() => popup.remove(), 400); // wait for transition
+      }, 3000);
+    }
 
-  <button onclick="login()">Login</button>
-  <p>Don't have an account?
-   <a href="signup.html" style="text-decoration: none; color: blanchedalmond;">Sign Up</a>
-</p>
-
-</div>
-
-<script>
-function login(){
-
+    function login() {
   const storedUser = JSON.parse(localStorage.getItem("user"));
-
+  const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
 
-  // 🔴 Empty Check
-  if(!email || !password){
-      alert("Please fill all fields!");
-      return;
+  // 🔴 Empty check including name
+  if (!name || !email || !password) {
+    showPopup("Error", "Please fill all fields!", "⚠️");
+    return;
   }
 
   // 🔴 Check if account exists
-  if(!storedUser){
-      alert("No account found! Please sign up first.");
-      return;
+  if (!storedUser) {
+    showPopup("Error", "No account found! Please sign up first.", "⚠️");
+    return;
   }
 
   // 🔴 Match Email & Password
-  if(storedUser.email === email && storedUser.password === password){
+  if (storedUser.email === email && storedUser.password === password) {
+    localStorage.setItem("loggedIn", "true");
+    showPopup("Success", "Login Successful!", "✓");
 
-     localStorage.setItem("loggedIn","true");
-alert("Login Successful!");
-
-// Check if user was redirected to login
-const redirectPage = localStorage.getItem("redirectAfterLogin");
-
-if (redirectPage) {
-    localStorage.removeItem("redirectAfterLogin"); // clean it
-    window.location.href = redirectPage; // go back to previous page
-} else {
-    window.location.href = "index.html"; // default
-}
-
-
+    const redirectPage = localStorage.getItem("redirectAfterLogin");
+    setTimeout(() => {
+      if (redirectPage) {
+        localStorage.removeItem("redirectAfterLogin");
+        window.location.href = redirectPage;
+      } else {
+        window.location.href = "index.html";
+      }
+    }, 1000); // give time for popup
   } else {
-      alert("Invalid Email or Password!");
+    showPopup("Error", "Invalid Email or Password!", "❌");
   }
 }
-</script>
-
-
+  </script>
 </body>
 </html>

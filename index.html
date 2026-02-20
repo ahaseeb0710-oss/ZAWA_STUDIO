@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="description"
       content="Buy handmade crochet purple rose bouquets from ZAWA STUDIO. Perfect gifts for birthdays, anniversaries, or special occasions.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Open Graph Meta (IMPORTANT for WhatsApp) -->
     <meta property="og:title" content="ZAWA STUDIO">
     <meta property="og:description"
@@ -42,11 +42,26 @@
   <!-- RIGHT : links + search + icons -->
 
   <nav class="navbar">
+<!-- Mobile Header -->
+<div class="mobile-header">
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
 
-    <!-- LEFT -->
-    <div class="nav-left">
+  <div class="mobile-logo">
+    <a href="index.html">
+      <h1>ZAWA <span>STUDIO</span></h1>
+    </a>
+  </div>
 
-      <a href="index.html">HOME</a>
+  <div class="mobile-icons"></div>
+</div>
+<div class="nav-left" id="mobileMenu">
+  <div class="close-btn" onclick="toggleMenu()">
+    <i class="fa-solid fa-xmark"></i>
+  </div>
+
+        <a href="index.html">HOME</a>
 
       <!-- SHOP DROPDOWN -->
       <div class="nav-dropdown">
@@ -84,7 +99,8 @@
         <h1>ZAWA <span>STUDIO</span></h1>
       </a>
     </div>
-
+</div>
+   
     <!-- RIGHT -->
     <div class="nav-right">
       <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
@@ -132,7 +148,7 @@
 
 
   </nav>
-
+<div class="menu-overlay" onclick="toggleMenu()"></div>
 
 
 
@@ -421,7 +437,15 @@
   </footer>
 
 
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("mobileMenu");
+  const overlay = document.querySelector(".menu-overlay");
 
+  menu.classList.toggle("active");
+  overlay.classList.toggle("active");
+}
+</script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const features = document.querySelectorAll('.feature');
@@ -584,7 +608,7 @@
     }
 
   </script>
-
+<script src="assets/js/nav.js"></script>
   <script src="assets/js/cart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="assets/js/main.js"></script>

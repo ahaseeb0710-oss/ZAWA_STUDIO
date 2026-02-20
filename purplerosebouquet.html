@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="manifest" href="assets/img/site.webmanifest">
+
 </head>
 
 <body>
@@ -88,20 +89,20 @@
 
     <!-- First Product: Crochet Purple Rose Bouquet -->
     <div class="product-card">
-<div class="product-img">
-    <div class="slider-track">
+        <div class="product-img">
+            <div class="slider-track">
 
-        <img src="assets/img/bouquet1.jpeg" alt="">
-        <img src="assets/img/purpleboquet2.png" alt="">
+                <img src="assets/img/bouquet1.jpeg" alt="">
+                <img src="assets/img/purpleboquet2.png" alt="">
 
-        <video class="slider-video" autoplay muted loop playsinline>
-            <source src="assets/img/purplebouquet.mp4" type="video/mp4">
-        </video>
+                <video class="slider-video" autoplay muted loop playsinline>
+                    <source src="assets/img/purplebouquet.mp4" type="video/mp4">
+                </video>
 
-    </div>
+            </div>
 
-    <div class="slider-dots"></div>
-</div>
+            <div class="slider-dots"></div>
+        </div>
 
         <div class="product-info">
             <a href="bouquet.html" class="nameofproduct">
@@ -129,12 +130,12 @@
                 <hr class="product-divider">
 
                 <div class="product-extra">
-          <span>✦ HANDMADE TO ORDER</span>
-          <br>
-          <span>✦ PREMIUM YARN</span>
-          <br>
-          <span>✦ SHIPS IN 5–7 DAYS</span>
-        </div>
+                    <span>✦ HANDMADE TO ORDER</span>
+                    <br>
+                    <span>✦ PREMIUM YARN</span>
+                    <br>
+                    <span>✦ SHIPS IN 5–7 DAYS</span>
+                </div>
 
             </div>
         </div>
@@ -186,143 +187,200 @@
     </footer>
 
 
-<script>
-const track = document.querySelector('.slider-track');
-const slides = Array.from(track.children);
-const dotsContainer = document.querySelector('.slider-dots');
-
-let index = 0;
-let baseSpeed = 3500; // normal slide speed
-let sliderInterval;
-let isDragging = false;
-let startX = 0;
-
-// Clone first slide for infinite effect
-track.appendChild(slides[0].cloneNode(true));
-
-/* Create dots */
-slides.forEach((_, i) => {
-    const dot = document.createElement('span');
-    if (i === 0) dot.classList.add('active');
-    dotsContainer.appendChild(dot);
-
-    dot.addEventListener('click', () => {
-        index = i;
-        moveSlider();
-    });
-});
-
-const dots = dotsContainer.children;
-
-/* Move slider to current index */
-function moveSlider() {
-    track.style.transition = 'transform 0.6s ease';
-    track.style.transform = `translateX(-${index * 100}%)`;
-
-    // Update dots
-    [...dots].forEach(d => d.classList.remove('active'));
-    if (dots[index % slides.length]) dots[index % slides.length].classList.add('active');
-
-    handleCurrentSlide();
-}
-
-/* Handle current slide: if video, pause auto-slide and wait for it to end */
-function handleCurrentSlide() {
-    clearInterval(sliderInterval);
-
-    const currentSlide = slides[index % slides.length];
-    const video = currentSlide.querySelector('video');
-
-    if (video) {
-        video.currentTime = 0;
-        video.play();
-
-        video.onended = () => {
-            index++;
-            moveSlider();
-        };
-    } else {
-        // Normal slide auto-play
-        sliderInterval = setInterval(() => {
-            index++;
-            if (index >= slides.length) index = 0; // loop back
-            moveSlider();
-        }, baseSpeed);
-    }
-}
-
-// Start slider
-moveSlider();
-
-/* Swipe support */
-track.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-});
-
-track.addEventListener('touchend', e => {
-    if (!isDragging) return;
-    let endX = e.changedTouches[0].clientX;
-    let diff = startX - endX;
-
-    if (diff > 50) index++;
-    if (diff < -50) index--;
-
-    if (index < 0) index = slides.length - 1;
-
-    moveSlider();
-    isDragging = false;
-});
-</script>
-
-
     <script>
-        document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+        const track = document.querySelector('.slider-track');
+        const slides = Array.from(track.children);
+        const dotsContainer = document.querySelector('.slider-dots');
 
-            button.addEventListener("click", function () {
+        let index = 0;
+        let baseSpeed = 3500; // normal slide speed
+        let sliderInterval;
+        let isDragging = false;
+        let startX = 0;
 
-                // 🔐 LOGIN CHECK
-                if (localStorage.getItem("loggedIn") !== "true") {
-                    alert("Please login first to add items to cart!");
+        // Clone first slide for infinite effect
+        track.appendChild(slides[0].cloneNode(true));
 
-                    localStorage.setItem("redirectAfterLogin", window.location.href);
+        /* Create dots */
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dotsContainer.appendChild(dot);
 
-                    window.location.href = "login.html";
-                    return;
-                }
-
-
-                const productCard = this.closest(".product-card");
-                const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
-
-                const product = {
-                    id: this.dataset.id,
-                    name: this.dataset.name,
-                    price: Number(this.dataset.price),
-                    image: this.dataset.image,
-                    quantity: quantity
-                };
-
-                let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-                const existing = cart.find(item => item.id === product.id);
-
-                if (existing) {
-                    existing.quantity += quantity;
-                } else {
-                    cart.push(product);
-                }
-
-                localStorage.setItem("cart", JSON.stringify(cart));
-
-                alert("Product added to cart!");
+            dot.addEventListener('click', () => {
+                index = i;
+                moveSlider();
             });
+        });
+
+        const dots = dotsContainer.children;
+
+        /* Move slider to current index */
+        function moveSlider() {
+            track.style.transition = 'transform 0.6s ease';
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            // Update dots
+            [...dots].forEach(d => d.classList.remove('active'));
+            if (dots[index % slides.length]) dots[index % slides.length].classList.add('active');
+
+            handleCurrentSlide();
+        }
+
+        /* Handle current slide: if video, pause auto-slide and wait for it to end */
+        function handleCurrentSlide() {
+            clearInterval(sliderInterval);
+
+            const currentSlide = slides[index % slides.length];
+            const video = currentSlide.querySelector('video');
+
+            if (video) {
+                video.currentTime = 0;
+                video.play();
+
+                video.onended = () => {
+                    index++;
+                    moveSlider();
+                };
+            } else {
+                // Normal slide auto-play
+                sliderInterval = setInterval(() => {
+                    index++;
+                    if (index >= slides.length) index = 0; // loop back
+                    moveSlider();
+                }, baseSpeed);
+            }
+        }
+
+        // Start slider
+        moveSlider();
+
+        /* Swipe support */
+        track.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        track.addEventListener('touchend', e => {
+            if (!isDragging) return;
+            let endX = e.changedTouches[0].clientX;
+            let diff = startX - endX;
+
+            if (diff > 50) index++;
+            if (diff < -50) index--;
+
+            if (index < 0) index = slides.length - 1;
+
+            moveSlider();
+            isDragging = false;
+        });
+    </script>
+    <!-- Premium Cart Popup -->
+    <div id="cartPopup" class="cart-popup">
+        <div class="popup-content">
+            <i class="fa-solid fa-check-circle"></i>
+            <div>
+                <h4 id="popupTitle"></h4>
+                <p id="popupQty"></p>
+            </div>
+        </div>
+    </div>
+
+<!-- Premium Login Required Popup -->
+<div id="loginPopup" class="login-popup">
+    <div class="login-popup-content">
+        <i class="fa-solid fa-lock"></i>
+        <div>
+            <h4>Login Required</h4>
+            <p>Please login to add items to your cart.</p>
+        </div>
+        <button id="loginNowBtn">Login</button>
+    </div>
+</div>
+
+
+
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ===============================
+       LOGIN BUTTON REDIRECT
+    =============================== */
+    const loginBtn = document.getElementById("loginNowBtn");
+    if (loginBtn) {
+        loginBtn.addEventListener("click", function () {
+            window.location.href = "login.html";
+        });
+    }
+
+    /* ===============================
+       ADD TO CART FUNCTION
+    =============================== */
+    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            /* 🔐 LOGIN CHECK */
+            if (localStorage.getItem("loggedIn") !== "true") {
+
+                const loginPopup = document.getElementById("loginPopup");
+                loginPopup.classList.add("show");
+
+                // Save redirect page
+                localStorage.setItem("redirectAfterLogin", window.location.href);
+
+                // Auto hide popup
+                setTimeout(() => {
+                    loginPopup.classList.remove("show");
+                }, 4000);
+
+                return;
+            }
+
+            /* 🛒 ADD TO CART */
+            const productCard = this.closest(".product-card");
+            const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
+
+            const product = {
+                id: this.dataset.id,
+                name: this.dataset.name,
+                price: Number(this.dataset.price),
+                image: this.dataset.image,
+                quantity: quantity
+            };
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            const existing = cart.find(item => item.id === product.id);
+
+            if (existing) {
+                existing.quantity += quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            /* 💎 PREMIUM CART POPUP */
+            const popup = document.getElementById("cartPopup");
+            const title = document.getElementById("popupTitle");
+            const qty = document.getElementById("popupQty");
+
+            title.textContent = product.name;
+            qty.textContent = `Quantity Added: ${quantity}`;
+
+            popup.classList.add("show");
+
+            setTimeout(() => {
+                popup.classList.remove("show");
+            }, 3500);
 
         });
 
+    });
 
-    </script>
-
+});
+</script>
 
     <script>
         // Get the input and search icon
@@ -378,7 +436,7 @@ track.addEventListener('touchend', e => {
             });
         });
     </script>
-
+<script src="assets/js/nav.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

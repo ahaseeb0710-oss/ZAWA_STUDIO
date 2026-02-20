@@ -174,52 +174,111 @@
 
   </footer>
 
+   <!-- Premium Cart Popup -->
+    <div id="cartPopup" class="cart-popup">
+        <div class="popup-content">
+            <i class="fa-solid fa-check-circle"></i>
+            <div>
+                <h4 id="popupTitle"></h4>
+                <p id="popupQty"></p>
+            </div>
+        </div>
+    </div>
+
+      <div id="loginPopup" class="login-popup">
+    <div class="login-popup-content">
+        <i class="fa-solid fa-lock"></i>
+        <div>
+            <h4>Login Required</h4>
+            <p>Please login to add items to your cart.</p>
+        </div>
+        <button id="loginNowBtn">Login</button>
+    </div>
+</div>
+
+
+
    <script>
-        document.querySelectorAll(".add-to-cart-btn").forEach(button => {
+document.addEventListener("DOMContentLoaded", function () {
 
-            button.addEventListener("click", function () {
+    /* ===============================
+       LOGIN BUTTON REDIRECT
+    =============================== */
+    const loginBtn = document.getElementById("loginNowBtn");
+    if (loginBtn) {
+        loginBtn.addEventListener("click", function () {
+            window.location.href = "login.html";
+        });
+    }
 
-                // 🔐 LOGIN CHECK
-                if (localStorage.getItem("loggedIn") !== "true") {
-                    alert("Please login first to add items to cart!");
+    /* ===============================
+       ADD TO CART FUNCTION
+    =============================== */
+    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 
-                    localStorage.setItem("redirectAfterLogin", window.location.href);
+        button.addEventListener("click", function () {
 
-                    window.location.href = "login.html";
-                    return;
-                }
+            /* 🔐 LOGIN CHECK */
+            if (localStorage.getItem("loggedIn") !== "true") {
 
+                const loginPopup = document.getElementById("loginPopup");
+                loginPopup.classList.add("show");
 
-                const productCard = this.closest(".product-card");
-                const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
+                // Save redirect page
+                localStorage.setItem("redirectAfterLogin", window.location.href);
 
-                const product = {
-                    id: this.dataset.id,
-                    name: this.dataset.name,
-                    price: Number(this.dataset.price),
-                    image: this.dataset.image,
-                    quantity: quantity
-                };
+                // Auto hide popup
+                setTimeout(() => {
+                    loginPopup.classList.remove("show");
+                }, 4000);
 
-                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                return;
+            }
 
-                const existing = cart.find(item => item.id === product.id);
+            /* 🛒 ADD TO CART */
+            const productCard = this.closest(".product-card");
+            const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
 
-                if (existing) {
-                    existing.quantity += quantity;
-                } else {
-                    cart.push(product);
-                }
+            const product = {
+                id: this.dataset.id,
+                name: this.dataset.name,
+                price: Number(this.dataset.price),
+                image: this.dataset.image,
+                quantity: quantity
+            };
 
-                localStorage.setItem("cart", JSON.stringify(cart));
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-                alert("Product added to cart!");
-            });
+            const existing = cart.find(item => item.id === product.id);
+
+            if (existing) {
+                existing.quantity += quantity;
+            } else {
+                cart.push(product);
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            /* 💎 PREMIUM CART POPUP */
+            const popup = document.getElementById("cartPopup");
+            const title = document.getElementById("popupTitle");
+            const qty = document.getElementById("popupQty");
+
+            title.textContent = product.name;
+            qty.textContent = `Quantity Added: ${quantity}`;
+
+            popup.classList.add("show");
+
+            setTimeout(() => {
+                popup.classList.remove("show");
+            }, 3500);
 
         });
 
+    });
 
-    </script>
+});
+</script>
 
 
     <script>
@@ -276,7 +335,7 @@
             });
         });
     </script>
-
+<script src="assets/js/nav.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
