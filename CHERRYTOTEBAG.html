@@ -98,12 +98,10 @@
                 <p class="category">BAGS</p>
             </a>
 
-            <h5 class="name">CHERRYT OTE BAG</h5>
+            <h5 class="name">CHERRY TOTE BAG</h5>
 
             <p class="price">Rs.1000</p>
             <p class="description">
-
-                Gemini said
                 The Cherry Tote Bag is a sweet, hand-painted cream canvas bag featuring a charming pattern of vibrant
                 red cherries and tiny hearts. This lightweight and stylish accessory is perfect for adding a touch of
                 "coquette" flair to your daily errands. It's a simple, eye-catching piece that combines artistic design
@@ -218,22 +216,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         button.addEventListener("click", function () {
 
-            /* 🔐 LOGIN CHECK */
-            if (localStorage.getItem("loggedIn") !== "true") {
-
-                const loginPopup = document.getElementById("loginPopup");
-                loginPopup.classList.add("show");
-
-                // Save redirect page
-                localStorage.setItem("redirectAfterLogin", window.location.href);
-
-                // Auto hide popup
-                setTimeout(() => {
-                    loginPopup.classList.remove("show");
-                }, 4000);
-
-                return;
-            }
 
             /* 🛒 ADD TO CART */
             const productCard = this.closest(".product-card");

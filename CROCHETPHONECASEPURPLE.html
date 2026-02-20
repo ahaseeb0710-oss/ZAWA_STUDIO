@@ -102,8 +102,6 @@
 
             <p class="price">Rs.1000</p>
             <p class="description">
-                give me description of this product in paragraph,simple and short
-
                 This handmade crochet phone case features a beautiful purple design decorated with soft 3D flower
                 details. Made with cozy yarn, it provides light protection while adding a unique and stylish touch to
                 your phone. The charming floral pattern makes it perfect for anyone who loves cute and handmade
@@ -219,22 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         button.addEventListener("click", function () {
 
-            /* 🔐 LOGIN CHECK */
-            if (localStorage.getItem("loggedIn") !== "true") {
-
-                const loginPopup = document.getElementById("loginPopup");
-                loginPopup.classList.add("show");
-
-                // Save redirect page
-                localStorage.setItem("redirectAfterLogin", window.location.href);
-
-                // Auto hide popup
-                setTimeout(() => {
-                    loginPopup.classList.remove("show");
-                }, 4000);
-
-                return;
-            }
 
             /* 🛒 ADD TO CART */
             const productCard = this.closest(".product-card");

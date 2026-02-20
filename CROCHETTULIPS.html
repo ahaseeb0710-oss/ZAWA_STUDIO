@@ -102,8 +102,6 @@
 
             <p class="price">Rs.600</p>
             <p class="description">
-
-                Gemini said
                 The CROCHET TULIPS are charming, handcrafted yarn flowers that offer a beautiful, everlasting
                 alternative to real blooms. Each tulip features a vibrant, textured petal head in shades of red or
                 maroon, supported by a sturdy green stem and delicate leaves. These soft, durable creations are perfect
@@ -112,7 +110,7 @@
 
             <div class="product-action">
                 <input type="number" min="1" value="1" class="qty">
-                <button class="add-to-cart-btn" data-id="33" data-name="Crochet purple rose gajray" data-price="600"
+                <button class="add-to-cart-btn" data-id="33" data-name="Crochet tullips" data-price="600"
                     data-image="assets/img/tullip.jpeg">
                     Add to Cart
                 </button>
@@ -218,22 +216,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         button.addEventListener("click", function () {
 
-            /* 🔐 LOGIN CHECK */
-            if (localStorage.getItem("loggedIn") !== "true") {
-
-                const loginPopup = document.getElementById("loginPopup");
-                loginPopup.classList.add("show");
-
-                // Save redirect page
-                localStorage.setItem("redirectAfterLogin", window.location.href);
-
-                // Auto hide popup
-                setTimeout(() => {
-                    loginPopup.classList.remove("show");
-                }, 4000);
-
-                return;
-            }
 
             /* 🛒 ADD TO CART */
             const productCard = this.closest(".product-card");

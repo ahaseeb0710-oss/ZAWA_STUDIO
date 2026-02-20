@@ -100,8 +100,6 @@
 
             <p class="price">Rs.1000</p>
             <p class="description">
-
-                Gemini said
                 The Sunflower Tote Bag is a bold and artistic canvas accessory featuring large, hand-painted sunflowers
                 with vibrant yellow petals and green leaves. Set against a sleek black background, this eye-catching
                 design makes a beautiful statement while remaining practical for everyday use. It is an ideal choice for
@@ -217,22 +215,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         button.addEventListener("click", function () {
 
-            /* 🔐 LOGIN CHECK */
-            if (localStorage.getItem("loggedIn") !== "true") {
-
-                const loginPopup = document.getElementById("loginPopup");
-                loginPopup.classList.add("show");
-
-                // Save redirect page
-                localStorage.setItem("redirectAfterLogin", window.location.href);
-
-                // Auto hide popup
-                setTimeout(() => {
-                    loginPopup.classList.remove("show");
-                }, 4000);
-
-                return;
-            }
 
             /* 🛒 ADD TO CART */
             const productCard = this.closest(".product-card");

@@ -109,8 +109,8 @@
 
             <div class="product-action">
                 <input type="number" min="1" value="1" class="qty">
-                <button class="add-to-cart-btn" data-id="20" data-name="Crochet phone case blue" data-price="1000"
-                    data-image="assets/img/crochet purple gajray.jpeg">
+                <button class="add-to-cart-btn" data-id="20" data-name="Crochet phone case red" data-price="1000"
+                    data-image="assets/img/phonecase2.jpeg">
                     Add to Cart
                 </button>
                 <hr class="product-divider">
@@ -217,22 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         button.addEventListener("click", function () {
 
-            /* 🔐 LOGIN CHECK */
-            if (localStorage.getItem("loggedIn") !== "true") {
-
-                const loginPopup = document.getElementById("loginPopup");
-                loginPopup.classList.add("show");
-
-                // Save redirect page
-                localStorage.setItem("redirectAfterLogin", window.location.href);
-
-                // Auto hide popup
-                setTimeout(() => {
-                    loginPopup.classList.remove("show");
-                }, 4000);
-
-                return;
-            }
 
             /* 🛒 ADD TO CART */
             const productCard = this.closest(".product-card");
