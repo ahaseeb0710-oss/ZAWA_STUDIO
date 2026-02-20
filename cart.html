@@ -15,7 +15,48 @@
     <link rel="manifest" href="assets/img/site.webmanifest">
     <style>
         /* General Styles */
+/* Styled popup alerts */
+.cart-popup {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: #111;
+  color: #fff;
+  padding: 18px 22px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transform: translateX(120%);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 9999;
+  min-width: 260px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(10px);
+}
 
+.cart-popup.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.cart-popup i {
+  font-size: 26px;
+  color: #c59d5f;
+}
+
+.cart-popup h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cart-popup p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #ccc;
+}
         .container {
             max-width: 900px;
             margin: auto;
@@ -223,6 +264,26 @@
     <button class="checkout" id="checkoutBtn">Checkout</button>
 </div>
 <script>
+
+    // Styled popup function
+function showPopup(title, message, icon = "✓", duration = 4000) {
+    const popup = document.createElement("div");
+    popup.className = "cart-popup show";
+    popup.innerHTML = `
+        <i>${icon}</i>
+        <div>
+            <h4>${title}</h4>
+            <p>${message}</p>
+        </div>
+    `;
+    document.body.appendChild(popup);
+
+    // Auto hide after duration (default 4s)
+    setTimeout(() => {
+        popup.classList.remove("show");
+        setTimeout(() => popup.remove(), 400);
+    }, duration);
+}
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartTableBody = document.querySelector("#cartTable tbody");
@@ -307,14 +368,15 @@ renderCart();
 document.getElementById("checkoutBtn").addEventListener("click", () => {
 
     if (cart.length === 0) {
-        alert("Your cart is empty!");
+        showPopup("Error", "Your cart is empty!", "⚠️", 5000);
         return;
     }
 
-    alert("Proceeding to checkout...");
-    window.location.href = "order.html";
+    showPopup("Info", "Proceeding to checkout...", "ℹ️", 4000);
+    setTimeout(() => {
+        window.location.href = "order.html";
+    }, 1000); // Wait for popup to display before redirect
 });
-
 </script>
 <div style="color:transparent;">
     '

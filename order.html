@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="stylesheet" href="index.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
@@ -18,7 +18,48 @@
     <style>
         /* Base Styles */
 
+/* Styled popup alerts */
+.cart-popup {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: #111;
+  color: #fff;
+  padding: 18px 22px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transform: translateX(120%);
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 9999;
+  min-width: 260px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
+.cart-popup.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.cart-popup i {
+  font-size: 26px;
+  color: #c59d5f;
+}
+
+.cart-popup h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cart-popup p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #ccc;
+}
         .container {
             max-width: 900px;
             margin: auto;
@@ -26,7 +67,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-top: 40px;
+            margin-top: 120px;
         }
 
         h2 {
@@ -291,144 +332,7 @@
         <button class="checkout-btn" id="placeOrderBtn">Place Order</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-    <script>
-        // Initialize EmailJS with User ID
-        (function () {
-            emailjs.init("ydfCcmdSiJYKZXoRM");  // Replace with your EmailJS User ID
-        })();
-
-        // Retrieve cart from localStorage
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const orderItemsContainer = document.getElementById("orderItems");
-        const orderTotal = document.getElementById("orderTotal");
-
-
-        // Function to render cart items on the order page
-        // Delivery charge constant (in PKR)
-        const DELIVERY_CHARGE = 300;
-
-        function renderOrderItems() {
-            orderItemsContainer.innerHTML = "";  // Clear the container
-            let total = 0;
-
-            // Ensure that the cart has items
-            if (cart.length > 0) {
-                cart.forEach(item => {
-                    const itemTotal = item.price * item.quantity;
-                    total += itemTotal;
-
-                    // Create order item div
-                    const orderItemDiv = document.createElement("div");
-                    orderItemDiv.classList.add("order-item");
-
-                    // Populate order item info
-                    orderItemDiv.innerHTML = `
-                <div class="order-item-info">
-                    <div class="order-item-name">${item.name}</div>
-                    <div class="order-item-price">PKR ${item.price.toFixed(2)}</div>
-                </div>
-                <div class="order-item-quantity">Qty: ${item.quantity}</div>
-                <div class="order-item-price">Total: PKR ${itemTotal.toFixed(2)}</div>
-            `;
-
-                    orderItemsContainer.appendChild(orderItemDiv);
-                });
-
-                // Add the delivery charge to the total
-                let finalTotal = total + DELIVERY_CHARGE;
-
-                // Display order summary
-                orderTotal.innerHTML = `
-            <div>Subtotal: PKR ${total.toFixed(2)}</div>
-            <div>Delivery Charge: PKR ${DELIVERY_CHARGE.toFixed(2)}</div>
-            <div><strong>Grand Total: PKR ${finalTotal.toFixed(2)}</strong></div>
-        `;
-            } else {
-                orderItemsContainer.innerHTML = "No items in the cart.";
-            }
-        }
-
-        // Call the renderOrderItems function to display items on the page
-        renderOrderItems();
-
-
-        // Validate the form before submitting
-        function validateOrderForm() {
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let phone = document.getElementById("phone").value;
-            let address = document.getElementById("address").value;
-            let city = document.getElementById("city").value;
-            let country = document.getElementById("country").value;
-            let payment = document.getElementById("payment").value;
-
-            if (!name || !email || !phone || !address || !city || !country || !payment) {
-                alert("Please fill out all required fields.");
-                return false;
-            }
-
-            // Proceed with placing the order if validation passes
-            placeOrder(name, email, phone, address, city, country, payment);
-        }
-
-        // Function to place the order and send the email
-        function placeOrder(name, email, phone, address, city, country, payment) {
-            let total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
-
-            let itemsList = cart.map(i => `${i.name} x ${i.quantity}`).join(", ");
-
-            // Prepare the email parameters
-            let params = {
-                name: name,
-                email: email,
-                phone: phone,
-                address: address,
-                city: city,
-                country: country,
-                payment: payment,
-                items: itemsList,
-                total: total.toFixed(2)  // Format total price
-            };
-
-            // Send email using EmailJS
-            emailjs.send("service_qc9ieu9", "template_jh9y4xd", params)
-                .then(function (response) {
-                    console.log("SUCCESS", response);
-                    alert("Order confirmed! A confirmation email has been sent.");
-                    localStorage.removeItem("cart");  // Clear the cart
-                    window.location.href = "thankyou.html";  // Redirect to a Thank You page
-                }, function (error) {
-                    console.error("FAILED", error);
-                    alert("Order failed! Please try again.");
-                });
-        }
-
-        // Add event listener for the "Place Order" button
-        document.getElementById("placeOrderBtn").addEventListener("click", function (event) {
-            event.preventDefault();  // Prevent the form from submitting the usual way
-            validateOrderForm();  // Validate the form before proceeding
-        });
-
-        // Function to toggle the visibility of payment account details based on selection
-        document.getElementById("payment").addEventListener("change", function () {
-            let selectedPaymentMethod = document.getElementById("payment").value;
-
-            // Hide both account details sections initially
-            document.getElementById("easypaisaDetails").style.display = "none";
-            document.getElementById("bankTransferDetails").style.display = "none";
-
-            // Show the relevant account details based on the selected payment method
-            if (selectedPaymentMethod === "easypaisa") {
-                document.getElementById("easypaisaDetails").style.display = "block";
-            } else if (selectedPaymentMethod === "banktransfer") {
-                document.getElementById("bankTransferDetails").style.display = "block";
-            }
-        });
-
-
-    </script>
+   
     <!-- footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -466,6 +370,154 @@
         </div>
 
     </footer>
+
+
+     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+ <script>
+  // Styled popup function
+  function showPopup(title, message, icon = "✓") {
+    const popup = document.createElement("div");
+    popup.className = "cart-popup show";
+    popup.innerHTML = `
+      <i>${icon}</i>
+      <div>
+        <h4>${title}</h4>
+        <p>${message}</p>
+      </div>
+    `;
+    document.body.appendChild(popup);
+
+    // Auto hide after 3 seconds
+    setTimeout(() => {
+      popup.classList.remove("show");
+      setTimeout(() => popup.remove(), 400);
+    }, 3000);
+  }
+
+  // Initialize EmailJS with User ID
+  (function () {
+    emailjs.init("ydfCcmdSiJYKZXoRM");  // Replace with your EmailJS User ID
+  })();
+
+  // Retrieve cart from localStorage
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const orderItemsContainer = document.getElementById("orderItems");
+  const orderTotal = document.getElementById("orderTotal");
+
+  const DELIVERY_CHARGE = 300;
+
+  function renderOrderItems() {
+    orderItemsContainer.innerHTML = "";
+    let total = 0;
+
+    if (cart.length > 0) {
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        const orderItemDiv = document.createElement("div");
+        orderItemDiv.classList.add("order-item");
+
+        orderItemDiv.innerHTML = `
+          <div class="order-item-info">
+            <div class="order-item-name">${item.name}</div>
+            <div class="order-item-price">PKR ${item.price.toFixed(2)}</div>
+          </div>
+          <div class="order-item-quantity">Qty: ${item.quantity}</div>
+          <div class="order-item-price">Total: PKR ${itemTotal.toFixed(2)}</div>
+        `;
+
+        orderItemsContainer.appendChild(orderItemDiv);
+      });
+
+      let finalTotal = total + DELIVERY_CHARGE;
+
+      orderTotal.innerHTML = `
+        <div>Subtotal: PKR ${total.toFixed(2)}</div>
+        <div>Delivery Charge: PKR ${DELIVERY_CHARGE.toFixed(2)}</div>
+        <div><strong>Grand Total: PKR ${finalTotal.toFixed(2)}</strong></div>
+      `;
+    } else {
+      orderItemsContainer.innerHTML = "No items in the cart.";
+    }
+  }
+
+  renderOrderItems();
+
+  // Validate the form before submitting
+  function validateOrderForm() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let address = document.getElementById("address").value;
+    let city = document.getElementById("city").value;
+    let country = document.getElementById("country").value;
+    let payment = document.getElementById("payment").value;
+
+    if (!name || !email || !phone || !address || !city || !country || !payment) {
+      showPopup("Error", "Please fill out all required fields.", "⚠️");
+      return false;
+    }
+
+    placeOrder(name, email, phone, address, city, country, payment);
+  }
+
+  // Place order and send email
+  function placeOrder(name, email, phone, address, city, country, payment) {
+    let total = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+    let itemsList = cart.map(i => `${i.name} x ${i.quantity}`).join(", ");
+
+    let params = {
+      name: name,
+      email: email,
+      phone: phone,
+      address: address,
+      city: city,
+      country: country,
+      payment: payment,
+      items: itemsList,
+      total: total.toFixed(2)
+    };
+
+    emailjs.send("service_qc9ieu9", "template_jh9y4xd", params)
+      .then(function (response) {
+        console.log("SUCCESS", response);
+        showPopup("Success", "Order confirmed! A confirmation email has been sent.", "✓");
+localStorage.removeItem("cart");
+
+// Wait 6 seconds before redirecting
+setTimeout(() => {
+    window.location.href = "thankyou.html";
+}, 3000);
+      }, function (error) {
+        console.error("FAILED", error);
+        showPopup("Error", "Order failed! Please try again.", "⚠️");
+      });
+  }
+
+  // Event listener for "Place Order" button
+  document.getElementById("placeOrderBtn").addEventListener("click", function (event) {
+    event.preventDefault();
+    validateOrderForm();
+  });
+
+  // Toggle payment details visibility
+  document.getElementById("payment").addEventListener("change", function () {
+    let selectedPaymentMethod = document.getElementById("payment").value;
+
+    document.getElementById("easypaisaDetails").style.display = "none";
+    document.getElementById("bankTransferDetails").style.display = "none";
+
+    if (selectedPaymentMethod === "easypaisa") {
+      document.getElementById("easypaisaDetails").style.display = "block";
+    } else if (selectedPaymentMethod === "banktransfer") {
+      document.getElementById("bankTransferDetails").style.display = "block";
+    }
+  });
+</script>
+    
+    <script src="assets/js/nav.js"></script>
     <script src="assets/js/cart.js"></script>
 </body>
 
