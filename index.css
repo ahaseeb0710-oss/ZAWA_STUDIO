@@ -162,11 +162,7 @@ body {
     margin: 20px auto 60px;
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-}
+
 
 .product-card {
     transition: 0.4s ease;
@@ -208,24 +204,63 @@ body {
     margin-top: 120px;
 }
 
-@media(max-width:1200px) {
-    .products {
-        grid-template-columns: repeat(2, 1fr);
-    }
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .image-wrapper img {
+    height: 260px;
+  }
 }
 
-@media(max-width:600px) {
-    .products {
-        grid-template-columns: 1fr;
-    }
+/* MOBILE */
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 16px;
+  }
 
-    .title {
-        font-size: 36px;
-    }
+  .products {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin: 60px auto;
+  }
+
+  .image-wrapper img {
+    height: 220px;
+  }
+
+  .product-title {
+    font-size: 18px;
+  }
+
+  .category {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
 }
+@media (max-width: 600px) {
+  .products {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
 
+  .product-card {
+    min-width: 220px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
 
-
+  .products::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 .navbar {
     position: fixed;
@@ -476,6 +511,10 @@ body {
     color: hsl(40 60% 75%);
 }
 
+.instagram-section h2{
+    color: #ffffff;
+}
+
 .insta-header {
     display: flex;
     justify-content: center;
@@ -688,3 +727,12 @@ body {
 
 
 
+.p-heading{
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 15px;
+
+    text-align: center;
+
+    font-family: 'Playfair Display', serif
+}

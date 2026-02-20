@@ -210,7 +210,7 @@ body {
 
 .btn {
   padding: 14px 42px;
-
+margin-bottom: 20px;
   color: rgb(0, 0, 0);
   border-radius: 30px;
   border: none;
@@ -587,10 +587,21 @@ section {
   /* Hide desktop navbar parts */
 /* Hide desktop nav-left ONLY when NOT sidebar */
 .nav-left:not(#mobileMenu),
-.nav-right,
-.logo {
+.nav-right {
   display: none !important;
-}#mobileMenu {
+}
+
+.logo {
+  display: none;
+}
+.nav-right {
+  flex-wrap: nowrap;
+}
+
+.search-box {
+  flex-shrink: 0;
+}
+#mobileMenu {
   display: block !important;
   position: fixed;
   top: 0;
@@ -976,7 +987,7 @@ body {
   font-weight: 400;
   margin-bottom: 25px;
   background: #c9a24d;
-  -webkit-background-clip: text;
+  
   -webkit-text-fill-color: transparent;
   font-family: Cormorant Garamond, serif;
 }
@@ -1930,3 +1941,15 @@ color: #b88a44;  font-family: 'Playfair Display', serif;
   font-size: 28px;
 }
 
+.mobile-logo h1 {
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 20px;
+}
+.mobile-logo h1 span {
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 20px;
+}
