@@ -493,14 +493,28 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const count = cart.length;
 
+  // Calculate total quantity
+  let totalQuantity = 0;
+
+  cart.forEach(item => {
+    totalQuantity += Number(item.quantity) || 1;
+  });
+
+  // Update Desktop
   const desktopCount = document.getElementById("cartCount");
-  const mobileCount = document.getElementById("mobileCartCount");
+  if (desktopCount) {
+    desktopCount.innerText = totalQuantity;
+  }
 
-  if (desktopCount) desktopCount.innerText = count;
-  if (mobileCount) mobileCount.innerText = count;
+  // Update Mobile
+  const mobileCount = document.getElementById("mobileCartCount");
+  if (mobileCount) {
+    mobileCount.innerText = totalQuantity;
+  }
+
 });
 </script>
 
