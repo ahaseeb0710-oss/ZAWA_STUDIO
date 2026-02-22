@@ -66,11 +66,128 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+/* ============================= */
+/* 📱 PROFESSIONAL MOBILE CART */
+/* ============================= */
 
+@media (max-width: 768px) {
+
+    #cartTable thead {
+        display: none;
+    }
+
+    #cartTable,
+    #cartTable tbody,
+    #cartTable tr,
+    #cartTable td {
+        display: block;
+        width: 100%;
+    }
+
+    #cartTable tr {
+        background: #fff;
+        margin-bottom: 18px;
+        padding: 15px;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    #cartTable td {
+        border: none;
+        padding: 6px 0;
+    }
+
+    /* Hide original price column */
+    #cartTable td:nth-child(2) {
+        display: none;
+    }
+
+    /* Product Row Layout */
+    .cart-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .cart-item img {
+        width: 75px;
+        height: 75px;
+        border-radius: 10px;
+    }
+
+    .cart-item-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    /* Name + Quantity in same row */
+    .cart-item-name {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    /* Quantity + Remove in same row */
+    #cartTable td:nth-child(3),
+    #cartTable td:nth-child(5) {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 15px;
+    }
+
+    input[type="number"] {
+        width: 65px;
+        padding: 6px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .remove-btn {
+        font-size: 20px;
+        color: #d10000;
+        cursor: pointer;
+    }
+
+    /* Subtotal Styling */
+    #cartTable td:nth-child(4) {
+        font-size: 14px;
+        color: #555;
+        margin-top: 8px;
+    }
+
+    #cartTable td:nth-child(4)::before {
+        content: "Subtotal: ";
+        font-weight: 600;
+    }
+
+    /* Total Box */
+    .total {
+        background: #fff;
+        padding: 16px;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .total strong {
+        font-size: 18px;
+    }
+
+    button.checkout {
+        margin-top: 15px;
+        border-radius: 10px;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+}
         h2 {
             text-align: center;
             margin-bottom: 20px;
-            color: #333;
+            color: #f5e6ff;
             font-weight: 600;
         }
 
@@ -172,6 +289,437 @@
             font-size: 16px;
             color: #888;
         }
+
+        /* ========================= */
+/* 📱 MOBILE CART – CLEAN UI */
+/* ========================= */
+@media (max-width: 768px) {
+
+  .container {
+    margin-top: 90px;
+    padding: 16px;
+    box-shadow: none;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  #cartTable thead {
+    display: none;
+  }
+
+  #cartTable,
+  #cartTable tbody,
+  #cartTable tr,
+  #cartTable td {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+
+  #cartTable tr {
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* PRODUCT ROW */
+  .cart-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .cart-item img {
+    width: 85px;
+    height: 85px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .cart-item-info {
+    flex: 1;
+  }
+
+  .cart-item-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  /* REMOVE LINK */
+  .remove-btn {
+    font-size: 14px;
+    color: #777;
+    font-weight: normal;
+  }
+
+  .remove-btn::before {
+    content: "Remove";
+  }
+
+  .remove-btn {
+    color: #777;
+  }
+
+  .remove-btn:hover {
+    text-decoration: underline;
+  }
+
+  /* HIDE DESKTOP PRICE COLUMN */
+  #cartTable td:nth-child(2) {
+    display: none;
+  }
+
+  /* QUANTITY BOX */
+  input[type="number"] {
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  /* SUBTOTAL PRICE */
+  #cartTable td:nth-child(4) {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  #cartTable td:nth-child(4)::before {
+    content: "Rs. ";
+    font-weight: 600;
+  }
+
+  /* TOTAL BOX */
+  .total {
+    margin-top: 25px;
+    padding: 15px 0;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .total strong {
+    font-size: 18px;
+  }
+
+  /* CHECKOUT BUTTON */
+  button.checkout {
+    margin-top: 20px;
+    height: 55px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+}
+
+/* ===================================== */
+/* 📱 EXACT SCREENSHOT MOBILE CART */
+/* ===================================== */
+@media (max-width: 768px) {
+
+  /* Page container */
+  .container {
+    margin-top: 90px;
+    padding: 22px 18px 30px;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 28px;
+  }
+
+  /* Remove table look */
+  #cartTable thead {
+    display: none;
+  }
+
+  #cartTable,
+  #cartTable tbody,
+  #cartTable tr,
+  #cartTable td {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+
+  /* Each product block */
+  #cartTable tr {
+    padding: 0;
+    margin-bottom: 26px;
+  }
+
+  /* Product row */
+  .cart-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .cart-item img {
+    width: 92px;
+    height: 92px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .cart-item-info {
+    flex: 1;
+    padding-top: 2px;
+  }
+
+  .cart-item-name {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  /* Remove text */
+  .remove-btn {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+  }
+
+  .remove-btn::before {
+    content: "Remove";
+  }
+
+  /* Hide desktop price */
+  #cartTable td:nth-child(2) {
+    display: none;
+  }
+
+  /* Quantity box (separate row feel) */
+  input[type="number"] {
+    width: 95px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    margin-top: 14px;
+  }
+
+  /* Price on right (like screenshot) */
+  #cartTable td:nth-child(4) {
+    margin-top: 14px;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: right;
+  }
+
+  /* Divider after product */
+  #cartTable tr::after {
+    content: "";
+    display: block;
+    margin-top: 22px;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Subtotal section */
+  .total {
+    margin-top: 30px;
+    padding-top: 18px;
+    border-top: 1px solid #eee;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .total strong {
+    font-size: 18px;
+  }
+
+  /* Checkout button (big & clean) */
+  button.checkout {
+    margin-top: 22px;
+    height: 56px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+}
+
+/* ===================================== */
+/* 📱 FIXED MOBILE CART – CLEAN & AIRY */
+/* ===================================== */
+@media (max-width: 768px) {
+
+
+  .container {
+    margin-top: 90px;
+    padding: 14px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  /* remove table layout */
+  #cartTable thead {
+    display: none;
+  }
+
+  #cartTable,
+  #cartTable tbody,
+  #cartTable tr,
+  #cartTable td {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+
+  /* CARD */
+  #cartTable tr {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
+
+  /* TOP: image + name */
+  .cart-item {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .cart-item img {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .cart-item-name {
+    font-size: 15.5px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* hide desktop price column */
+  #cartTable td:nth-child(2) {
+    display: none;
+  }
+
+  /* MIDDLE: quantity + price */
+  #cartTable td:nth-child(3),
+  #cartTable td:nth-child(4) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  input[type="number"] {
+    width: 70px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 15px;
+  }
+
+  #cartTable td:nth-child(4) {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  /* BOTTOM: remove */
+  #cartTable td:nth-child(5) {
+    margin-top: 12px;
+  }
+
+  .remove-btn {
+    font-size: 14px;
+    color: #000000;
+    font-weight: 400;
+  }
+
+  .remove-btn::before {
+    content: "Remove";
+  }
+
+  /* TOTAL SECTION */
+  .total {
+    background: #fff;
+    padding: 18px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .total strong {
+    font-size: 18px;
+  }
+
+  /* CHECKOUT BUTTON */
+  button.checkout {
+    margin-top: 18px;
+    height: 56px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+}
+
+/* ================================= */
+/* ❌ REMOVE → CROSS ICON (MOBILE) */
+/* ================================= */
+@media (max-width: 768px) {
+
+  /* Remove cell ko position anchor banao */
+  #cartTable tr {
+    position: relative;
+  }
+
+  /* Hide text completely */
+  .remove-btn {
+    font-size: 0;
+  }
+
+  /* Cross button */
+  .remove-btn::after {
+    content: "✕";
+    font-size: 16px;
+    color: #444;
+    width: 30px;
+    height: 30px;
+    background: #f2f2f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  /* Hover / tap effect */
+  .remove-btn:hover::after {
+    background: #e5e5e5;
+    color: #000;
+  }
+}
     </style>
 </head>
 <body>
@@ -355,6 +903,7 @@
 
     <button class="checkout" id="checkoutBtn">Checkout</button>
 </div>
+
 <script>
 
     // Styled popup function

@@ -196,6 +196,172 @@
                 margin-bottom: 10px;
             }
         }
+        @media (max-width: 768px) {
+
+  /* Container padding for mobile */
+  .container {
+      padding: 25px 20px;
+      margin-top: 100px;
+      border-radius: 12px;
+  }
+
+  h2 {
+      font-size: 26px;
+      margin-bottom: 25px;
+  }
+
+  /* Input fields full width with spacing */
+  .input-container {
+      margin-bottom: 18px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+      width: 100%;
+      padding: 14px 12px;
+      font-size: 15px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input:focus + label,
+  select:focus + label {
+      top: -8px;
+      font-size: 12px;
+  }
+
+  /* Order Items stacked vertically */
+  .order-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      padding: 12px 0;
+      font-size: 14px;
+  }
+
+  .order-item-info {
+      width: 100%;
+      margin-bottom: 6px;
+  }
+
+  .order-item-price,
+  .order-item-quantity {
+      text-align: left;
+      width: 100%;
+  }
+
+  /* Payment details box spacing */
+  #easypaisaDetails, #bankTransferDetails {
+      padding: 12px 15px;
+      font-size: 14px;
+      border-radius: 8px;
+  }
+
+  /* Checkout button full width with padding */
+  .checkout-btn {
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 8px;
+  }
+
+  /* Order Summary spacing */
+  .order-summary {
+      text-align: left;
+      font-size: 16px;
+      margin-top: 20px;
+  }
+
+  /* Popup adjustments */
+  .cart-popup {
+      top: 20px;
+      right: 15px;
+      min-width: 220px;
+      padding: 15px 18px;
+      font-size: 13px;
+  }
+}
+
+/* ===== ORDER ITEM CARD STYLING ===== */
+.order-item-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fafafa;
+    border-radius: 14px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.item-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #111;
+}
+
+.item-qty-price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+}
+
+.item-total {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+    margin-top: 4px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .order-item-card {
+        flex-direction: row; /* keep image + details side by side */
+        gap: 12px;
+        padding: 12px;
+    }
+    .item-image img {
+        width: 70px;
+        height: 70px;
+    }
+    .item-details {
+        gap: 4px;
+    }
+    .item-name {
+        font-size: 15px;
+    }
+    .item-qty-price {
+        font-size: 13px;
+    }
+    .item-total {
+        font-size: 14px;
+    }
+}
     </style>
 
 </head>
@@ -502,36 +668,41 @@
     let total = 0;
 
     if (cart.length > 0) {
-      cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
 
-        const orderItemDiv = document.createElement("div");
-        orderItemDiv.classList.add("order-item");
+            const orderItemDiv = document.createElement("div");
+            orderItemDiv.classList.add("order-item-card");
 
-        orderItemDiv.innerHTML = `
-          <div class="order-item-info">
-            <div class="order-item-name">${item.name}</div>
-            <div class="order-item-price">PKR ${item.price.toFixed(2)}</div>
-          </div>
-          <div class="order-item-quantity">Qty: ${item.quantity}</div>
-          <div class="order-item-price">Total: PKR ${itemTotal.toFixed(2)}</div>
+            orderItemDiv.innerHTML = `
+                <div class="item-image">
+                    <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">${item.name}</div>
+                    <div class="item-qty-price">
+                        <span class="item-quantity">Qty: ${item.quantity}</span>
+                        <span class="item-price">PKR ${item.price.toFixed(2)}</span>
+                    </div>
+                    <div class="item-total">Total: PKR ${itemTotal.toFixed(2)}</div>
+                </div>
+            `;
+
+            orderItemsContainer.appendChild(orderItemDiv);
+        });
+
+        let finalTotal = total + DELIVERY_CHARGE;
+
+        orderTotal.innerHTML = `
+            <div>Subtotal: PKR ${total.toFixed(2)}</div>
+            <div>Delivery Charge: PKR ${DELIVERY_CHARGE.toFixed(2)}</div>
+            <div><strong>Grand Total: PKR ${finalTotal.toFixed(2)}</strong></div>
         `;
-
-        orderItemsContainer.appendChild(orderItemDiv);
-      });
-
-      let finalTotal = total + DELIVERY_CHARGE;
-
-      orderTotal.innerHTML = `
-        <div>Subtotal: PKR ${total.toFixed(2)}</div>
-        <div>Delivery Charge: PKR ${DELIVERY_CHARGE.toFixed(2)}</div>
-        <div><strong>Grand Total: PKR ${finalTotal.toFixed(2)}</strong></div>
-      `;
     } else {
-      orderItemsContainer.innerHTML = "No items in the cart.";
+        orderItemsContainer.innerHTML = "No items in the cart.";
     }
-  }
+}
 
   renderOrderItems();
 
