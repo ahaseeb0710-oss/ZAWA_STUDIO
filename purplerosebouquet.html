@@ -24,7 +24,7 @@
 <!-- Mobile Header -->
 <div class="mobile-header">
   <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa-solid fa-bars"></i>
+    <i class="fa fa-bars" aria-hidden="true" style="font-size: 26px;"></i>
   </div>
 
   <div class="mobile-logo">
@@ -279,6 +279,31 @@
     </footer>
 
 
+
+    <!-- Premium Cart Popup -->
+    <div id="cartPopup" class="cart-popup">
+        <div class="popup-content">
+            <i class="fa-solid fa-check-circle"></i>
+            <div>
+                <h4 id="popupTitle"></h4>
+                <p id="popupQty"></p>
+            </div>
+        </div>
+    </div>
+
+<!-- Premium Login Required Popup -->
+<div id="loginPopup" class="login-popup">
+    <div class="login-popup-content">
+        <i class="fa-solid fa-lock"></i>
+        <div>
+            <h4>Login Required</h4>
+            <p>Please login to add items to your cart.</p>
+        </div>
+        <button id="loginNowBtn">Login</button>
+    </div>
+</div>
+
+
     <script>
         const track = document.querySelector('.slider-track');
         const slides = Array.from(track.children);
@@ -367,29 +392,6 @@
             isDragging = false;
         });
     </script>
-    <!-- Premium Cart Popup -->
-    <div id="cartPopup" class="cart-popup">
-        <div class="popup-content">
-            <i class="fa-solid fa-check-circle"></i>
-            <div>
-                <h4 id="popupTitle"></h4>
-                <p id="popupQty"></p>
-            </div>
-        </div>
-    </div>
-
-<!-- Premium Login Required Popup -->
-<div id="loginPopup" class="login-popup">
-    <div class="login-popup-content">
-        <i class="fa-solid fa-lock"></i>
-        <div>
-            <h4>Login Required</h4>
-            <p>Please login to add items to your cart.</p>
-        </div>
-        <button id="loginNowBtn">Login</button>
-    </div>
-</div>
-
 
 
    <script>

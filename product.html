@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="manifest" href="assets/img/site.webmanifest">
-    
+
 
     <style>
         .product-grid {
@@ -46,160 +46,161 @@
 
     <!-- RIGHT : links + search + icons -->
 
-  <nav class="navbar">
-<!-- Mobile Header -->
-<div class="mobile-header">
-  <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa-solid fa-bars"></i>
-  </div>
+    <nav class="navbar">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
 
-  <div class="mobile-logo">
-    <a href="index.html">
-      <h1>ZAWA <span>STUDIO</span></h1>
-    </a>
-  </div>
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <h1>ZAWA <span>STUDIO</span></h1>
+                </a>
+            </div>
 
-  <div class="mobile-icons">
-<div class="mobile-search-bar" id="mobileSearchBar">
-  <input type="text" id="mobileSearchInputTop" placeholder="Search products...">
-  <i class="fa-solid fa-xmark" onclick="closeMobileSearch()"></i>
-</div>
-  <!-- Search Icon -->
-  <div class="mobile-search-icon">
-   <i class="fa-solid fa-magnifying-glass" onclick="openMobileSearch()"></i>
-  </div>
+            <div class="mobile-icons">
+                <div class="mobile-search-bar" id="mobileSearchBar">
+                    <input type="text" id="mobileSearchInputTop" placeholder="Search products...">
+                    <i class="fa-solid fa-xmark" onclick="closeMobileSearch()"></i>
+                </div>
+                <!-- Search Icon -->
+                <div class="mobile-search-icon">
+                    <i class="fa-solid fa-magnifying-glass" onclick="openMobileSearch()"></i>
+                </div>
 
-  <!-- Cart Icon -->
-  <div class="mobile-cart">
-    <a href="cart.html">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="mobileCartCount">0</span>
-    </a>
-  </div>
+                <!-- Cart Icon -->
+                <div class="mobile-cart">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="mobileCartCount">0</span>
+                    </a>
+                </div>
 
-</div>
-</div>
-<div class="nav-left" id="mobileMenu">
-  <!-- MOBILE ONLY RIGHT LINKS -->
-
-  <div class="close-btn" onclick="toggleMenu()">
-    <i class="fa-solid fa-xmark"></i>
-  </div>
-
-        <a href="index.html">HOME</a>
-
-      <!-- SHOP DROPDOWN -->
-      <div class="nav-dropdown">
-        <a href="product.html">SHOP</a>
-        <div class="dropdown-menu">
-          <a href="bouquet.html">Bouquet</a>
-          <a href="gajray.html">Gajray</a>
-          <a href="headband.html">Headband</a>
-          <a href="bags.html">Bags</a>
-          <a href="handbag.html">Handbag</a>
-          <a href="phonecase.html">PhoneCase</a>
-          <a href="keychain.html">Keychain</a>
-          <a href="pouch.html">Pouch</a>
-          <a href="wallet.html">Wallet</a>
+            </div>
         </div>
-      </div>
+        <div class="nav-left" id="mobileMenu">
+            <!-- MOBILE ONLY RIGHT LINKS -->
 
-      <a href="aboutus.html">ABOUT</a>
+            <div class="close-btn" onclick="toggleMenu()">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
 
-      <!-- FAQ DROPDOWN -->
-      <div class="nav-dropdown">
-        <a href="faqs.html">FAQ</a>
-        <div class="dropdown-menu">
-          <a href="returnpolicy.html">Return Policy</a>
-          <a href="terms.html">Terms & Conditions</a>
-        </div>
-      </div>
-      <a href="contact.html">CONTACT</a>
-<div class="mobile-only-links">
+            <a href="index.html">HOME</a>
 
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-    <i class="fa-brands fa-instagram"></i> Instagram
-  </a>
+            <!-- SHOP DROPDOWN -->
+            <div class="nav-dropdown">
+                <a href="product.html">SHOP</a>
+                <div class="dropdown-menu">
+                    <a href="bouquet.html">Bouquet</a>
+                    <a href="gajray.html">Gajray</a>
+                    <a href="headband.html">Headband</a>
+                    <a href="bags.html">Bags</a>
+                    <a href="handbag.html">Handbag</a>
+                    <a href="phonecase.html">PhoneCase</a>
+                    <a href="keychain.html">Keychain</a>
+                    <a href="pouch.html">Pouch</a>
+                    <a href="wallet.html">Wallet</a>
+                </div>
+            </div>
 
- 
+            <a href="aboutus.html">ABOUT</a>
 
-  <!-- Login / Signup -->
-  <div id="mobileAuthButtons">
-     <a href="login.html" class="auth-link">Login</a>
-            <a href="signup.html" class="auth-link">Sign Up</a>
-  </div>
+            <!-- FAQ DROPDOWN -->
+            <div class="nav-dropdown">
+                <a href="faqs.html">FAQ</a>
+                <div class="dropdown-menu">
+                    <a href="returnpolicy.html">Return Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+            <a href="contact.html">CONTACT</a>
+            <div class="mobile-only-links">
 
-  <!-- Profile -->
-<div id="mobileProfileArea" onclick="toggleMobileProfile()">
-  <i class="fa-solid fa-user"></i> My Account
-</div>
-
-<div class="mobile-profile-dropdown" id="mobileProfileDropdown">
-  <p id="mobileUserName"></p>
-  <p id="mobileUserEmail"></p>
-  <button onclick="logout()">Logout</button>
-</div>
-
-</div>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div class="logo">
-      <a href="index.html" style="text-decoration: none;">
-        <h1>ZAWA <span>STUDIO</span></h1>
-      </a>
-    </div>
-</div>
-   
-    <!-- RIGHT -->
-    <div class="nav-right">
-      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
-          class="fa-brands fa-instagram"></i></a>
-
-      <div class="cart-icon">
-        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-        <span id="cartCount">0</span>
-      </div>
+                <!-- Instagram -->
+                <a
+                    href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
 
 
-      <!-- SEARCH -->
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
 
-      <!-- RIGHT SIDE -->
+                <!-- Login / Signup -->
+                <div id="mobileAuthButtons">
+                    <a href="login.html" class="auth-link">Login</a>
+                    <a href="signup.html" class="auth-link">Sign Up</a>
+                </div>
 
+                <!-- Profile -->
+                <div id="mobileProfileArea" onclick="toggleMobileProfile()">
+                    <i class="fa-solid fa-user"></i> My Account
+                </div>
 
-        <div class="auth-area">
+                <div class="mobile-profile-dropdown" id="mobileProfileDropdown">
+                    <p id="mobileUserName"></p>
+                    <p id="mobileUserEmail"></p>
+                    <button onclick="logout()">Logout</button>
+                </div>
 
-          <!-- Login / Signup Buttons -->
-          <div id="authButtons">
-            <a href="login.html" class="auth-link">Login</a>
-            <a href="signup.html" class="auth-link">Sign Up</a>
-          </div>
-
-          <!-- Profile Icon -->
-          <div class="profile" id="profileArea" onclick="toggleProfile()">
-            <i class="fa-solid fa-user"></i>
-          </div>
-
-          <!-- Profile Dropdown -->
-          <div class="profile-dropdown" id="profileDropdown">
-            <p id="userName"></p>
-            <p id="userEmail"></p>
-            <button onclick="logout()">Logout</button>
-          </div>
-
+            </div>
         </div>
 
-      </div>
+        <!-- CENTER LOGO -->
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none;">
+                <h1>ZAWA <span>STUDIO</span></h1>
+            </a>
+        </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="nav-right">
+            <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+                    class="fa-brands fa-instagram"></i></a>
+
+            <div class="cart-icon">
+                <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
+                <span id="cartCount">0</span>
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <!-- RIGHT SIDE -->
+
+
+            <div class="auth-area">
+
+                <!-- Login / Signup Buttons -->
+                <div id="authButtons">
+                    <a href="login.html" class="auth-link">Login</a>
+                    <a href="signup.html" class="auth-link">Sign Up</a>
+                </div>
+
+                <!-- Profile Icon -->
+                <div class="profile" id="profileArea" onclick="toggleProfile()">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <!-- Profile Dropdown -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <p id="userName"></p>
+                    <p id="userEmail"></p>
+                    <button onclick="logout()">Logout</button>
+                </div>
+
+            </div>
+
+        </div>
 
 
 
-  </nav>
-<div class="menu-overlay" onclick="toggleMenu()"></div>
+    </nav>
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
     <div class="shop-layout">
 
         <!-- SIDEBAR -->
@@ -267,7 +268,19 @@
                 </div>
             </div>
 
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/tullip.jpeg" alt="">
+                </div>
+                <div class="product-info">
+                    <p class="category">BOUQUET</p>
+                    <a href="CROCHETTULIPS.html" class="nameofproduct">
+                        <h5 class="name">CROCHET TULIPS</h5>
+                    </a>
+                    <p class="price">Rs.600</p>
 
+                </div>
+            </div>
 
             <div class="product-card">
                 <div class="product-img">
@@ -315,7 +328,67 @@
                 </div>
             </div>
 
+           
+
             <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/handbag.jpeg" alt="">
+                </div>
+                <div class="product-info">
+                    <p class="category">HANDBAG</p>
+                    <a href="Crochet handbag.html" class="nameofproduct">
+                        <h5 class="name">CROCHET HANDBAG</h5>
+                    </a>
+                    <p class="price">Rs.2000</p>
+
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/handbag2.jpeg" alt="">
+                </div>
+
+                <div class="product-info">
+                    <p class="category">HANDBAG</p>
+                    <a href="CROCHETRUFFLEHANDBAG.html" class="nameofproduct">
+                        <h5 class="name">CROCHET RUFFLE HANDBAG</h5>
+                    </a>
+                    <p class="price">Rs.2200</p>
+
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/wallet1.jpeg" alt="">
+                </div>
+                <div class="product-info">
+                    <p class="category">WALLET</p>
+                    <a href="CROCHETWALLET.html" class="nameofproduct">
+                        <h5 class="name">CROCHET WALLET</h5>
+                    </a>
+                    <p class="price">Rs.1200</p>
+
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="assets/img/wallet2.jpeg" alt="">
+                </div>
+
+                <div class="product-info">
+                    <p class="category">WALLET</p>
+                    <a href="CROCHETWALLETWITHPEARLS.html" class="nameofproduct">
+                        <h5 class="name">CROCHET WALLET WITH PEARLS</h5>
+                    </a>
+                    <p class="price">Rs.1200</p>
+
+                </div>
+            </div>
+            
+
+ <div class="product-card">
                 <div class="product-img">
                     <img src="assets/img/headband1.jpeg" alt="">
                 </div>
@@ -361,71 +434,6 @@
 
                 </div>
             </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/handbag.jpeg" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="category">HANDBAG</p>
-                    <a href="Crochet handbag.html" class="nameofproduct">
-                        <h5 class="name">CROCHET HANDBAG</h5>
-                    </a>
-                    <p class="price">Rs.2000</p>
-
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/handbag2.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">HANDBAG</p>
-                    <a href="CROCHETRUFFLEHANDBAG.html" class="nameofproduct">
-                        <h5 class="name">CROCHET RUFFLE HANDBAG</h5>
-                    </a>
-                    <p class="price">Rs.2200</p>
-
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/keychain1.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">KEYCHAIN</p>
-                    <a href="CROCHETPURPLEBOWKEYCHAIN.html" class="nameofproduct">
-                        <h5 class="name">CROCHET PURPLE BOW KEYCHAIN</h5>
-                    </a>
-                    <p class="price">Rs.500</p>
-
-                </div>
-            </div>
-
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/keychain2.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">KEYCHAIN</p>
-                    <a href="CROCHETLILLYKEYCHAIN.html" class="nameofproduct">
-                        <h5 class="name">CROCHET LILLY KEYCHAIN</h5>
-                    </a>
-                    <p class="price">Rs.500</p>
-
-                </div>
-            </div>
-
-
-
-
-
 
             <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
         </div>
@@ -590,7 +598,7 @@
             });
         });
     </script>
-<script src="assets/js/nav.js"></script>
+    <script src="assets/js/nav.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

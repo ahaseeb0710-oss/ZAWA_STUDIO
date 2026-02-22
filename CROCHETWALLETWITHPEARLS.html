@@ -24,7 +24,7 @@
 <!-- Mobile Header -->
 <div class="mobile-header">
   <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa-solid fa-bars"></i>
+    <i class="fa fa-bars" aria-hidden="true" style="font-size: 26px;"></i>
   </div>
 
   <div class="mobile-logo">
@@ -179,17 +179,25 @@
 
 
     <!-- First Product: Crochet Purple Rose Bouquet -->
-    <div class="product-card">
+     <div class="product-card">
         <div class="product-img">
-            <img src="assets/img/wallet2.jpeg" alt="Crochet Purple Rose Bouquet">
+            <div class="slider-track">
+
+                <img src="assets/img/insta4.jpeg" alt="keychain">
+                <img src="assets/img/pearlwallet2.jpg" alt="keychain">
+                <img src="assets/img/pearlwallet3.jpg" alt="keychain">
+            </div>
+
+            <div class="slider-dots"></div>
         </div>
+
 
         <div class="product-info">
             <a href="wallet.html" class="nameofproduct">
                 <p class="category">WALLET</p>
             </a>
 
-            <h5 class="name">CROCHET WALLET WITH PEARLS l</h5>
+            <h5 class="name">CROCHET WALLET WITH PEARLS </h5>
 
             <p class="price">Rs.1200</p>
             <p class="description">
@@ -287,6 +295,98 @@
     </div>
 </div>
 
+
+
+    <script>
+        
+        const track = document.querySelector('.slider-track');
+        const slides = Array.from(track.children);
+        const dotsContainer = document.querySelector('.slider-dots');
+
+        let index = 0;
+        let baseSpeed = 3500; // normal slide speed
+        let sliderInterval;
+        let isDragging = false;
+        let startX = 0;
+
+        // Clone first slide for infinite effect
+        track.appendChild(slides[0].cloneNode(true));
+
+        /* Create dots */
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dotsContainer.appendChild(dot);
+
+            dot.addEventListener('click', () => {
+                index = i;
+                moveSlider();
+            });
+        });
+
+        const dots = dotsContainer.children;
+
+        /* Move slider to current index */
+        function moveSlider() {
+            track.style.transition = 'transform 0.6s ease';
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            // Update dots
+            [...dots].forEach(d => d.classList.remove('active'));
+            if (dots[index % slides.length]) dots[index % slides.length].classList.add('active');
+
+            handleCurrentSlide();
+        }
+
+        /* Handle current slide: if video, pause auto-slide and wait for it to end */
+        function handleCurrentSlide() {
+            clearInterval(sliderInterval);
+
+            const currentSlide = slides[index % slides.length];
+            const video = currentSlide.querySelector('video');
+
+            if (video) {
+                video.currentTime = 0;
+                video.play();
+
+                video.onended = () => {
+                    index++;
+                    moveSlider();
+                };
+            } else {
+                // Normal slide auto-play
+                sliderInterval = setInterval(() => {
+                    index++;
+                    if (index >= slides.length) index = 0; // loop back
+                    moveSlider();
+                }, baseSpeed);
+            }
+        }
+
+        // Start slider
+        moveSlider();
+
+        /* Swipe support */
+        track.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        track.addEventListener('touchend', e => {
+            if (!isDragging) return;
+            let endX = e.changedTouches[0].clientX;
+            let diff = startX - endX;
+
+            if (diff > 50) index++;
+            if (diff < -50) index--;
+
+            if (index < 0) index = slides.length - 1;
+
+            moveSlider();
+            isDragging = false;
+        });
+
+    </script>
 
 
    <script>
