@@ -5,38 +5,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Search Results</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
+  <link rel="stylesheet" href="assets/css/style.css">
+
   <style>
-    body {
+    .results-count {
+      text-align: center;
+      margin-bottom: 20px;
+      color: rgb(255, 47, 238);
+      font-size: 16px;
+    }
+     body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
       padding: 20px;
-      font-family: Arial, sans-serif;
     }
 
     h1 {
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f5e6ff;
+      font-weight: 700;
+        font-family: 'Playfair Display', serif;
+  font-size:40px;
     }
 
-    .product {
-      margin-bottom: 15px;
+    .results-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    .product a {
-      font-size: 18px;
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 15px 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card a {
+      color: #000000;
       text-decoration: none;
-      color: #c9a24d;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .product-card a:hover {
+      color: #a63fa1;
+      text-decoration: underline;
+    }
+
+    .highlight {
+      background-color: #f064cd;
+      color: #000000;
+      font-weight: 700;
+      padding: 0 2px;
+      border-radius: 2px;
     }
 
     .no-results {
-      color: red;
+      text-align: center;
+      color: #ff4d4d;
       font-weight: bold;
+      margin-top: 40px;
+      font-size: 20px;
     }
   </style>
 </head>
@@ -44,26 +87,28 @@
 <body>
 
   <h1>Search Results</h1>
-  <div id="results"></div>
+  <div id="results-count" class="results-count"></div>
+  <div id="results" class="results-container"></div>
 
   <script>
-    // Get search query
     const params = new URLSearchParams(window.location.search);
     const q = params.get('q');
     const query = q ? q.trim().toLowerCase() : '';
 
-    // List of products (add all your products here)
     const products = [
-      { name: "purple gajray", url: "purplerosegajray.html" },
-      { name: "purple bouquet", url: "purplerosebouquet.html" },
-      { name: "sunflower bouquet", url: "sunflowerbouquet.html" },
-      { name: "Flower gajray", url: "Flowergajray.html" },
-      { name: "red rose gajray", url: "redrosegajray.html" },
+      { name: "Purple Gajray", url: "purplerosegajray.html" },
+      { name: "Purple Bouquet", url: "purplerosebouquet.html" },
+      { name: "Sunflower Bouquet", url: "sunflowerbouquet.html" },
+      { name: "Flower Gajray", url: "Flowergajray.html" },
+      { name: "Red Rose Gajray", url: "redrosegajray.html" },
+      { name: "Crochet Headband With Red Bow", url: "Crochetheadband1.html" },
+      { name: "Crochet Handbag", url: "Crochet handbag.html" },
+      { name: "Daisy Tote Bag", url: "DAISYTOTEBAG.html" },
+      { name: "Bow Tote Bag", url: "BOWTOTEBAG.html" },
+      { name: "Customize Name Tote Bag", url: "CUSTOMIZENAMETOTEBAG.html" },     
       { name: "purple rose gajray", url: "purplerosebouquet.html" },
-      { name: "Crochet headband With red bow", url: "Crochetheadband1.html" },
       { name: "Crochet headband With pink bow", url: "Crochetheadband2.html" },
       { name: "Crochet headband With white bow", url: "Crochetheadband3.html" },
-      { name: "Crochet handbag", url: "Crochet handbag.html" },
       { name: "Crochet ruffle handbag", url: "CROCHETRUFFLEHANDBAG.html" },
       { name: "purple bow keychain", url: "CROCHETPURPLEBOWKEYCHAIN.html" },
       { name: "lilly keychain", url: "CROCHETLILLYKEYCHAIN.html" },
@@ -80,9 +125,6 @@
       { name: "Crochet hello kitty pouch", url: "CROCHETHELLOKITTYPOUCH.html" },
       { name: "Crochet wallet", url: "CROCHETWALLET.html" },
       { name: "Crochet wallet with Pearls", url: "CROCHETWALLETWITHPEARLS.html" },
-      { name: "Daisy tote bag", url: "DAISYTOTEBAG.html" },
-      { name: "Bow tote bag", url: "BOWTOTEBAG.html" },
-      { name: "Customize name tote bag", url: "CUSTOMIZENAMETOTEBAG.html" },
       { name: "Sunflower tote bag", url: "SUNFLOWERTOTEBAG.html" },
       { name: "Cherry tote bag", url: "CHERRYTOTEBAG.html" },
       { name: "Flower tote bag", url: "FLOWERTOTEBAG.html" },
@@ -107,25 +149,32 @@
       { name: "Wallet", url: "wallet.html" },
     ];
 
-    // Filter matching products
+    const resultsDiv = document.getElementById('results');
+    const resultsCountDiv = document.getElementById('results-count');
+
+    function highlightMatch(text, query) {
+      if (!query) return text;
+      const regex = new RegExp(`(${query})`, 'gi');
+      return text.replace(regex, '<span class="highlight">$1</span>');
+    }
+
     const filtered = products.filter(p => p.name.toLowerCase().includes(query));
 
-    const resultsDiv = document.getElementById('results');
-
     if (!query) {
+      resultsCountDiv.textContent = '';
       resultsDiv.innerHTML = '<p class="no-results">Please enter a search term.</p>';
     } else if (filtered.length === 0) {
+      resultsCountDiv.textContent = '';
       resultsDiv.innerHTML = `<p class="no-results">No results found for "${query}".</p>`;
     } else if (filtered.length === 1) {
-      // Only one match → redirect immediately
       window.location.href = filtered[0].url;
     } else {
-      // Multiple matches → list them
+      resultsCountDiv.textContent = `${filtered.length} result${filtered.length > 1 ? 's' : ''} found for "${q}"`;
       filtered.forEach(product => {
-        const div = document.createElement('div');
-        div.className = 'product';
-        div.innerHTML = `<a href="${product.url}">${product.name}</a>`;
-        resultsDiv.appendChild(div);
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `<a href="${product.url}">${highlightMatch(product.name, query)}</a>`;
+        resultsDiv.appendChild(card);
       });
     }
   </script>
