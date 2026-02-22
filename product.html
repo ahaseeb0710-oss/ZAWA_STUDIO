@@ -38,6 +38,8 @@
         .nameofproduct {
             text-decoration: none;
         }
+
+        
     </style>
 
 </head>
@@ -201,8 +203,11 @@
 
     </nav>
     <div class="menu-overlay" onclick="toggleMenu()"></div>
+
+
     <div class="shop-layout">
 
+        <!-- SIDEBAR -->
         <!-- SIDEBAR -->
         <aside class="sidebar">
 
@@ -230,222 +235,233 @@
                 <input type="range" min="30" max="3000" value="3000" class="price-slider" id="priceRange">
 
                 <button class="filter-btn" id="applyFilter">FILTER</button>
-            </div>
-
-
+            </div> <!-- 👈 YE CLOSE KARNA THA -->
         </aside>
 
+        <!-- RIGHT CONTENT -->
+        <div class="shop-content">
 
-        <!-- YOUR EXISTING PRODUCTS -->
-        <div class="product-grid">
-            <!-- First Product: Crochet Purple Rose Bouquet -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/bouquet1.jpeg" alt="">
+            <!-- TOP BAR -->
+            <div class="shop-topbar">
+                <div class="results-count">
+                    Showing <span id="productCount"></span> products
                 </div>
-                <div class="product-info">
-                    <p class="category">BOUQUET</p>
-                    <a href="purplerosebouquet.html" class="nameofproduct">
-                        <h5 class="name">CROCHET PURPLE ROSE BOUQUET</h5>
-                    </a>
-                    <p class="price">Rs.1500</p>
 
-                </div>
-            </div>
-
-            <!-- Second Product: Crochet Sunflower Bouquet -->
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/bouquet2.jpeg" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="category">BOUQUET</p>
-                    <a href="sunflowerbouquet.html" class="nameofproduct">
-                        <h5 class="name">CROCHET SUNFLOWER BOUQUET</h5>
-                    </a>
-                    <p class="price">Rs.1500</p>
-
+                <div class="sort-box">
+                    <select id="sortSelect">
+                        <option value="default">Featured</option>
+                        <option value="low">Price: Low to High</option>
+                        <option value="high">Price: High to Low</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/tullip.jpeg" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="category">BOUQUET</p>
-                    <a href="CROCHETTULIPS.html" class="nameofproduct">
-                        <h5 class="name">CROCHET TULIPS</h5>
-                    </a>
-                    <p class="price">Rs.600</p>
+            <!-- PRODUCT GRID -->
+            <div class="product-grid">
 
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/bouquet1.jpeg" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BOUQUET</p>
+                        <a href="purplerosebouquet.html" class="nameofproduct">
+                            <h5 class="name">CROCHET PURPLE ROSE BOUQUET</h5>
+                        </a>
+                        <p class="price">Rs.1500</p>
+
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/bouquet2.jpeg" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BOUQUET</p>
+                        <a href="sunflowerbouquet.html" class="nameofproduct">
+                            <h5 class="name">CROCHET SUNFLOWER BOUQUET</h5>
+                        </a>
+                        <p class="price">Rs.1500</p>
+
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/tullip.jpeg" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">BOUQUET</p>
+                        <a href="CROCHETTULIPS.html" class="nameofproduct">
+                            <h5 class="name">CROCHET TULIPS</h5>
+                        </a>
+                        <p class="price">Rs.600</p>
+
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/crochet gajry1.jpeg" alt="">
+                    </div>
+
+                    <div class="product-info">
+                        <p class="category">GAJRAY</p>
+                        <a href="Flowergajray.html" class="nameofproduct">
+                            <h5 class="name">CROCHET FLOWER GAJRAY</h5>
+                        </a>
+                        <p class="price">Rs.500</p>
+
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/crochet gajray2.jpeg" alt="">
+                    </div>
+
+                    <div class="product-info">
+                        <p class="category">GAJRAY</p>
+                        <a href="redrosegajray.html" class="nameofproduct">
+                            <h5 class="name">CROCHET RED ROSE GAJRAY</h5>
+                        </a>
+                        <p class="price">Rs.600</p>
+
+                    </div>
+
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/crochet purple gajray.jpeg" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">GAJRAY</p>
+                        <a href="purplerosegajray.html" class="nameofproduct">
+                            <h5 class="name">CROCHET PURPLE ROSE GAJRAY</h5>
+                        </a>
+                        <p class="price">Rs.600</p>
+
+                    </div>
+                </div>
+
+
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/handbag.jpeg" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">HANDBAG</p>
+                        <a href="Crochet handbag.html" class="nameofproduct">
+                            <h5 class="name">CROCHET HANDBAG</h5>
+                        </a>
+                        <p class="price">Rs.2000</p>
+
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/handbag2.jpeg" alt="">
+                    </div>
+
+                    <div class="product-info">
+                        <p class="category">HANDBAG</p>
+                        <a href="CROCHETRUFFLEHANDBAG.html" class="nameofproduct">
+                            <h5 class="name">CROCHET RUFFLE HANDBAG</h5>
+                        </a>
+                        <p class="price">Rs.2200</p>
+
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/wallet1.jpeg" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p class="category">WALLET</p>
+                        <a href="CROCHETWALLET.html" class="nameofproduct">
+                            <h5 class="name">CROCHET WALLET</h5>
+                        </a>
+                        <p class="price">Rs.1200</p>
+
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/wallet2.jpeg" alt="">
+                    </div>
+
+                    <div class="product-info">
+                        <p class="category">WALLET</p>
+                        <a href="CROCHETWALLETWITHPEARLS.html" class="nameofproduct">
+                            <h5 class="name">CROCHET WALLET WITH PEARLS</h5>
+                        </a>
+                        <p class="price">Rs.1200</p>
+
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/headband1.jpeg" alt="">
+                    </div>
+
+                    <div class="product-info">
+                        <p class="category">HEADBAND</p>
+                        <a href="Crochetheadband1.html" class="nameofproduct">
+                            <h5 class="name">CROCHET HEADBAND WITH RED BOW</h5>
+                        </a>
+                        <p class="price">Rs.350</p>
+
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/headband2.jpeg" alt="">
+                    </div>
+
+                    <div class="product-info">
+                        <p class="category">HEADBAND</p>
+                        <a href="Crochetheadband2.html" class="nameofproduct">
+                            <h5 class="name">CROCHET HEADBAND WITH PINK BOW</h5>
+                        </a>
+                        <p class="price">Rs.350</p>
+
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="assets/img/headband3.jpeg" alt="">
+                    </div>
+
+                    <div class="product-info">
+                        <p class="category">HEADBAND</p>
+                        <a href="Crochetheadband3.html" class="nameofproduct">
+                            <h5 class="name">CROCHET HEADBAND WITH WHITE BOW</h5>
+                        </a>
+                        <p class="price">Rs.350</p>
+
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/crochet gajry1.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">GAJRAY</p>
-                    <a href="Flowergajray.html" class="nameofproduct">
-                        <h5 class="name">CROCHET FLOWER GAJRAY</h5>
-                    </a>
-                    <p class="price">Rs.500</p>
-
-                </div>
-            </div>
-
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/crochet gajray2.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">GAJRAY</p>
-                    <a href="redrosegajray.html" class="nameofproduct">
-                        <h5 class="name">CROCHET RED ROSE GAJRAY</h5>
-                    </a>
-                    <p class="price">Rs.600</p>
-
-                </div>
-
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/crochet purple gajray.jpeg" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="category">GAJRAY</p>
-                    <a href="purplerosegajray.html" class="nameofproduct">
-                        <h5 class="name">CROCHET PURPLE ROSE GAJRAY</h5>
-                    </a>
-                    <p class="price">Rs.600</p>
-
-                </div>
-            </div>
-
-           
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/handbag.jpeg" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="category">HANDBAG</p>
-                    <a href="Crochet handbag.html" class="nameofproduct">
-                        <h5 class="name">CROCHET HANDBAG</h5>
-                    </a>
-                    <p class="price">Rs.2000</p>
-
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/handbag2.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">HANDBAG</p>
-                    <a href="CROCHETRUFFLEHANDBAG.html" class="nameofproduct">
-                        <h5 class="name">CROCHET RUFFLE HANDBAG</h5>
-                    </a>
-                    <p class="price">Rs.2200</p>
-
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/wallet1.jpeg" alt="">
-                </div>
-                <div class="product-info">
-                    <p class="category">WALLET</p>
-                    <a href="CROCHETWALLET.html" class="nameofproduct">
-                        <h5 class="name">CROCHET WALLET</h5>
-                    </a>
-                    <p class="price">Rs.1200</p>
-
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/wallet2.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">WALLET</p>
-                    <a href="CROCHETWALLETWITHPEARLS.html" class="nameofproduct">
-                        <h5 class="name">CROCHET WALLET WITH PEARLS</h5>
-                    </a>
-                    <p class="price">Rs.1200</p>
-
-                </div>
-            </div>
-            
-
- <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/headband1.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">HEADBAND</p>
-                    <a href="Crochetheadband1.html" class="nameofproduct">
-                        <h5 class="name">CROCHET HEADBAND WITH RED BOW</h5>
-                    </a>
-                    <p class="price">Rs.350</p>
-
-                </div>
-            </div>
-
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/headband2.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">HEADBAND</p>
-                    <a href="Crochetheadband2.html" class="nameofproduct">
-                        <h5 class="name">CROCHET HEADBAND WITH PINK BOW</h5>
-                    </a>
-                    <p class="price">Rs.350</p>
-
-                </div>
-            </div>
-
-
-            <div class="product-card">
-                <div class="product-img">
-                    <img src="assets/img/headband3.jpeg" alt="">
-                </div>
-
-                <div class="product-info">
-                    <p class="category">HEADBAND</p>
-                    <a href="Crochetheadband3.html" class="nameofproduct">
-                        <h5 class="name">CROCHET HEADBAND WITH WHITE BOW</h5>
-                    </a>
-                    <p class="price">Rs.350</p>
-
-                </div>
-            </div>
-
-            <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
         </div>
+    </div>
+
 
 
 
-    </div>
-    <!-- copy product-card for all products -->
-    </div>
-
-    </div>
-    </div>
     <nav aria-label="...">
         <ul class="pagination">
             <li class="page-item active" aria-current="page">
@@ -499,7 +515,35 @@
 
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
 
+            const sortSelect = document.getElementById("sortSelect");
+            const productGrid = document.querySelector(".product-grid");
+
+            function updateProductCount() {
+                const visibleProducts = document.querySelectorAll(".product-card:not([style*='display: none'])");
+                document.getElementById("productCount").textContent = visibleProducts.length;
+            }
+
+            updateProductCount();
+
+            sortSelect.addEventListener("change", () => {
+                const cards = Array.from(document.querySelectorAll(".product-card"));
+
+                cards.sort((a, b) => {
+                    const priceA = Number(a.querySelector(".price").textContent.replace(/[^0-9]/g, ""));
+                    const priceB = Number(b.querySelector(".price").textContent.replace(/[^0-9]/g, ""));
+
+                    if (sortSelect.value === "low") return priceA - priceB;
+                    if (sortSelect.value === "high") return priceB - priceA;
+                    return 0;
+                });
+
+                cards.forEach(card => productGrid.appendChild(card));
+            });
+        });
+    </script>
     <script>
         document.querySelectorAll(".add-to-cart-btn").forEach(button => {
 
@@ -570,32 +614,45 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+
             const priceRange = document.getElementById("priceRange");
             const applyFilter = document.getElementById("applyFilter");
-            const minPriceLabel = document.getElementById("minPrice");
             const maxPriceLabel = document.getElementById("maxPrice");
             const productCards = document.querySelectorAll(".product-card");
+            const productCount = document.getElementById("productCount");
 
-            // Update max price label when slider changes
+            function updateProductCount() {
+                const visible = document.querySelectorAll(".product-card:not([style*='display: none'])");
+                productCount.textContent = visible.length;
+            }
+
+            // Initial count
+            updateProductCount();
+
+            // Slider change
             priceRange.addEventListener("input", () => {
                 maxPriceLabel.textContent = `Rs.${priceRange.value}`;
             });
 
-            // Apply filter when button clicked
+            // Apply filter
             applyFilter.addEventListener("click", () => {
+
                 const maxPrice = Number(priceRange.value);
 
                 productCards.forEach(card => {
                     const priceText = card.querySelector(".price").textContent.trim();
-                    const priceNumber = Number(priceText.replace(/[^0-9]/g, "")); // remove Rs. and other chars
+                    const priceNumber = Number(priceText.replace(/[^0-9]/g, ""));
 
                     if (priceNumber <= maxPrice) {
-                        card.style.display = "block"; // show product
+                        card.style.display = "block";
                     } else {
-                        card.style.display = "none"; // hide product
+                        card.style.display = "none";
                     }
                 });
+
+                updateProductCount(); // 🔥 COUNT UPDATE AFTER FILTER
             });
+
         });
     </script>
     <script src="assets/js/nav.js"></script>
