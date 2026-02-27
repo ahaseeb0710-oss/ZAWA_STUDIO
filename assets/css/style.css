@@ -114,7 +114,7 @@ body {
 }
 
 .search-box input::placeholder {
-  color: #b88a44;
+  color: black;
 }
 
 .search-box i {
@@ -143,7 +143,6 @@ body {
 
 
 
-
 /* HERO */
 .hero {
   position: relative;
@@ -157,10 +156,9 @@ body {
 }
 
 .hero h1 {
-  font-size: 64px;
-  font-weight: 800;
+  font-size: 52px;
   margin: 0;
-  font-family: Cormorant Garamond, serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 300;
 }
 
@@ -221,8 +219,10 @@ body {
 }
 
 .crochet-text {
-  font-family: Cormorant Garamond, serif;
+ font-size: 50px;
   color: hsl(40 50% 65%);
+  font-family: 'Playfair Display', serif;
+
   font-weight: 300;
 
 }
@@ -551,7 +551,7 @@ section {
   gap: 25px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px)  {
   .shop-layout {
     grid-template-columns: 1fr;
   }
@@ -566,9 +566,7 @@ section {
    PREMIUM MOBILE NAVBAR - ZAWA STUDIO
 ===================================== */
 
-.mobile-header {
-  display: none;
-}
+
 
 .menu-overlay {
   position: fixed;
@@ -609,7 +607,7 @@ section {
 
 /* ================= MOBILE NAVBAR COMPLETE FIX ================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px)  {
 
   /* Hide desktop navbar parts */
   /* Hide desktop nav-left ONLY when NOT sidebar */
@@ -991,7 +989,8 @@ section {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(155, 92, 255, 0.35);
 }
-@media (max-width: 768px) {
+
+@media (max-width: 1024px)  {
   .filter-section {
     margin-top: 0;
     padding: 15px;
@@ -1006,6 +1005,7 @@ section {
     font-size: 14px;
   }
 }
+
 .product-grid {
   margin-top: 20px;
 }
@@ -1859,7 +1859,10 @@ section {
 
 .logo span {
   color: #d4af37;
-  font-style: italic;
+  font-size: 20px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: #fff;
 }
 
 .navbar.scrolled {
@@ -1891,10 +1894,46 @@ section {
   cursor: pointer;
 }
 
-.mobile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* ===== FINAL MOBILE NAV FIX ===== */
+@media (max-width: 1024px)  {
+
+  .navbar {
+    padding: 0 16px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Left */
+  .hamburger {
+    width: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Center Logo PERFECT CENTER */
+  .mobile-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  /* Right Icons */
+  .mobile-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-left: auto;
+  }
+
 }
 
 .mobile-icons {
@@ -1930,7 +1969,7 @@ section {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px)  {
 
   .mobile-header {
     display: flex;
@@ -2039,7 +2078,7 @@ section {
    (Add below your existing CSS)
 ===================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px)  {
 
   /* Improve Sidebar Layout Flow */
   #mobileMenu {
@@ -2107,10 +2146,12 @@ section {
 
 
 
-.footer-text {color: #f1d18a;}
+.footer-text {
+  color: #f1d18a;
+}
 
 
-.footer-logo-z{
+.footer-logo-z {
   color: #ffffff;
 
   font-family: 'Playfair Display', serif;
@@ -2120,12 +2161,53 @@ section {
   margin-bottom: 15px;
 }
 
-.footer-logo-s{
-    color: #f1d18a;
+.footer-logo-s {
+  color: #f1d18a;
 
   font-family: 'Playfair Display', serif;
   letter-spacing: 4px;
   font-size: 22px;
 
   margin-bottom: 15px;
+}
+
+
+/* ==============================
+   FORCE MOBILE RIGHT FIX
+   DO NOT PLACE ABOVE ANYTHING
+================================ */
+@media (max-width: 1024px) {
+
+  nav.navbar {
+    padding: 0 16px !important;
+    height: 72px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  nav.navbar .mobile-header {
+    display: flex !important;
+    width: 100% !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+
+  nav.navbar .hamburger {
+    width: 40px !important;
+  }
+
+  nav.navbar .mobile-logo {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  nav.navbar .mobile-icons {
+    margin-left: auto !important;
+    display: flex !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+
 }
