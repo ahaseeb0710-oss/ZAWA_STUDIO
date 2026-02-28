@@ -1,72 +1,60 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>PHONE CASE</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="index.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- AOS Library CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zawa Studio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/nav.css">
 
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
-  <style>
-    .nameofproduct {
-      text-decoration: none;
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- RIGHT : links + search + icons -->
+<div class="container">
 
   <nav class="navbar">
-<!-- Mobile Header -->
-<div class="mobile-header">
-  <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa fa-bars" aria-hidden="true" style="font-size: 26px;"></i>
-  </div>
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fa fa-bars" aria-hidden="true" style="font-size: 20px;"></i>
+      </div>
 
-  <div class="mobile-logo">
-    <a href="index.html">
-      <h1>ZAWA <span>STUDIO</span></h1>
-    </a>
-  </div>
+      <div class="mobile-logo">
+        <a href="index.html">
+          <h1>ZAWA <span>STUDIO</span></h1>
+        </a>
+      </div>
 
-  <div class="mobile-icons">
-<div class="mobile-search-bar" id="mobileSearchBar">
-  <input type="text" id="mobileSearchInputTop" placeholder="Search products...">
-  <i class="fa-solid fa-xmark" onclick="closeMobileSearch()"></i>
+      <div class="mobile-icons">
+        <div class="mobile-search-bar" id="mobileSearchBar">
+          <input type="text" id="mobileSearchInputTop" placeholder="Search products...">
+          <i class="fa-solid fa-xmark" onclick="closeMobileSearch()"></i>
+        </div>
+        <!-- Search Icon -->
+        <div class="mobile-search-icon">
+          <i class="fa-solid fa-magnifying-glass" onclick="openMobileSearch()"></i>
+        </div>
+
+        <!-- Cart Icon -->
+        <div class="mobile-cart">
+  <a href="#" onclick="toggleCart()" style="text-decoration: none; color: #c9a24d;">
+    <i class="fa-solid fa-cart-shopping"></i> (<span id="mobileCount">0</span>)
+  </a>
 </div>
-  <!-- Search Icon -->
-  <div class="mobile-search-icon">
-   <i class="fa-solid fa-magnifying-glass" onclick="openMobileSearch()"></i>
-  </div>
 
-  <!-- Cart Icon -->
-  <div class="mobile-cart">
-    <a href="cart.html">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="mobileCartCount">0</span>
-    </a>
-  </div>
 
-</div>
-</div>
-<div class="nav-left" id="mobileMenu">
-  <!-- MOBILE ONLY RIGHT LINKS -->
+      </div>
+    </div>
+    <div class="nav-left" id="mobileMenu">
+      <!-- MOBILE ONLY RIGHT LINKS -->
 
-  <div class="close-btn" onclick="toggleMenu()">
-    <i class="fa-solid fa-xmark"></i>
-  </div>
+      <div class="close-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
 
-        <a href="index.html">HOME</a>
+      <a href="index.html">HOME</a>
 
       <!-- SHOP DROPDOWN -->
       <div class="nav-dropdown">
@@ -95,33 +83,33 @@
         </div>
       </div>
       <a href="contact.html">CONTACT</a>
-<div class="mobile-only-links">
+      <div class="mobile-only-links">
 
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-    <i class="fa-brands fa-instagram"></i> Instagram
-  </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
 
- 
 
-  <!-- Login / Signup -->
-  <div id="mobileAuthButtons">
-     <a href="login.html" class="auth-link">Login</a>
-            <a href="signup.html" class="auth-link">Sign Up</a>
-  </div>
 
-  <!-- Profile -->
-<div id="mobileProfileArea" onclick="toggleMobileProfile()">
-  <i class="fa-solid fa-user"></i> My Account
-</div>
+        <!-- Login / Signup -->
+        <div id="mobileAuthButtons">
+          <a href="login.html" class="auth-link">Login</a>
+          <a href="signup.html" class="auth-link">Sign Up</a>
+        </div>
 
-<div class="mobile-profile-dropdown" id="mobileProfileDropdown">
-  <p id="mobileUserName"></p>
-  <p id="mobileUserEmail"></p>
-  <button onclick="logout()">Logout</button>
-</div>
+        <!-- Profile -->
+        <div id="mobileProfileArea" onclick="toggleMobileProfile()">
+          <i class="fa-solid fa-user"></i> My Account
+        </div>
 
-</div>
+        <div class="mobile-profile-dropdown" id="mobileProfileDropdown">
+          <p id="mobileUserName"></p>
+          <p id="mobileUserEmail"></p>
+          <button onclick="logout()">Logout</button>
+        </div>
+
+      </div>
     </div>
 
     <!-- CENTER LOGO -->
@@ -130,17 +118,15 @@
         <h1>ZAWA <span>STUDIO</span></h1>
       </a>
     </div>
-</div>
-   
-    <!-- RIGHT -->
-    <div class="nav-right">
+        <div class="nav-right">
       <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
           class="fa-brands fa-instagram"></i></a>
 
       <div class="cart-icon">
-        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-        <span id="cartCount">0</span>
-      </div>
+  <a href="#" onclick="toggleCart()" style="text-decoration: none;">
+    <i class="fa-solid fa-cart-shopping"></i> (<span id="desktopCount">0</span>)
+  </a>
+</div>
 
 
       <!-- SEARCH -->
@@ -152,195 +138,485 @@
       <!-- RIGHT SIDE -->
 
 
-        <div class="auth-area">
+      <div class="auth-area">
 
-          <!-- Login / Signup Buttons -->
-          <div id="authButtons">
-            <a href="login.html" class="auth-link">Login</a>
-            <a href="signup.html" class="auth-link">Sign Up</a>
-          </div>
+        <!-- Login / Signup Buttons -->
+        <div id="authButtons">
+          <a href="login.html" class="auth-link">Login</a>
+          <a href="signup.html" class="auth-link">Sign Up</a>
+        </div>
 
-          <!-- Profile Icon -->
-          <div class="profile" id="profileArea" onclick="toggleProfile()">
-            <i class="fa-solid fa-user"></i>
-          </div>
+        <!-- Profile Icon -->
+        <div class="profile" id="profileArea" onclick="toggleProfile()">
+          <i class="fa-solid fa-user"></i>
+        </div>
 
-          <!-- Profile Dropdown -->
-          <div class="profile-dropdown" id="profileDropdown">
-            <p id="userName"></p>
-            <p id="userEmail"></p>
-            <button onclick="logout()">Logout</button>
-          </div>
-
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profileDropdown">
+          <p id="userName"></p>
+          <p id="userEmail"></p>
+          <button onclick="logout()">Logout</button>
         </div>
 
       </div>
+
+    </div>
+
+    </div>
+
+ 
 
 
 
   </nav>
-<div class="menu-overlay" onclick="toggleMenu()"></div>
+  <div class="menu-overlay" onclick="toggleMenu()"></div>
 
-  <div class="shop-layout">
+<section id="shop">
+  <div class="shop-header">
+    <p>BROWSE COLLECTION</p>
+    <h1>PHONECASES</h1>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <div class="categories">
+    <button class="active" onclick="filterCategory('all', this)">All</button>
 
-      <h3>Categories</h3>
-      <ul class="category-list">
-        <li><a href="bouquet.html">Bouquet</a></li>
-        <li><a href="gajray.html">Gajray</a></li>
-        <li><a href="headband.html">Headband</a></li>
-        <li><a href="bags.html">Bags</a></li>
-        <li><a href="handbag.html">Handbag</a></li>
-        <li><a href="phonecase.html">PhoneCase</a></li>
-        <li><a href="keychain.html">Keychain</a></li>
-        <li><a href="pouch.html">Pouch</a></li>
-        <li><a href="wallet.html">Wallet</a></li>
-      </ul>
+    <button onclick="filterCategory('case', this)">Phone Cases</button>
 
-      <div class="filter-section">
-        <h3>Price</h3>
+  </div>
+</div>
 
-        <div class="price-values">
-          <span id="minPrice">$30</span>
-          <span id="maxPrice">$3000</span>
-        </div>
+    <div class="shop-toolbar">
+      <p>Showing <span id="productCount">0</span> products</p>
+      <select id="priceSort" onchange="sortProducts()">
+        <option value="default">Sort By</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
+  </div>
 
-        <input type="range" min="30" max="3000" value="3000" class="price-slider" id="priceRange">
+  <div class="products" id="products">
+    <!-- Product cards inserted dynamically via JS -->
+  </div>
 
-        <button class="filter-btn" id="applyFilter">FILTER</button>
-      </div>
+</section>
+<section class="checkout" id="checkout">
+  <h1>Checkout</h1>
+  <div class="checkout-wrapper">
+    <div class="form-card">
+      <h3>Shipping Info</h3>
+      <input placeholder="Full Name">
+      <input placeholder="Email">
+      <input placeholder="Phone">
+      <input placeholder="Address">
+      <input placeholder="City">
+      
+      <h3 style="margin-top:20px;">Payment Method</h3>
 
+<select id="paymentMethod" onchange="showPaymentInfo()">
+  <option value="bank">Bank Transfer</option>
+</select>
 
-    </aside>
+<div id="bankDetails" style="display:none;margin-top:15px;
+background:#4a005d;padding:15px;border-radius:8px;">
+  <p><strong>Bank:</strong> Meezan Bank</p>
+  <p><strong>Account Name:</strong> Abdul Haseeb</p>
+  <p><strong>Account Number:</strong> 1234 5678 9012</p>
+</div>
 
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-img">
-          <img src="assets/img/phonecase1.jpeg" alt="">
-        </div>
-        <div class="product-info">
-          <p class="category">CASE</p>
-          <a href="CROCHETPHONECASEPURPLE.html" class="nameofproduct">
-            <h5 class="name">CROCHET PHONE CASE PURPLE</h5>
-          </a>
-          <p class="price">Rs.1000</p>
-
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-img">
-          <img src="assets/img/phonecase2.jpeg" alt="">
-        </div>
-        <div class="product-info">
-          <p class="category">CASE</p>
-          <a href="assets/img/redphonecase3.jpg" class="nameofproduct">
-            <h5 class="name">CROCHET PHONE CASE RED</h5>
-          </a>
-          <p class="price">Rs.1000</p>
-
-        </div>
-      </div>
-
-
-      <div class="product-card">
-        <div class="product-img">
-          <img src="assets/img/bluephonecase3.jpg" alt="">
-        </div>
-        <div class="product-info">
-          <p class="category">CASE</p>
-          <a href="CROCHETPHONECASEBLUE.html" class="nameofproduct">
-            <h5 class="name">CROCHET PHONE CASE BLUE</h5>
-          </a>
-          <p class="price">Rs.1000</p>
-
-        </div>
-      </div>
-
-      <!-- KEEP ALL YOUR PRODUCT CARDS HERE EXACTLY SAME -->
+<button class="place-order" onclick="placeOrder()">Place Order</button>
     </div>
 
-
-
+    <div class="summary-card">
+      <h3>Order Summary</h3>
+      <div id="summary"></div>
+      <hr style="margin:15px 0;border:1px solid #4a005d;">
+      <h3>Total: $<span id="total2">0</span></h3>
+    </div>
   </div>
-  <!-- copy product-card for all products -->
+</section>
+
+</div>
+
+<div class="cart" id="cart">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="close-cart" onclick="toggleCart()">✕</button>
   </div>
-
+  <div id="cartItems"></div>
+  <div class="cart-total">
+    <h3>Total: <span id="total">0</span></h3>
+    <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
+    <div id="paymentInfo" style="margin-top:10px;color:#fff;font-size:14px;"></div>
   </div>
-  </div>
+</div>
 
-  <!-- footer -->
-  <!-- footer -->
-<footer class="footer">
-  
-  <!-- Brand & Social -->
-<p style="margin:0; font-weight:700; font-size:18px;">
-  <span class="footer-logo-z">ZAWA</span>
-  <span class="footer-logo-s">STUDIO</span>
-</p>
-  <p style="margin:5px 0 15px 0; font-size:14px;">
-    Luxury handcrafted crochet pieces, made with love and intention.
-  </p>
+<!-- Popup -->
+<div id="popup" style="position:fixed;top:20px;right:20px;background:var(--accent);color:black;padding:20px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.3);display:none;z-index:9999;min-width:250px;">
+  <strong id="popupTitle"></strong>
+  <p id="popupText"></p>
+</div>
 
-  <!-- Social Icons -->
-  <p style="margin:10px 0; font-size:16px;">
-    Follow us:
-    <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-       style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-twitter"></i>
-    </a>
-  </p>
+<script>
+    
+/* =========================
+   PRODUCTS + CART SETUP
+========================= */
+const SHIPPING_COST = 300;
 
-  <!-- Quick Links -->
-  <p style="margin:10px 0; font-size:14px;">
-    <a href="product.html" style="color:#d4af37; text-decoration:none; margin:0 8px;" class="footer-text">Shop</a> |
-    <a href="aboutus.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">About</a> |
-    <a href="returnpolicy.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">Shipping & Returns</a>
-  </p>
+const products = [
+ 
+  // Phone Cases
+  {id:4, name:"CROCHET PHONE CASE PURPLE", price:1000, category:"case", img:"assets/img/phonecase1.jpeg", link:"CROCHETPHONECASEPURPLE.html"},
+  {id:5, name:"CROCHET PHONE CASE RED", price:1000, category:"case", img:"assets/img/redphonecase3.jpg", link:"CROCHETPHONECASERED.html"},
+  {id:6, name:"CROCHET PHONE CASE BLUE", price:1000, category:"case", img:"assets/img/bluephonecase3.jpg", link:"CROCHETPHONECASEBLUE.html"},
 
-  <!-- Bottom Text -->
-  <p style="margin:15px 0 0 0; font-size:12px;     color: #b89ad9;">
-    © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
-  </p>
 
-</footer>
+];
 
-  <script>
-    // Get the input and search icon
-    const searchInput = document.querySelector(".search-box input");
-    const searchBtn = document.querySelector(".search-box i");
+let cart = JSON.parse(localStorage.getItem("zawaCart")) || [];
 
-    // Redirect on click of the search icon
-    searchBtn.addEventListener("click", () => {
-      const query = searchInput.value.trim();
-      if (query) {
-        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-      }
+const productsContainer = document.getElementById('products');
+const productCount = document.getElementById('productCount');
+
+/* =========================
+   HELPER FUNCTIONS
+========================= */
+function formatPrice(amount){
+  return "PKR " + amount.toLocaleString();
+}
+
+function saveCart(){
+  localStorage.setItem("zawaCart", JSON.stringify(cart));
+}
+
+function showPopup(title, text){
+  const popup = document.getElementById("popup");
+  document.getElementById("popupTitle").innerText = title;
+  document.getElementById("popupText").innerText = text;
+  popup.style.display = "block";
+  setTimeout(()=>{ popup.style.display = "none"; }, 3000);
+}
+
+/* =========================
+   DISPLAY PRODUCTS
+========================= */
+/* =========================
+   DISPLAY PRODUCTS
+========================= */
+function renderProducts(items){
+  productsContainer.innerHTML = "";
+  items.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <a href="${p.link}" class="product-link" style="text-decoration:none; margin-bottom:8px;background:#6b3b82;color:white;">
+        <img src="${p.img}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>${formatPrice(p.price)}</p>
+      </a>
+      <button onclick="window.location.href='${p.link}'">
+  View Product
+</button>
+    `;
+    productsContainer.appendChild(card);
+  });
+
+  if(productCount) productCount.textContent = items.length;
+}
+
+/* =========================
+   FILTER + SORT
+========================= */
+let currentCategory = "all";
+
+function applyFilters(){
+  let filtered = currentCategory === "all" ? [...products] : products.filter(p=>p.category===currentCategory);
+  const sortValue = document.getElementById("priceSort")?.value;
+  if(sortValue==="low") filtered.sort((a,b)=>a.price-b.price);
+  if(sortValue==="high") filtered.sort((a,b)=>b.price-a.price);
+  renderProducts(filtered);
+}
+
+function filterCategory(category, btn){
+  currentCategory = category;
+  document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+  if(btn) btn.classList.add("active");
+  applyFilters();
+}
+
+function sortProducts(){
+  applyFilters();
+}
+
+/* =========================
+   CART FUNCTIONS
+========================= */
+function addToCart(id){
+  const product = products.find(p=>p.id===id);
+  if(!product) return;
+
+  const item = cart.find(p=>p.id===id);
+  if(item) item.qty++;
+  else cart.push({...product, qty:1});
+
+  saveCart();
+  updateCart();
+
+  const currentQty = cart.find(p=>p.id===id).qty;
+  showPopup("Added to Cart", `${product.name} x${currentQty}`);
+}
+
+function updateCart(){
+  const cartItems = document.getElementById("cartItems");
+  const total = document.getElementById("total");
+  const total2 = document.getElementById("total2");
+  const summary = document.getElementById("summary");
+  const countDesktop = document.getElementById("desktopCount");
+  const countMobile = document.getElementById("mobileCount");
+  const cartTotalSection = document.querySelector(".cart-total");
+
+  if(!cartItems) return;
+
+  cartItems.innerHTML = "";
+  if(summary) summary.innerHTML = "";
+
+  if(cart.length===0){
+    cartItems.innerHTML = `<p style="text-align:center;color:var(--muted);margin-top:20px;">Your cart is empty</p>`;
+    if(cartTotalSection) cartTotalSection.style.display="none";
+    if(countDesktop) countDesktop.innerText = 0;
+    if(countMobile) countMobile.innerText = 0;
+    return;
+  } else if(cartTotalSection){
+    cartTotalSection.style.display="block";
+  }
+
+  let subtotal = 0;
+
+cart.forEach(p=>{
+  subtotal += p.price*p.qty;
+  cartItems.innerHTML += `
+    <div class="cart-item">
+      <img src="${p.img}" alt="${p.name}">
+      <div class="cart-item-details">
+        <p>${p.name}</p>
+        <div class="cart-qty">
+          <button onclick="changeQty(${p.id}, -1)">-</button>
+          <span>${p.qty}</span>
+          <button onclick="changeQty(${p.id}, 1)">+</button>
+        </div>
+      </div>
+      <strong>${formatPrice(p.price*p.qty)}</strong>
+      <button class="remove-btn" onclick="removeItem(${p.id})">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+  `;
+});
+
+  // Shipping row
+  cartItems.innerHTML += `
+    <div class="cart-item">
+      <span>Shipping</span>
+      <strong>${formatPrice(SHIPPING_COST)}</strong>
+    </div>
+  `;
+  if(summary) summary.innerHTML += `<p>Shipping - ${formatPrice(SHIPPING_COST)}</p>`;
+
+  let finalTotal = subtotal + SHIPPING_COST;
+  if(total) total.innerText = formatPrice(finalTotal);
+  if(total2) total2.innerText = formatPrice(finalTotal);
+
+  const totalQty = cart.reduce((acc,p)=>acc+p.qty,0);
+  if(countDesktop) countDesktop.innerText = totalQty;
+  if(countMobile) countMobile.innerText = totalQty;
+}
+function toggleCart(){
+  document.getElementById("cart").classList.toggle("open");
+}
+
+function goCheckout(){
+  if(cart.length===0) return alert("Cart empty");
+  document.getElementById("shop").style.display="none";
+  document.getElementById("checkout").style.display="block";
+  toggleCart();
+}
+
+function changeQty(id, delta){
+  const item = cart.find(p=>p.id===id);
+  if(!item) return;
+  item.qty += delta;
+  if(item.qty<1) item.qty=1;
+  saveCart();
+  updateCart();
+}
+
+function removeItem(id){
+  cart = cart.filter(p=>p.id!==id);
+  saveCart();
+  updateCart();
+}
+
+function showPaymentInfo(){
+  const method = document.getElementById("paymentMethod").value;
+  document.getElementById("bankDetails").style.display = method==="bank" ? "block" : "none";
+}
+
+/* =========================
+   CHECKOUT / EMAILJS
+========================= */
+function placeOrder(){
+  const inputs = document.querySelectorAll(".form-card input");
+  const name = inputs[0].value.trim();
+  const email = inputs[1].value.trim();
+  const phone = inputs[2].value.trim();
+  const address = inputs[3].value.trim();
+  const payment = document.getElementById("paymentMethod").value;
+
+  if(!name || !email || !phone || !address){
+    alert("Please fill all fields!");
+    return;
+  }
+
+let orderHTML = "";
+
+// Add products
+cart.forEach(item => {
+  orderHTML += `
+    <tr>
+      <td style="padding:8px;">${item.name}</td>
+      <td style="padding:8px;text-align:center;">${item.qty}</td>
+      <td style="padding:8px;text-align:right;">${formatPrice(item.price)}</td>
+      <td style="padding:8px;text-align:right;">${formatPrice(item.price*item.qty)}</td>
+    </tr>
+  `;
+});
+
+// Add shipping row
+orderHTML += `
+  <tr>
+    <td style="padding:8px;" colspan="3"><strong>Shipping</strong></td>
+    <td style="padding:8px;text-align:right;"><strong>${formatPrice(SHIPPING_COST)}</strong></td>
+  </tr>
+`;
+
+// Calculate total including shipping
+const totalAmount = cart.reduce((sum,i)=>sum + i.price*i.qty, 0) + SHIPPING_COST;
+
+emailjs.send(
+  "service_qc9ieu9",
+  "template_jh9y4xd",
+  {
+    name: name,                       // Customer Full Name
+    email: email,                     // Customer Email
+    phone: phone,                     // Customer Phone
+    address: address,                 // Customer Address
+    payment: document.getElementById("paymentMethod").value, // Payment Method
+    order: orderHTML,                 // HTML rows including shipping
+    total: formatPrice(totalAmount),  // Total including shipping
+    admin_email: "zarajawed15@gmail.com"
+  }
+)
+.then(()=>{
+  showPopup("Order Sent ✅", "Order details sent to admin!");
+  cart = [];
+  saveCart();
+  updateCart();
+  document.getElementById("checkout").style.display="none";
+  document.getElementById("shop").style.display="block";
+})
+.catch(()=>{
+  alert("Email failed. Try again.");
+});}
+
+/* =========================
+   INITIAL LOAD
+========================= */
+document.addEventListener("DOMContentLoaded",()=>{
+  updateCart();
+  applyFilters();
+});
+
+/* =========================
+   CART ITEM FUNCTIONS
+========================= */
+function changeQty(id, delta){
+  const item = cart.find(p => p.id === id);
+  if(!item) return;
+
+  item.qty += delta;
+  if(item.qty < 1) item.qty = 1;
+  saveCart();
+  updateCart();
+}
+
+function removeItem(id){
+  cart = cart.filter(p => p.id !== id);
+  saveCart();
+  updateCart();
+}
+
+// payment-section
+function showPaymentInfo(){
+  const method =
+    document.getElementById("paymentMethod").value;
+
+  document.getElementById("bankDetails").style.display =
+    method === "bank" ? "block" : "none";
+}
+
+(function(){
+emailjs.init("ydfCcmdSiJYKZXoRM");
+})();
+
+
+
+
+const productsPerPage = Math.ceil(products.length / 3); // divide products into 3 pages
+let currentPage = 1;
+
+function displayProducts(page = 1) {
+  const productsContainer = document.getElementById('products');
+  const paginationContainer = document.getElementById('pagination');
+  productsContainer.innerHTML = '';
+
+  const start = (page - 1) * productsPerPage;
+  const end = start + productsPerPage;
+  const paginatedProducts = products.slice(start, end);
+
+  paginatedProducts.forEach(p => {
+    productsContainer.innerHTML += `
+      <div class="product-card">
+        <img src="${p.img}" alt="${p.name}">
+        <h3>${p.name}</h3>
+        <p>$${p.price}</p>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+      </div>
+    `;
+  });
+
+  // Pagination buttons (3 pages)
+  paginationContainer.innerHTML = '';
+  for (let i = 1; i <= 3; i++) {
+    const btn = document.createElement('button');
+    btn.innerText = i;
+    if (i === page) btn.classList.add('active');
+    btn.addEventListener('click', () => {
+      currentPage = i;
+      displayProducts(i);
     });
+    paginationContainer.appendChild(btn);
+  }
 
-    // Redirect on Enter key press
-    searchInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const query = searchInput.value.trim();
-        if (query) {
-          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-        }
-      }
-    });
-  </script>
+  // Update product count
+  document.getElementById('productCount').innerText = products.length;
+}
+
+// Initial call
+displayProducts();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="assets/js/nav.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="assets/js/cart.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
 
+</body>
 </html>

@@ -1,23 +1,49 @@
         /* FULL PAGE BACKGROUND */
-        body {
-            background: #2b0036;
-            font-family: 'Inter', sans-serif;
-            color: #fff;
-        }
+ body {
+    margin: 0;
+    padding: 0;
+    background: #2b0036;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+}
 
-        /* MAIN CONTAINER */
-        .product-card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 120px;
-            padding: 100px 8%;
-            max-width: 1400px;
-            margin: auto;
-            background: transparent;
-            box-shadow: none;
-        }
+.product-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;      /* general gap */
+    padding: 10px 8%; /* minimal padding top/bottom */
+    max-width: 1400px;
+    margin: 0 auto;   /* center horizontally */
+    background: transparent;
+    box-shadow: none;
+}
 
+/* Tablets & small laptops */
+@media (max-width: 1100px) {
+    .product-card {
+        flex-direction: column;
+        padding: 10px 6%; /* keep top/bottom tiny */
+        gap: 40px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+    .product-card {
+        flex-direction: column;
+        padding: 8px 5%; /* minimal padding */
+        gap: 30px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+    .product-card {
+        padding: 5px 4%; /* tightest */
+        gap: 20px;
+    }
+}
         /* IMAGE SIDE */
         .product-img {
             width: 600px;
@@ -249,7 +275,7 @@
                 flex-direction: column;
                 gap: 50px;
                 padding: 60px 6%;
-                margin-top: 40px;
+
             }
 
             .product-info {

@@ -1,149 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Product</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>SHOP | ZAWA STUDIO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/site.webmanifest">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/product.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
 </head>
 
 <body>
-  <!-- RIGHT : links + search + icons -->
 
-  <nav class="navbar">
-<!-- Mobile Header -->
-<div class="mobile-header">
-  <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa fa-bars" aria-hidden="true" style="font-size: 26px;"></i>
-  </div>
 
-  <div class="mobile-logo">
-    <a href="index.html">
-      <h1>ZAWA <span>STUDIO</span></h1>
-    </a>
-  </div>
+  <div class="container">
 
-  <div class="mobile-icons">
-<div class="mobile-search-bar" id="mobileSearchBar">
-  <input type="text" id="mobileSearchInputTop" placeholder="Search products...">
-  <i class="fa-solid fa-xmark" onclick="closeMobileSearch()"></i>
-</div>
-  <!-- Search Icon -->
-  <div class="mobile-search-icon">
-   <i class="fa-solid fa-magnifying-glass" onclick="openMobileSearch()"></i>
-  </div>
+    <nav class="navbar">
+      <!-- Mobile Header -->
+      <div class="mobile-header">
+        <div class="hamburger" onclick="toggleMenu()">
+          <i class="fa fa-bars" aria-hidden="true" style="font-size: 20px;"></i>
+        </div>
 
-  <!-- Cart Icon -->
-  <div class="mobile-cart">
-    <a href="cart.html">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="mobileCartCount">0</span>
-    </a>
-  </div>
+        <div class="mobile-logo">
+          <a href="index.html">
+            <h1>ZAWA <span>STUDIO</span></h1>
+          </a>
+        </div>
 
-</div>
-</div>
-<div class="nav-left" id="mobileMenu">
-  <!-- MOBILE ONLY RIGHT LINKS -->
+        <div class="mobile-icons">
+          <div class="mobile-search-bar" id="mobileSearchBar">
+            <input type="text" id="mobileSearchInputTop" placeholder="Search products...">
+            <i class="fa-solid fa-xmark" onclick="closeMobileSearch()"></i>
+          </div>
+          <!-- Search Icon -->
+          <div class="mobile-search-icon">
+            <i class="fa-solid fa-magnifying-glass" onclick="openMobileSearch()"></i>
+          </div>
 
-  <div class="close-btn" onclick="toggleMenu()">
-    <i class="fa-solid fa-xmark"></i>
-  </div>
+          <!-- Cart Icon -->
+          <div class="mobile-cart">
+            <a href="#" onclick="toggleCart()" style="text-decoration: none; color: #c9a24d;">
+              <i class="fa-solid fa-cart-shopping"></i> (<span id="mobileCount">0</span>)
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="nav-left" id="mobileMenu">
+        <!-- MOBILE ONLY RIGHT LINKS -->
+
+        <div class="close-btn" onclick="toggleMenu()">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
 
         <a href="index.html">HOME</a>
 
-      <!-- SHOP DROPDOWN -->
-      <div class="nav-dropdown">
-        <a href="product.html">SHOP</a>
-        <div class="dropdown-menu">
-          <a href="bouquet.html">Bouquet</a>
-          <a href="gajray.html">Gajray</a>
-          <a href="headband.html">Headband</a>
-          <a href="bags.html">Bags</a>
-          <a href="handbag.html">Handbag</a>
-          <a href="phonecase.html">PhoneCase</a>
-          <a href="keychain.html">Keychain</a>
-          <a href="pouch.html">Pouch</a>
-          <a href="wallet.html">Wallet</a>
+        <!-- SHOP DROPDOWN -->
+        <div class="nav-dropdown">
+          <a href="product.html">SHOP</a>
+          <div class="dropdown-menu">
+            <a href="bouquet.html">Bouquet</a>
+            <a href="gajray.html">Gajray</a>
+            <a href="headband.html">Headband</a>
+            <a href="bags.html">Bags</a>
+            <a href="handbag.html">Handbag</a>
+            <a href="phonecase.html">PhoneCase</a>
+            <a href="keychain.html">Keychain</a>
+            <a href="pouch.html">Pouch</a>
+            <a href="wallet.html">Wallet</a>
+          </div>
         </div>
-      </div>
 
-      <a href="aboutus.html">ABOUT</a>
+        <a href="aboutus.html">ABOUT</a>
 
-      <!-- FAQ DROPDOWN -->
-      <div class="nav-dropdown">
-        <a href="faqs.html">FAQ</a>
-        <div class="dropdown-menu">
-          <a href="returnpolicy.html">Return Policy</a>
-          <a href="terms.html">Terms & Conditions</a>
+        <!-- FAQ DROPDOWN -->
+        <div class="nav-dropdown">
+          <a href="faqs.html">FAQ</a>
+          <div class="dropdown-menu">
+            <a href="returnpolicy.html">Return Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+          </div>
         </div>
-      </div>
-      <a href="contact.html">CONTACT</a>
-<div class="mobile-only-links">
+        <a href="contact.html">CONTACT</a>
+        <div class="mobile-only-links">
 
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-    <i class="fa-brands fa-instagram"></i> Instagram
-  </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
 
- 
 
-  <!-- Login / Signup -->
-  <div id="mobileAuthButtons">
-     <a href="login.html" class="auth-link">Login</a>
+
+          <!-- Login / Signup -->
+          <div id="mobileAuthButtons">
+            <a href="login.html" class="auth-link">Login</a>
             <a href="signup.html" class="auth-link">Sign Up</a>
-  </div>
+          </div>
 
-  <!-- Profile -->
-<div id="mobileProfileArea" onclick="toggleMobileProfile()">
-  <i class="fa-solid fa-user"></i> My Account
-</div>
+          <!-- Profile -->
+          <div id="mobileProfileArea" onclick="toggleMobileProfile()">
+            <i class="fa-solid fa-user"></i> My Account
+          </div>
 
-<div class="mobile-profile-dropdown" id="mobileProfileDropdown">
-  <p id="mobileUserName"></p>
-  <p id="mobileUserEmail"></p>
-  <button onclick="logout()">Logout</button>
-</div>
+          <div class="mobile-profile-dropdown" id="mobileProfileDropdown">
+            <p id="mobileUserName"></p>
+            <p id="mobileUserEmail"></p>
+            <button onclick="logout()">Logout</button>
+          </div>
 
-</div>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div class="logo">
-      <a href="index.html" style="text-decoration: none;">
-        <h1>ZAWA <span>STUDIO</span></h1>
-      </a>
-    </div>
-</div>
-   
-    <!-- RIGHT -->
-    <div class="nav-right">
-      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
-          class="fa-brands fa-instagram"></i></a>
-
-      <div class="cart-icon">
-        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-        <span id="cartCount">0</span>
+        </div>
       </div>
 
-
-      <!-- SEARCH -->
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class="fa-solid fa-magnifying-glass"></i>
+      <!-- CENTER LOGO -->
+      <div class="logo">
+        <a href="index.html" style="text-decoration: none;">
+          <h1>ZAWA <span>STUDIO</span></h1>
+        </a>
       </div>
+      <div class="nav-right">
+        <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+            class="fa-brands fa-instagram"></i></a>
 
-      <!-- RIGHT SIDE -->
+        <div class="cart-icon">
+          <a href="#" onclick="toggleCart()" style="text-decoration: none;">
+            <i class="fa-solid fa-cart-shopping"></i> (<span id="desktopCount">0</span>)
+          </a>
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="search-box">
+          <input type="text" placeholder="Search...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <!-- RIGHT SIDE -->
 
 
         <div class="auth-area">
@@ -170,10 +172,14 @@
 
       </div>
 
+  </div>
+
+
+
 
 
   </nav>
-<div class="menu-overlay" onclick="toggleMenu()"></div>
+  <div class="menu-overlay" onclick="toggleMenu()"></div>
 
 
 
@@ -209,8 +215,7 @@
 
       <div class="product-action">
         <input type="number" min="1" value="1" class="qty">
-        <button class="add-to-cart-btn" data-id="9" data-name="Crochet handbag" data-price="2000"
-          data-image="assets/img/handbag.jpeg">
+                 <button id="addToCartBtn" class="add-to-cart-btn">
           Add to Cart
         </button>
         <hr class="product-divider">
@@ -229,286 +234,567 @@
 
 
 
+ <section class="checkout" id="checkout">
+    <h1>Checkout</h1>
+    <div class="checkout-wrapper">
+      <div class="form-card">
+        <h3>Shipping Info</h3>
+        <input placeholder="Full Name">
+        <input placeholder="Email">
+        <input placeholder="Phone">
+        <input placeholder="Address">
+        <input placeholder="City">
+
+        <h3 style="margin-top:20px;">Payment Method</h3>
+
+        <select id="paymentMethod" onchange="showPaymentInfo()">
+          <option value="bank">Bank Transfer</option>
+        </select>
+
+        <div id="bankDetails" style="display:none;margin-top:15px;
+background:#4a005d;padding:15px;border-radius:8px;">
+          <p><strong>Bank:</strong> Meezan Bank</p>
+          <p><strong>Account Name:</strong> Abdul Haseeb</p>
+          <p><strong>Account Number:</strong> 1234 5678 9012</p>
+        </div>
+
+        <button class="place-order" onclick="placeOrder()">Place Order</button>
+      </div>
+
+      <div class="summary-card">
+        <h3>Order Summary</h3>
+        <div id="summary"></div>
+        <hr style="margin:15px 0;border:1px solid #4a005d;">
+        <h3>Total: $<span id="total2">0</span></h3>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="cart" id="cart">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-total">
+      <h3>Total: <span id="total">0</span></h3>
+      <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
+      <div id="paymentInfo" style="margin-top:10px;color:#fff;font-size:14px;"></div>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup"
+    style="position:fixed;top:20px;right:20px;background:var(--accent);color:black;padding:20px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.3);display:none;z-index:9999;min-width:250px;">
+    <strong id="popupTitle"></strong>
+    <p id="popupText"></p>
+  </div>
+
 
   <!-- footer -->
   <!-- footer -->
-<footer class="footer">
-  
-  <!-- Brand & Social -->
-<p style="margin:0; font-weight:700; font-size:18px;">
-  <span class="footer-logo-z">ZAWA</span>
-  <span class="footer-logo-s">STUDIO</span>
-</p>
-  <p style="margin:5px 0 15px 0; font-size:14px;">
-    Luxury handcrafted crochet pieces, made with love and intention.
-  </p>
+  <footer class="footer">
 
-  <!-- Social Icons -->
-  <p style="margin:10px 0; font-size:16px;">
-    Follow us:
-    <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-       style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-twitter"></i>
-    </a>
-  </p>
+    <!-- Brand & Social -->
+    <p style="margin:0; font-weight:700; font-size:18px;">
+      <span class="footer-logo-z">ZAWA</span>
+      <span class="footer-logo-s">STUDIO</span>
+    </p>
+    <p style="margin:5px 0 15px 0; font-size:14px;">
+      Luxury handcrafted crochet pieces, made with love and intention.
+    </p>
 
-  <!-- Quick Links -->
-  <p style="margin:10px 0; font-size:14px;">
-    <a href="product.html" style="color:#d4af37; text-decoration:none; margin:0 8px;" class="footer-text">Shop</a> |
-    <a href="aboutus.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">About</a> |
-    <a href="returnpolicy.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">Shipping & Returns</a>
-  </p>
+    <!-- Social Icons -->
+    <p style="margin:10px 0; font-size:16px;">
+      Follow us:
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </p>
 
-  <!-- Bottom Text -->
-  <p style="margin:15px 0 0 0; font-size:12px;     color: #b89ad9;">
-    © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
-  </p>
+    <!-- Quick Links -->
+    <p style="margin:10px 0; font-size:14px;">
+      <a href="product.html" style="color:#d4af37; text-decoration:none; margin:0 8px;" class="footer-text">Shop</a> |
+      <a href="aboutus.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">About</a> |
+      <a href="returnpolicy.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">Shipping & Returns</a>
+    </p>
 
-</footer>
+    <!-- Bottom Text -->
+    <p style="margin:15px 0 0 0; font-size:12px;     color: #b89ad9;">
+      © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
+    </p>
+
+  </footer>
 
 
-  <!-- Premium Cart Popup -->
-    <div id="cartPopup" class="cart-popup">
-        <div class="popup-content">
-            <i class="fa-solid fa-check-circle"></i>
-            <div>
-                <h4 id="popupTitle"></h4>
-                <p id="popupQty"></p>
-            </div>
-        </div>
+<!-- Premium Cart Popup -->
+  <div id="cartPopup" class="cart-popup">
+    <div class="popup-content">
+      <i class="fa-solid fa-check-circle"></i>
+      <div>
+        <h4 id="popupTitle"></h4>
+        <p id="popupQty"></p>
+      </div>
     </div>
-<!-- Premium Login Required Popup -->
-<div id="loginPopup" class="login-popup">
-    <div class="login-popup-content">
-        <i class="fa-solid fa-lock"></i>
-        <div>
-            <h4>Login Required</h4>
-            <p>Please login to add items to your cart.</p>
-        </div>
-        <button id="loginNowBtn">Login</button>
+  </div>
+
+  <!-- Order Placed Popup -->
+  <div id="orderPopup" class="premium-popup">
+    <div class="popup-content">
+      <i class="fa-solid fa-check-circle"></i>
+      <div>
+        <h4>Order Placed!</h4>
+        <p>Your order has been received. You will get an email confirmation shortly.</p>
+      </div>
     </div>
-</div>
+  </div>
 
-    <script>
-        
-        const track = document.querySelector('.slider-track');
-        const slides = Array.from(track.children);
-        const dotsContainer = document.querySelector('.slider-dots');
+  <!-- Error / Fill Fields Popup -->
+  <div id="errorPopup" class="premium-popup">
+    <div class="popup-content">
+      <i class="fa-solid fa-exclamation-circle"></i>
+      <div>
+        <h4>Oops!</h4>
+        <p>Please fill in all fields and select a payment method.</p>
+      </div>
+    </div>
+  </div>
 
-        let index = 0;
-        let baseSpeed = 3500; // normal slide speed
-        let sliderInterval;
-        let isDragging = false;
-        let startX = 0;
 
-        // Clone first slide for infinite effect
-        track.appendChild(slides[0].cloneNode(true));
+  <script>
+    const track = document.querySelector('.slider-track');
+    const slides = Array.from(track.children);
+    const dotsContainer = document.querySelector('.slider-dots');
 
-        /* Create dots */
-        slides.forEach((_, i) => {
-            const dot = document.createElement('span');
-            if (i === 0) dot.classList.add('active');
-            dotsContainer.appendChild(dot);
+    let index = 0;
+    let baseSpeed = 3500; // normal slide speed
+    let sliderInterval;
+    let isDragging = false;
+    let startX = 0;
 
-            dot.addEventListener('click', () => {
-                index = i;
-                moveSlider();
-            });
-        });
+    // Clone first slide for infinite effect
+    track.appendChild(slides[0].cloneNode(true));
 
-        const dots = dotsContainer.children;
+    /* Create dots */
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
 
-        /* Move slider to current index */
-        function moveSlider() {
-            track.style.transition = 'transform 0.6s ease';
-            track.style.transform = `translateX(-${index * 100}%)`;
-
-            // Update dots
-            [...dots].forEach(d => d.classList.remove('active'));
-            if (dots[index % slides.length]) dots[index % slides.length].classList.add('active');
-
-            handleCurrentSlide();
-        }
-
-        /* Handle current slide: if video, pause auto-slide and wait for it to end */
-        function handleCurrentSlide() {
-            clearInterval(sliderInterval);
-
-            const currentSlide = slides[index % slides.length];
-            const video = currentSlide.querySelector('video');
-
-            if (video) {
-                video.currentTime = 0;
-                video.play();
-
-                video.onended = () => {
-                    index++;
-                    moveSlider();
-                };
-            } else {
-                // Normal slide auto-play
-                sliderInterval = setInterval(() => {
-                    index++;
-                    if (index >= slides.length) index = 0; // loop back
-                    moveSlider();
-                }, baseSpeed);
-            }
-        }
-
-        // Start slider
+      dot.addEventListener('click', () => {
+        index = i;
         moveSlider();
-
-        /* Swipe support */
-        track.addEventListener('touchstart', e => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-
-        track.addEventListener('touchend', e => {
-            if (!isDragging) return;
-            let endX = e.changedTouches[0].clientX;
-            let diff = startX - endX;
-
-            if (diff > 50) index++;
-            if (diff < -50) index--;
-
-            if (index < 0) index = slides.length - 1;
-
-            moveSlider();
-            isDragging = false;
-        });
-
-    </script>
-
-   <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* ===============================
-       LOGIN BUTTON REDIRECT
-    =============================== */
-    const loginBtn = document.getElementById("loginNowBtn");
-    if (loginBtn) {
-        loginBtn.addEventListener("click", function () {
-            window.location.href = "login.html";
-        });
-    }
-
-    /* ===============================
-       ADD TO CART FUNCTION
-    =============================== */
-    document.querySelectorAll(".add-to-cart-btn").forEach(button => {
-
-        button.addEventListener("click", function () {
-
-
-            /* 🛒 ADD TO CART */
-            const productCard = this.closest(".product-card");
-            const quantity = parseInt(productCard.querySelector(".qty").value) || 1;
-
-            const product = {
-                id: this.dataset.id,
-                name: this.dataset.name,
-                price: Number(this.dataset.price),
-                image: this.dataset.image,
-                quantity: quantity
-            };
-
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-            const existing = cart.find(item => item.id === product.id);
-
-            if (existing) {
-                existing.quantity += quantity;
-            } else {
-                cart.push(product);
-            }
-
-            localStorage.setItem("cart", JSON.stringify(cart));
-
-            /* 💎 PREMIUM CART POPUP */
-            const popup = document.getElementById("cartPopup");
-            const title = document.getElementById("popupTitle");
-            const qty = document.getElementById("popupQty");
-
-            title.textContent = product.name;
-            qty.textContent = `Quantity Added: ${quantity}`;
-
-            popup.classList.add("show");
-
-            setTimeout(() => {
-                popup.classList.remove("show");
-            }, 3500);
-
-        });
-
+      });
     });
 
-});
-</script>
+    const dots = dotsContainer.children;
 
-    <script>
-        // Get the input and search icon
-        const searchInput = document.querySelector(".search-box input");
-        const searchBtn = document.querySelector(".search-box i");
+    /* Move slider to current index */
+    function moveSlider() {
+      track.style.transition = 'transform 0.6s ease';
+      track.style.transform = `translateX(-${index * 100}%)`;
 
-        // Redirect on click of the search icon
-        searchBtn.addEventListener("click", () => {
-            const query = searchInput.value.trim();
-            if (query) {
-                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-            }
+      // Update dots
+      [...dots].forEach(d => d.classList.remove('active'));
+      if (dots[index % slides.length]) dots[index % slides.length].classList.add('active');
+
+      handleCurrentSlide();
+    }
+
+    /* Handle current slide: if video, pause auto-slide and wait for it to end */
+    function handleCurrentSlide() {
+      clearInterval(sliderInterval);
+
+      const currentSlide = slides[index % slides.length];
+      const video = currentSlide.querySelector('video');
+
+      if (video) {
+        video.currentTime = 0;
+        video.play();
+
+        video.onended = () => {
+          index++;
+          moveSlider();
+        };
+      } else {
+        // Normal slide auto-play
+        sliderInterval = setInterval(() => {
+          index++;
+          if (index >= slides.length) index = 0; // loop back
+          moveSlider();
+        }, baseSpeed);
+      }
+    }
+
+    // Start slider
+    moveSlider();
+
+    /* Swipe support */
+    track.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    });
+
+    track.addEventListener('touchend', e => {
+      if (!isDragging) return;
+      let endX = e.changedTouches[0].clientX;
+      let diff = startX - endX;
+
+      if (diff > 50) index++;
+      if (diff < -50) index--;
+
+      if (index < 0) index = slides.length - 1;
+
+      moveSlider();
+      isDragging = false;
+    });
+  </script>
+
+
+
+  <script>
+    // Get the input and search icon
+    const searchInput = document.querySelector(".search-box input");
+    const searchBtn = document.querySelector(".search-box i");
+
+    // Redirect on click of the search icon
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.trim();
+      if (query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
+
+    // Redirect on Enter key press
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const priceRange = document.getElementById("priceRange");
+      const applyFilter = document.getElementById("applyFilter");
+      const minPriceLabel = document.getElementById("minPrice");
+      const maxPriceLabel = document.getElementById("maxPrice");
+      const productCards = document.querySelectorAll(".product-card");
+
+      // Update max price label when slider changes
+      priceRange.addEventListener("input", () => {
+        maxPriceLabel.textContent = `Rs.${priceRange.value}`;
+      });
+
+      // Apply filter when button clicked
+      applyFilter.addEventListener("click", () => {
+        const maxPrice = Number(priceRange.value);
+
+        productCards.forEach(card => {
+          const priceText = card.querySelector(".price").textContent.trim();
+          const priceNumber = Number(priceText.replace(/[^0-9]/g, "")); // remove Rs. and other chars
+
+          if (priceNumber <= maxPrice) {
+            card.style.display = "block"; // show product
+          } else {
+            card.style.display = "none"; // hide product
+          }
         });
+      });
+    });
+  </script>
 
-        // Redirect on Enter key press
-        searchInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") {
-                e.preventDefault();
-                const query = searchInput.value.trim();
-                if (query) {
-                    window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-                }
-            }
+  <script>
+    /* =========================
+       SHARED CART LOGIC
+    ========================= */
+
+    const SHIPPING_COST = 300;
+
+    let cart = JSON.parse(localStorage.getItem("zawaCart")) || [];
+
+    function saveCart() {
+      localStorage.setItem("zawaCart", JSON.stringify(cart));
+    }
+
+    function formatPrice(amount) {
+      return "Rs. " + amount.toLocaleString();
+    }
+
+    function updateCartCounts() {
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      const desktop = document.getElementById("desktopCount");
+      const mobile = document.getElementById("mobileCount");
+
+      if (desktop) desktop.innerText = totalQty;
+      if (mobile) mobile.innerText = totalQty;
+    }
+
+    /* =========================
+       ADD TO CART (DETAILED PAGE)
+    ========================= */
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const addBtn = document.getElementById("addToCartBtn");
+      const qtyInput = document.querySelector(".qty");
+
+      const product = {
+        id: 7,
+        name: "Crochet handbag",
+        price: 2000,
+        category: "Handbag",
+        img: "assets/img/handbag.jpeg",
+        link: "Crochet handbag.html"
+      };
+
+      addBtn.addEventListener("click", () => {
+        const qty = parseInt(qtyInput.value) || 1;
+
+        const existing = cart.find(p => p.id === product.id);
+
+        if (existing) {
+          existing.qty += qty;
+        } else {
+          cart.push({ ...product, qty });
+        }
+
+        saveCart();
+        updateCart();
+        updateCartCounts();
+        showPopup("Added to Cart", `${product.name} x${qty}`);
+      });
+
+      updateCart();
+      updateCartCounts();
+    });
+
+    /* =========================
+       CART SIDEBAR
+    ========================= */
+
+    function toggleCart() {
+      document.getElementById("cart").classList.toggle("open");
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cartItems");
+      const total = document.getElementById("total");
+      const total2 = document.getElementById("total2");
+      const summary = document.getElementById("summary");
+
+      if (!cartItems) return;
+
+      cartItems.innerHTML = "";
+      if (summary) summary.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = `<p style="text-align:center;color:#bbb;">Your cart is empty</p>`;
+        if (total) total.innerText = formatPrice(0);
+        if (total2) total2.innerText = formatPrice(0);
+        return;
+      }
+
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        subtotal += item.price * item.qty;
+
+        /* Cart sidebar */
+        cartItems.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.img}">
+        <div class="cart-item-details">
+          <p>${item.name}</p>
+          <div class="cart-qty">
+            <button onclick="changeQty(${item.id}, -1)">-</button>
+            <span>${item.qty}</span>
+            <button onclick="changeQty(${item.id}, 1)">+</button>
+          </div>
+        </div>
+        <strong>${formatPrice(item.price * item.qty)}</strong>
+        <button class="remove-btn" onclick="removeItem(${item.id})">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+    `;
+
+        /* Checkout summary items */
+        if (summary) {
+          summary.innerHTML += `
+        <div class="checkout-item">
+          <img src="${item.img}" alt="${item.name}">
+          <div>
+            <p>${item.name}</p>
+            <small>Qty: ${item.qty}</small>
+          </div>
+          <strong>${formatPrice(item.price * item.qty)}</strong>
+        </div>
+      `;
+        }
+      });
+
+      /* Shipping row (NOW VISIBLE) */
+      if (summary) {
+        summary.innerHTML += `
+      <div class="checkout-item shipping">
+        <span>Shipping</span>
+        <strong>${formatPrice(SHIPPING_COST)}</strong>
+      </div>
+    `;
+      }
+
+      const finalTotal = subtotal + SHIPPING_COST;
+
+      if (total) total.innerText = formatPrice(finalTotal);
+      if (total2) total2.innerText = formatPrice(finalTotal);
+    }
+    function changeQty(id, delta) {
+      const item = cart.find(p => p.id === id);
+      if (!item) return;
+
+      item.qty += delta;
+      if (item.qty < 1) item.qty = 1;
+
+      saveCart();
+      updateCart();
+      updateCartCounts();
+    }
+
+    function removeItem(id) {
+      cart = cart.filter(p => p.id !== id);
+      saveCart();
+      updateCart();
+      updateCartCounts();
+    }
+
+    /* =========================
+       CHECKOUT
+    ========================= */
+
+    function goCheckout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty");
+        return;
+      }
+
+      document.querySelector(".product-card").style.display = "none";
+      document.getElementById("checkout").style.display = "block";
+      toggleCart();
+    }
+
+    function showPopup(title, text) {
+      const popup = document.getElementById("popup");
+      document.getElementById("popupTitle").innerText = title;
+      document.getElementById("popupText").innerText = text;
+      popup.style.display = "block";
+
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 2500);
+    }
+
+  </script>
+  <script>
+    function showPaymentInfo() {
+      const method = document.getElementById("paymentMethod").value;
+      const bankDetails = document.getElementById("bankDetails");
+
+      if (method === "bank") {
+        bankDetails.style.display = "block";
+      } else {
+        bankDetails.style.display = "none";
+      }
+    }
+  </script>
+  <script>
+    function placeOrder() {
+      const name = document.querySelector('#checkout input[placeholder="Full Name"]').value;
+      const email = document.querySelector('#checkout input[placeholder="Email"]').value;
+      const phone = document.querySelector('#checkout input[placeholder="Phone"]').value;
+      const address = document.querySelector('#checkout input[placeholder="Address"]').value;
+      const paymentMethod = document.getElementById('paymentMethod').value;
+
+      if (!name || !email || !phone || !address || !paymentMethod) {
+        showErrorPopup(); // <--- PREMIUM ERROR POPUP
+        return;
+      }
+
+      // Build order table rows
+      let orderRows = cart.map(item => `
+    <tr>
+      <td>${item.name}</td>
+      <td>${item.qty}</td>
+      <td>Rs.${item.price}</td>
+      <td>Rs.${item.price * item.qty}</td>
+    </tr>
+  `).join('');
+
+      const totalAmount = cart.reduce((sum, item) => sum + item.price * item.qty, 0) + 300;
+
+      const templateParams = {
+        name, email, phone, address,
+        payment: paymentMethod,
+        order: orderRows,
+        total: "Rs." + totalAmount,
+        admin_email: "zarajawed15@example.com"
+      };
+
+      emailjs.send('service_qc9ieu9', 'template_jh9y4xd', templateParams)
+        .then(response => {
+          showOrderPopup(); // <--- PREMIUM SUCCESS POPUP
+
+          // Clear cart
+          localStorage.removeItem("zawaCart");
+          cart = [];
+          updateCart();
+          updateCartCounts();
+
+          // Hide checkout page
+          document.querySelector(".product-card").style.display = "none";
+          document.getElementById("checkout").style.display = "none";
+
+          // Redirect after popup
+          setTimeout(() => {
+            window.location.href = "Thankyou.html";
+          }, 3000);
+        })
+        .catch(error => {
+          console.log('FAILED...', error);
+          showErrorPopup(); // fallback error
         });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const priceRange = document.getElementById("priceRange");
-            const applyFilter = document.getElementById("applyFilter");
-            const minPriceLabel = document.getElementById("minPrice");
-            const maxPriceLabel = document.getElementById("maxPrice");
-            const productCards = document.querySelectorAll(".product-card");
+    }
+    // Show Order Placed Popup
+    function showOrderPopup() {
+      const popup = document.getElementById("orderPopup");
+      popup.classList.add("show");
+      setTimeout(() => popup.classList.remove("show"), 3000); // hide after 3s
+    }
 
-            // Update max price label when slider changes
-            priceRange.addEventListener("input", () => {
-                maxPriceLabel.textContent = `Rs.${priceRange.value}`;
-            });
-
-            // Apply filter when button clicked
-            applyFilter.addEventListener("click", () => {
-                const maxPrice = Number(priceRange.value);
-
-                productCards.forEach(card => {
-                    const priceText = card.querySelector(".price").textContent.trim();
-                    const priceNumber = Number(priceText.replace(/[^0-9]/g, "")); // remove Rs. and other chars
-
-                    if (priceNumber <= maxPrice) {
-                        card.style.display = "block"; // show product
-                    } else {
-                        card.style.display = "none"; // hide product
-                    }
-                });
-            });
-        });
-    </script>
-<script src="assets/js/nav.js"></script>
-    <script src="assets/js/cart.js"></script>
-    <script src="assets/js/main.js"></script>
+    // Show Error Popup
+    function showErrorPopup() {
+      const popup = document.getElementById("errorPopup");
+      popup.classList.add("show");
+      setTimeout(() => popup.classList.remove("show"), 3000);
+    }
+  </script>
+  <script src="assets/js/nav.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("ydfCcmdSiJYKZXoRM"); // get this from EmailJS dashboard
+  </script>
 </body>
 
 </html>

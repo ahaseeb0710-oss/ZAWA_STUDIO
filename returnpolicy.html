@@ -15,33 +15,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
   <link rel="manifest" href="assets/img/site.webmanifest">
-  <style>
-    .active, .btn:hover {
-background-color: #d2b579;
-color: black;
-}
-/* Tabs beside each other */
-.info-tabs{
-  display:flex;
-  gap:15px;
-  margin-bottom:30px;
-  flex-wrap:wrap;
-}
 
-.info-tabs .btn{
-  border:1px solid #d2b579;
-  background:transparent;
-  padding:10px 18px;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.info-tabs .btn.active,
-.info-tabs .btn:hover{
-  background-color:#d2b579;
-  color:black;
-}
-  </style>
 </head>
 
 <body>
@@ -204,48 +178,46 @@ color: black;
 <div class="menu-overlay" onclick="toggleMenu()"></div>
 
 
+<section class="info-page">
 
-  <section class="info-page" >
+  <div class="info-tabs">
+    <a href="faqs.html" class="tab-btn">FAQ's</a>
+    <a href="returnpolicy.html" class="tab-btn active">Return Policy</a>
+    <a href="terms.html" class="tab-btn">Terms & Conditions</a>
+  </div>
 
-      <div id="myDIV" class="info-tabs">
-  <a href="faqs.html"><button class="btn">FAQ's</button></a>
-  <a href="returnpolicy.html"><button class="btn">Return Policy</button></a>
-  <a href="terms.html"><button class="btn active">Terms & Conditions</button></a>
-</div>
-    <div class="info-container">
+  <div class="info-container">
 
-      <h1 class="info-title">Return & Refund Policy</h1>
+    <h1 class="info-title">Return & Refund Policy</h1>
 
-      <p>
-        At ZAWA STUDIO, customer satisfaction is our priority. Since our products are handmade,
-        we ensure every item is checked carefully before shipping.
-      </p>
+    <p>
+      At ZAWA STUDIO, customer satisfaction is our priority. Since our products are handmade,
+      we ensure every item is checked carefully before shipping.
+    </p>
 
-      <h3>Returns</h3>
-      <p>
-        Returns are accepted only if the item is damaged or incorrect.
-        You must contact us within 48 hours of delivery with pictures of the issue.
-      </p>
+    <h3>Returns</h3>
+    <p>
+      Returns are accepted only if the item is damaged or incorrect.
+      You must contact us within 48 hours of delivery with pictures of the issue.
+    </p>
 
-      <h3>Refunds</h3>
-      <p>
-        After inspection, refunds or replacements will be processed within 5–7 business days.
-      </p>
+    <h3>Refunds</h3>
+    <p>
+      After inspection, refunds or replacements will be processed within 5–7 business days.
+    </p>
 
-      <h3>Non-Returnable Items</h3>
-      <p>
-        Custom or personalized products cannot be returned unless damaged.
-      </p>
+    <h3>Non-Returnable Items</h3>
+    <p>
+      Custom or personalized products cannot be returned unless damaged.
+    </p>
 
-      <h3>Contact Us</h3>
-      <p>
-        For return requests, please contact our support team through our website or social media.
-      </p>
+    <h3>Contact Us</h3>
+    <p>
+      For return requests, please contact our support team through our website or social media.
+    </p>
 
-    </div>
-  </section>
-
-
+  </div>
+</section>
 
 
   <!-- footer -->

@@ -61,7 +61,9 @@ function renderProducts(items){
         <h3>${p.name}</h3>
         <p>${formatPrice(p.price)}</p>
       </a>
-      <button onclick="addToCart(${p.id})">Add to Cart</button>
+      <a href="${p.link}" class="add-to-cart-btn view-btn">
+  View Product
+</a>
     `;
     productsContainer.appendChild(card);
   });
@@ -331,24 +333,32 @@ function displayProducts(page = 1) {
   const paginatedProducts = products.slice(start, end);
 
   // Render products for current page
-  paginatedProducts.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-      <div class="product-img">
-        <img src="${p.img}" alt="${p.name}">
-      </div>
-      <div class="product-info">
-        <p class="category">${p.category.toUpperCase()}</p>
-        <a href="${p.link}" class="nameofproduct">
-          <h5 class="name">${p.name}</h5>
-        </a>
-        <p class="price">Rs.${p.price}</p>
-        <button onclick="addToCart(${p.id})">Add to Cart</button>
-      </div>
-    `;
-    productsContainer.appendChild(card);
-  });
+paginatedProducts.forEach(p => {
+  const card = document.createElement('div');
+  card.className = 'product-card';
+
+  card.innerHTML = `
+    <div class="product-img">
+      <img src="${p.img}" alt="${p.name}">
+    </div>
+
+    <div class="product-info">
+      <p class="category">${p.category.toUpperCase()}</p>
+
+      <a href="${p.link}" class="nameofproduct">
+        <h5 class="name">${p.name}</h5>
+      </a>
+
+      <p class="price">Rs.${p.price}</p>
+
+      <a href="${p.link}" class="add-to-cart-btn view-btn">
+        View Product
+      </a>
+    </div>
+  `;
+
+  productsContainer.appendChild(card);
+});
 
   // Render pagination buttons dynamically
   paginationContainer.innerHTML = '';
@@ -367,3 +377,6 @@ function displayProducts(page = 1) {
 
 // Initial render
 displayProducts();
+
+
+

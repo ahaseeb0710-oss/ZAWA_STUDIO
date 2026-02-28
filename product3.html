@@ -331,7 +331,9 @@ background:#4a005d;padding:15px;border-radius:8px;">
         <h3>${p.name}</h3>
         <p>${formatPrice(p.price)}</p>
       </a>
-      <button onclick="addToCart(${p.id})">Add to Cart</button>
+      <button onclick="window.location.href='${p.link}'">
+  View Product
+</button>
     `;
     productsContainer.appendChild(card);
   });

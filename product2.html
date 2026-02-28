@@ -336,7 +336,9 @@ function renderProducts(items){
         <h3>${p.name}</h3>
         <p>${formatPrice(p.price)}</p>
       </a>
-      <button onclick="addToCart(${p.id})">Add to Cart</button>
+      <button onclick="window.location.href='${p.link}'">
+  View Product
+</button>
     `;
     productsContainer.appendChild(card);
   });
