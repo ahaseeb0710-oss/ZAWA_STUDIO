@@ -185,3 +185,11 @@ function logout() {
 document.getElementById("logoutBtn").addEventListener("click", logout);
 
 
+const user = JSON.parse(localStorage.getItem("zawaUser"));
+
+if (user) {
+  document.getElementById("authButtons").style.display = "none";
+  document.getElementById("profileArea").style.display = "block";
+  document.getElementById("userName").innerText = user.name;
+  document.getElementById("userEmail").innerText = user.email;
+}
