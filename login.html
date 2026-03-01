@@ -179,12 +179,13 @@
       .then((result) => {
         const user = result.user;
 
-        localStorage.setItem("zawaUser", JSON.stringify({
+        const userData = {
           name: user.displayName,
           email: user.email,
           photo: user.photoURL
-        }));
+        };
 
+        localStorage.setItem("user", JSON.stringify(userData));
         localStorage.setItem("loggedIn", "true");
 
         window.location.href = "index.html";
