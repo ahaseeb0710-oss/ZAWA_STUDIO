@@ -497,7 +497,13 @@ background:#4a005d;padding:15px;border-radius:8px;">
 </div>
 
 
-
+<script>auth.onAuthStateChanged(user => {
+  if (user) {
+    // Show profile
+  } else {
+    // Show login button
+  }
+});</script>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="assets/js/nav.js"></script>
 <script src="assets/js/newproduct.js"></script>

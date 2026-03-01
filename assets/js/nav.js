@@ -167,19 +167,7 @@ function toggleMobileProfile() {
   }
 }
 
-function logout() {
-  localStorage.removeItem("loggedIn");
-  localStorage.removeItem("user");
-  location.reload();
-}
 
-
-// Add the logout function inside a script tag on the page where the logout button exists
-function logout() {
-  localStorage.removeItem("loggedIn");
-  localStorage.removeItem("user");
-  window.location.href = "login.html"; // Redirect to login page after logout
-}
 
 // You can also attach this function to a logout button event:
 document.getElementById("logoutBtn").addEventListener("click", logout);
@@ -193,3 +181,37 @@ if (user) {
   document.getElementById("userName").innerText = user.name;
   document.getElementById("userEmail").innerText = user.email;
 }
+
+function logout() {
+  // Clear auth data
+  localStorage.removeItem("loggedIn");
+  localStorage.removeItem("user");
+  localStorage.removeItem("zawaUser"); // safety if exists
+
+  // Redirect to HOME
+  window.location.href = "index.html";
+}
+
+function updateNavbar() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const loggedIn = localStorage.getItem("loggedIn");
+
+  const loginBtn = document.getElementById("loginBtn");
+  const navUser = document.getElementById("navUser");
+
+  if (user && loggedIn === "true") {
+    if (loginBtn) loginBtn.style.display = "none";
+    if (navUser) navUser.style.display = "flex";
+  } else {
+    if (loginBtn) loginBtn.style.display = "block";
+    if (navUser) navUser.style.display = "none";
+  }
+}
+document.addEventListener("DOMContentLoaded", updateNavbar);
+function logout() {
+  localStorage.removeItem("loggedIn");
+  localStorage.removeItem("user");
+  updateNavbar(); // 🔥 auto refresh
+  window.location.href = "index.html";
+}
+window.addEventListener("storage", updateNavbar);
