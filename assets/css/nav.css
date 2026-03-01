@@ -332,7 +332,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+
   }
 
   body {
@@ -1056,7 +1056,7 @@
 }
 
 body {
-  padding-top: var(--nav-height);
+  padding-top: 20px;
 }
 
 /* ===== DESKTOP NAV FIX ===== */
@@ -1420,6 +1420,7 @@ h3 {
 .checkout {
   display: none;
   margin-bottom: 120px;
+  margin-top: 40px;
 }
 
 .checkout-wrapper {

@@ -17,6 +17,7 @@
     margin: 0 auto;   /* center horizontally */
     background: transparent;
     box-shadow: none;
+    margin-top: 80px;
 }
 
 /* Tablets & small laptops */
@@ -25,6 +26,7 @@
         flex-direction: column;
         padding: 10px 6%; /* keep top/bottom tiny */
         gap: 40px;
+        
     }
 }
 
@@ -33,7 +35,7 @@
     .product-card {
         flex-direction: column;
         padding: 8px 5%; /* minimal padding */
-        gap: 30px;
+        
     }
 }
 
@@ -41,7 +43,7 @@
 @media (max-width: 480px) {
     .product-card {
         padding: 5px 4%; /* tightest */
-        gap: 20px;
+        
     }
 }
         /* IMAGE SIDE */
@@ -274,8 +276,9 @@
             .product-card {
                 flex-direction: column;
                 gap: 50px;
-                padding: 60px 6%;
-
+             padding-right: 10px !important;
+             padding-left: 10px !important;
+margin-top: 80px !important;
             }
 
             .product-info {
@@ -392,4 +395,7 @@
             text-decoration: none;
         }
 
-        
+        .container {
+  padding: 20px;
+  color: white;
+}

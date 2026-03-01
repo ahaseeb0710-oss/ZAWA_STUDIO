@@ -1,149 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Product</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOP | ZAWA STUDIO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/site.webmanifest">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/product.css">
 
-    <link rel="stylesheet" href="assets/css/product.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
 </head>
 
 <body>
-    <!-- RIGHT : links + search + icons -->
 
-  <nav class="navbar">
-<!-- Mobile Header -->
-<div class="mobile-header">
-  <div class="hamburger" onclick="toggleMenu()">
-    <i class="fa fa-bars" aria-hidden="true" style="font-size: 26px;"></i>
-  </div>
 
-  <div class="mobile-logo">
-    <a href="index.html">
-      <h1>ZAWA <span>STUDIO</span></h1>
-    </a>
-  </div>
+  <div class="container">
 
-  <div class="mobile-icons">
-<div class="mobile-search-bar" id="mobileSearchBar">
-  <input type="text" id="mobileSearchInputTop" placeholder="Search products...">
-  <i class="fa-solid fa-xmark" onclick="closeMobileSearch()"></i>
-</div>
-  <!-- Search Icon -->
-  <div class="mobile-search-icon">
-   <i class="fa-solid fa-magnifying-glass" onclick="openMobileSearch()"></i>
-  </div>
+    <nav class="navbar">
+      <!-- Mobile Header -->
+      <div class="mobile-header">
+        <div class="hamburger" onclick="toggleMenu()">
+          <i class="fa fa-bars" aria-hidden="true" style="font-size: 20px;"></i>
+        </div>
 
-  <!-- Cart Icon -->
-  <div class="mobile-cart">
-    <a href="cart.html">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="mobileCartCount">0</span>
-    </a>
-  </div>
+        <div class="mobile-logo">
+          <a href="index.html">
+            <h1>ZAWA <span>STUDIO</span></h1>
+          </a>
+        </div>
 
-</div>
-</div>
-<div class="nav-left" id="mobileMenu">
-  <!-- MOBILE ONLY RIGHT LINKS -->
+        <div class="mobile-icons">
+          <div class="mobile-search-bar" id="mobileSearchBar">
+            <input type="text" id="mobileSearchInputTop" placeholder="Search products...">
+            <i class="fa-solid fa-xmark" onclick="closeMobileSearch()"></i>
+          </div>
+          <!-- Search Icon -->
+          <div class="mobile-search-icon">
+            <i class="fa-solid fa-magnifying-glass" onclick="openMobileSearch()"></i>
+          </div>
 
-  <div class="close-btn" onclick="toggleMenu()">
-    <i class="fa-solid fa-xmark"></i>
-  </div>
+          <!-- Cart Icon -->
+          <div class="mobile-cart">
+            <a href="#" onclick="toggleCart()" style="text-decoration: none; color: #c9a24d;">
+              <i class="fa-solid fa-cart-shopping"></i> (<span id="mobileCount">0</span>)
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="nav-left" id="mobileMenu">
+        <!-- MOBILE ONLY RIGHT LINKS -->
+
+        <div class="close-btn" onclick="toggleMenu()">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
 
         <a href="index.html">HOME</a>
 
-      <!-- SHOP DROPDOWN -->
-      <div class="nav-dropdown">
-        <a href="product.html">SHOP</a>
-        <div class="dropdown-menu">
-          <a href="bouquet.html">Bouquet</a>
-          <a href="gajray.html">Gajray</a>
-          <a href="headband.html">Headband</a>
-          <a href="bags.html">Bags</a>
-          <a href="handbag.html">Handbag</a>
-          <a href="phonecase.html">PhoneCase</a>
-          <a href="keychain.html">Keychain</a>
-          <a href="pouch.html">Pouch</a>
-          <a href="wallet.html">Wallet</a>
+        <!-- SHOP DROPDOWN -->
+        <div class="nav-dropdown">
+          <a href="product.html">SHOP</a>
+          <div class="dropdown-menu">
+            <a href="bouquet.html">Bouquet</a>
+            <a href="gajray.html">Gajray</a>
+            <a href="headband.html">Headband</a>
+            <a href="bags.html">Bags</a>
+            <a href="handbag.html">Handbag</a>
+            <a href="phonecase.html">PhoneCase</a>
+            <a href="keychain.html">Keychain</a>
+            <a href="pouch.html">Pouch</a>
+            <a href="wallet.html">Wallet</a>
+          </div>
         </div>
-      </div>
 
-      <a href="aboutus.html">ABOUT</a>
+        <a href="aboutus.html">ABOUT</a>
 
-      <!-- FAQ DROPDOWN -->
-      <div class="nav-dropdown">
-        <a href="faqs.html">FAQ</a>
-        <div class="dropdown-menu">
-          <a href="returnpolicy.html">Return Policy</a>
-          <a href="terms.html">Terms & Conditions</a>
+        <!-- FAQ DROPDOWN -->
+        <div class="nav-dropdown">
+          <a href="faqs.html">FAQ</a>
+          <div class="dropdown-menu">
+            <a href="returnpolicy.html">Return Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+          </div>
         </div>
-      </div>
-      <a href="contact.html">CONTACT</a>
-<div class="mobile-only-links">
+        <a href="contact.html">CONTACT</a>
+        <div class="mobile-only-links">
 
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-    <i class="fa-brands fa-instagram"></i> Instagram
-  </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
 
- 
 
-  <!-- Login / Signup -->
-  <div id="mobileAuthButtons">
-     <a href="login.html" class="auth-link">Login</a>
+
+          <!-- Login / Signup -->
+          <div id="mobileAuthButtons">
+            <a href="login.html" class="auth-link">Login</a>
             <a href="signup.html" class="auth-link">Sign Up</a>
-  </div>
+          </div>
 
-  <!-- Profile -->
-<div id="mobileProfileArea" onclick="toggleMobileProfile()">
-  <i class="fa-solid fa-user"></i> My Account
-</div>
+          <!-- Profile -->
+          <div id="mobileProfileArea" onclick="toggleMobileProfile()">
+            <i class="fa-solid fa-user"></i> My Account
+          </div>
 
-<div class="mobile-profile-dropdown" id="mobileProfileDropdown">
-  <p id="mobileUserName"></p>
-  <p id="mobileUserEmail"></p>
-  <button onclick="logout()">Logout</button>
-</div>
+          <div class="mobile-profile-dropdown" id="mobileProfileDropdown">
+            <p id="mobileUserName"></p>
+            <p id="mobileUserEmail"></p>
+            <button onclick="logout()">Logout</button>
+          </div>
 
-</div>
-    </div>
-
-    <!-- CENTER LOGO -->
-    <div class="logo">
-      <a href="index.html" style="text-decoration: none;">
-        <h1>ZAWA <span>STUDIO</span></h1>
-      </a>
-    </div>
-</div>
-   
-    <!-- RIGHT -->
-    <div class="nav-right">
-      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
-          class="fa-brands fa-instagram"></i></a>
-
-      <div class="cart-icon">
-        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-        <span id="cartCount">0</span>
+        </div>
       </div>
 
-
-      <!-- SEARCH -->
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class="fa-solid fa-magnifying-glass"></i>
+      <!-- CENTER LOGO -->
+      <div class="logo">
+        <a href="index.html" style="text-decoration: none;">
+          <h1>ZAWA <span>STUDIO</span></h1>
+        </a>
       </div>
+      <div class="nav-right">
+        <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+            class="fa-brands fa-instagram"></i></a>
 
-      <!-- RIGHT SIDE -->
+        <div class="cart-icon">
+          <a href="#" onclick="toggleCart()" style="text-decoration: none;">
+            <i class="fa-solid fa-cart-shopping"></i> (<span id="desktopCount">0</span>)
+          </a>
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="search-box">
+          <input type="text" placeholder="Search...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <!-- RIGHT SIDE -->
 
 
         <div class="auth-area">
@@ -170,58 +172,55 @@
 
       </div>
 
-
-
+  </div>
   </nav>
-<div class="menu-overlay" onclick="toggleMenu()"></div>
+  <div class="menu-overlay" onclick="toggleMenu()"></div>
 
 
 
-
-    <!-- First Product: Crochet Purple Rose Bouquet -->
-    <div class="product-card">
-        <div class="product-img">
-            <img src="assets/img/phonecase1.jpeg" alt="Crochet Purple Rose Bouquet">
-        </div>
-
-        <div class="product-info">
-            <a href="phonecase.html" class="nameofproduct">
-                <p class="category">PHONECASE</p>
-            </a>
-
-            <h5 class="name">CROCHET PHONE CASE PURPLE</h5>
-
-            <p class="price">Rs.1000</p>
-            <p class="description">
-                This handmade crochet phone case features a beautiful purple design decorated with soft 3D flower
-                details. Made with cozy yarn, it provides light protection while adding a unique and stylish touch to
-                your phone. The charming floral pattern makes it perfect for anyone who loves cute and handmade
-                accessories.
-            </p>
-
-            <div class="product-action">
-                <input type="number" min="1" value="1" class="qty">
-                <button class="add-to-cart-btn" data-id="18" data-name="Crochet phone case purple" data-price="1000"
-                    data-image="assets/img/phonecase1.jpeg">
-                    Add to Cart
-                </button>
-                <hr class="product-divider">
-
-                <div class="product-extra">
-                    <span>✦ HANDMADE TO ORDER</span>
-                    <br>
-                    <span>✦ PREMIUM YARN</span>
-                    <br>
-                    <span>✦ SHIPS IN 5–7 DAYS</span>
-                </div>
-            </div>
-        </div>
+  <!-- First Product: Crochet Purple Rose Bouquet -->
+  <div class="product-card">
+    <div class="product-img">
+      <img src="assets/img/phonecase1.jpeg" alt="Crochet Purple Rose Bouquet">
     </div>
 
+    <div class="product-info">
+      <a href="phonecase.html" class="nameofproduct">
+        <p class="category">PHONECASE</p>
+      </a>
+
+      <h5 class="name">CROCHET PHONE CASE PURPLE</h5>
+
+      <p class="price">Rs.1000</p>
+      <p class="description">
+        This handmade crochet phone case features a beautiful purple design decorated with soft 3D flower
+        details. Made with cozy yarn, it provides light protection while adding a unique and stylish touch to
+        your phone. The charming floral pattern makes it perfect for anyone who loves cute and handmade
+        accessories.
+      </p>
+
+      <div class="product-action">
+        <input type="number" min="1" value="1" class="qty">
+        <button id="addToCartBtn" class="add-to-cart-btn">
+          Add to Cart
+        </button>
+        <hr class="product-divider">
+
+        <div class="product-extra">
+          <span>✦ HANDMADE TO ORDER</span>
+          <br>
+          <span>✦ PREMIUM YARN</span>
+          <br>
+          <span>✦ SHIPS IN 5–7 DAYS</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-    
- <section class="checkout" id="checkout">
+
+
+  <section class="checkout" id="checkout">
     <h1>Checkout</h1>
     <div class="checkout-wrapper">
       <div class="form-card">
@@ -282,50 +281,50 @@ background:#4a005d;padding:15px;border-radius:8px;">
 
 
   <!-- footer -->
-<footer class="footer">
-  
-  <!-- Brand & Social -->
-<p style="margin:0; font-weight:700; font-size:18px;">
-  <span class="footer-logo-z">ZAWA</span>
-  <span class="footer-logo-s">STUDIO</span>
-</p>
-  <p style="margin:5px 0 15px 0; font-size:14px;">
-    Luxury handcrafted crochet pieces, made with love and intention.
-  </p>
+  <footer class="footer">
 
-  <!-- Social Icons -->
-  <p style="margin:10px 0; font-size:16px;">
-    Follow us:
-    <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-       style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-      <i class="fab fa-twitter"></i>
-    </a>
-  </p>
+    <!-- Brand & Social -->
+    <p style="margin:0; font-weight:700; font-size:18px;">
+      <span class="footer-logo-z">ZAWA</span>
+      <span class="footer-logo-s">STUDIO</span>
+    </p>
+    <p style="margin:5px 0 15px 0; font-size:14px;">
+      Luxury handcrafted crochet pieces, made with love and intention.
+    </p>
 
-  <!-- Quick Links -->
-  <p style="margin:10px 0; font-size:14px;">
-    <a href="product.html" style="color:#d4af37; text-decoration:none; margin:0 8px;" class="footer-text">Shop</a> |
-    <a href="aboutus.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">About</a> |
-    <a href="returnpolicy.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">Shipping & Returns</a>
-  </p>
+    <!-- Social Icons -->
+    <p style="margin:10px 0; font-size:16px;">
+      Follow us:
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </p>
 
-  <!-- Bottom Text -->
-  <p style="margin:15px 0 0 0; font-size:12px;     color: #b89ad9;">
-    © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
-  </p>
+    <!-- Quick Links -->
+    <p style="margin:10px 0; font-size:14px;">
+      <a href="product.html" style="color:#d4af37; text-decoration:none; margin:0 8px;" class="footer-text">Shop</a> |
+      <a href="aboutus.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">About</a> |
+      <a href="returnpolicy.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">Shipping & Returns</a>
+    </p>
 
-</footer>
+    <!-- Bottom Text -->
+    <p style="margin:15px 0 0 0; font-size:12px;     color: #b89ad9;">
+      © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
+    </p>
+
+  </footer>
 
 
- 
-  
-<!-- Premium Cart Popup -->
+
+
+  <!-- Premium Cart Popup -->
   <div id="cartPopup" class="cart-popup">
     <div class="popup-content">
       <i class="fa-solid fa-check-circle"></i>

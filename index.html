@@ -1,47 +1,22 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <title>ZAWA STUDIO</title>
-  <!-- Meta Description -->
-  <!-- Basic Meta -->
-  <meta charset="UTF-8">
-  <meta name="description"
-    content="Buy handmade crochet purple rose bouquets from ZAWA STUDIO. Perfect gifts for birthdays, anniversaries, or special occasions.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Open Graph Meta (IMPORTANT for WhatsApp) -->
-  <meta property="og:title" content="ZAWA STUDIO">
-  <meta property="og:description"
-    content="Buy handmade crochet purple rose bouquets from ZAWA STUDIO. Perfect gifts for birthdays, anniversaries, or special occasions.">
-  <meta property="og:url" content="https://ahaseeb0710-oss.github.io/ZAWA_STUDIO/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://ahaseeb0710-oss.github.io/ZAWA_STUDIO/preview.jpg">
-
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- AOS Library CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="index.css">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHOP | ZAWA STUDIO</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/nav.css">
+ <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
   <link rel="manifest" href="assets/img/site.webmanifest">
-  <style>
-
-  </style>
+ <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
-
-
-
-  <!-- RIGHT : links + search + icons -->
+<div class="container">
 
   <nav class="navbar">
     <!-- Mobile Header -->
@@ -68,11 +43,11 @@
 
         <!-- Cart Icon -->
         <div class="mobile-cart">
-          <a href="cart.html">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="mobileCartCount">0</span>
-          </a>
-        </div>
+  <a href="#" onclick="toggleCart()" style="text-decoration: none; color: #c9a24d;">
+    <i class="fa-solid fa-cart-shopping"></i> (<span id="mobileCount">0</span>)
+  </a>
+</div>
+
 
       </div>
     </div>
@@ -147,17 +122,15 @@
         <h1>ZAWA <span>STUDIO</span></h1>
       </a>
     </div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="nav-right">
+        <div class="nav-right">
       <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
           class="fa-brands fa-instagram"></i></a>
 
       <div class="cart-icon">
-        <a href="cart.html"> <i class="fas fa-shopping-cart"></i></a>
-        <span id="cartCount">0</span>
-      </div>
+  <a href="#" onclick="toggleCart()" style="text-decoration: none;">
+    <i class="fa-solid fa-cart-shopping"></i> (<span id="desktopCount">0</span>)
+  </a>
+</div>
 
 
       <!-- SEARCH -->
@@ -193,13 +166,14 @@
 
     </div>
 
+    </div>
+
+ 
+
 
 
   </nav>
   <div class="menu-overlay" onclick="toggleMenu()"></div>
-
-
-
   <section class="hero">
 
     <img src="assets/img/hero-image-BED3Zb5z.jpg" class="hero-img" alt="Crochet">
@@ -465,290 +439,67 @@
 
     </div>
   </section>
+<section class="checkout" id="checkout">
+  <h1>Checkout</h1>
+  <div class="checkout-wrapper">
+    <div class="form-card">
+      <h3>Shipping Info</h3>
+      <input placeholder="Full Name">
+      <input placeholder="Email">
+      <input placeholder="Phone">
+      <input placeholder="Address">
+      <input placeholder="City">
+      
+      <h3 style="margin-top:20px;">Payment Method</h3>
 
+<select id="paymentMethod" onchange="showPaymentInfo()">
+  <option value="bank">Bank Transfer</option>
+</select>
 
-  <!-- footer -->
-  <footer class="footer">
+<div id="bankDetails" style="display:none;margin-top:15px;
+background:#4a005d;padding:15px;border-radius:8px;">
+  <p><strong>Bank:</strong> Meezan Bank</p>
+  <p><strong>Account Name:</strong> Abdul Haseeb</p>
+  <p><strong>Account Number:</strong> 1234 5678 9012</p>
+</div>
 
-    <!-- Brand & Social -->
-    <p style="margin:0; font-weight:700; font-size:18px;">
-      <span class="footer-logo-z">ZAWA</span>
-      <span class="footer-logo-s">STUDIO</span>
-    </p>
-    <p style="margin:5px 0 15px 0; font-size:14px;">
-      Luxury handcrafted crochet pieces, made with love and intention.
-    </p>
+<button class="place-order" onclick="placeOrder()">Place Order</button>
+    </div>
 
-    <!-- Social Icons -->
-    <p style="margin:10px 0; font-size:16px;">
-      Follow us:
-      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-        style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-        <i class="fab fa-twitter"></i>
-      </a>
-    </p>
+    <div class="summary-card">
+      <h3>Order Summary</h3>
+      <div id="summary"></div>
+      <hr style="margin:15px 0;border:1px solid #4a005d;">
+      <h3>Total: $<span id="total2">0</span></h3>
+    </div>
+  </div>
+</section>
 
-    <!-- Quick Links -->
-    <p style="margin:10px 0; font-size:14px;">
-      <a href="product.html" style="color:#d4af37; text-decoration:none; margin:0 8px;" class="footer-text">Shop</a> |
-      <a href="aboutus.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">About</a> |
-      <a href="returnpolicy.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">Shipping & Returns</a>
-    </p>
+</div>
 
-    <!-- Bottom Text -->
-    <p style="margin:15px 0 0 0; font-size:12px;     color: #b89ad9;">
-      © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
-    </p>
+<div class="cart" id="cart">
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="close-cart" onclick="toggleCart()">✕</button>
+  </div>
+  <div id="cartItems"></div>
+  <div class="cart-total">
+    <h3>Total: <span id="total">0</span></h3>
+    <button class="checkout-btn" onclick="goCheckout()">Checkout</button>
+    <div id="paymentInfo" style="margin-top:10px;color:#fff;font-size:14px;"></div>
+  </div>
+</div>
 
-  </footer>
-
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-      // Calculate total quantity
-      let totalQuantity = 0;
-
-      cart.forEach(item => {
-        totalQuantity += Number(item.quantity) || 1;
-      });
-
-      // Update Desktop
-      const desktopCount = document.getElementById("cartCount");
-      if (desktopCount) {
-        desktopCount.innerText = totalQuantity;
-      }
-
-      // Update Mobile
-      const mobileCount = document.getElementById("mobileCartCount");
-      if (mobileCount) {
-        mobileCount.innerText = totalQuantity;
-      }
-
-    });
-  </script>
-
-  <script>
-    function openMobileSearch() {
-      window.location.href = "search.html";
-    }
-  </script>
-
-  <script>
-    document.getElementById("mobileSearchBtn").addEventListener("click", function () {
-      const query = document.getElementById("mobileSearchInput").value.trim();
-      if (query) {
-        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-      }
-    });
-  </script>
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById("mobileMenu");
-      const overlay = document.querySelector(".menu-overlay");
-
-      menu.classList.toggle("active");
-      overlay.classList.toggle("active");
-    }
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const features = document.querySelectorAll('.feature');
-
-      function animateOnScroll() {
-        const triggerBottom = window.innerHeight * 0.85; // 85% of viewport height
-
-        features.forEach(feature => {
-          const featureTop = feature.getBoundingClientRect().top;
-
-          // Animate the feature section
-          if (featureTop < triggerBottom) {
-            feature.classList.add('animate');
-
-            // Animate child elements
-            const img = feature.querySelector('img');
-            const glass = feature.querySelector('.glass');
-            if (img) img.classList.add('animate');
-            if (glass) glass.classList.add('animate');
-
-          } else {
-            // Remove animation so it triggers again on scroll back
-            feature.classList.remove('animate');
-            const img = feature.querySelector('img');
-            const glass = feature.querySelector('.glass');
-            if (img) img.classList.remove('animate');
-            if (glass) glass.classList.remove('animate');
-          }
-        });
-      }
-
-      // Run on scroll and on page load
-      window.addEventListener('scroll', animateOnScroll);
-      animateOnScroll(); // initial check
-    });
-  </script>
-  <script>
-    // Get the input and search icon
-    const searchInput = document.querySelector(".search-box input");
-    const searchBtn = document.querySelector(".search-box i");
-
-    // Redirect on click of the search icon
-    searchBtn.addEventListener("click", () => {
-      const query = searchInput.value.trim();
-      if (query) {
-        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-      }
-    });
-
-    // Redirect on Enter key press
-    searchInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const query = searchInput.value.trim();
-        if (query) {
-          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-        }
-      }
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const navbar = document.querySelector(".navbar");
-
-      window.addEventListener("scroll", function () {
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const logoutBtn = document.getElementById("logoutBtn");
-
-      // Hide button if user is not logged in
-      const user = JSON.parse(localStorage.getItem("user"));
-      if (!user) {
-        logoutBtn.style.display = "none";
-      }
-
-      // Logout functionality
-      logoutBtn.addEventListener("click", () => {
-        localStorage.removeItem("user");
-        localStorage.removeItem("loggedIn");
-        window.location.href = "login.html";
-      });
-    });
-  </script>
-
-  <script>
-    function openMobileSearch() {
-      document.getElementById("mobileSearchBar").classList.add("active");
-    }
-
-    function closeMobileSearch() {
-      document.getElementById("mobileSearchBar").classList.remove("active");
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const input = document.getElementById("mobileSearchInputTop");
-
-      input.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-          const query = input.value.trim();
-          if (query) {
-            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-          }
-        }
-      });
-    });
-  </script>
+<!-- Popup -->
+<div id="popup" style="position:fixed;top:20px;right:20px;background:var(--accent);color:black;padding:20px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.3);display:none;z-index:9999;min-width:250px;">
+  <strong id="popupTitle"></strong>
+  <p id="popupText"></p>
+</div>
 
 
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-      const loggedIn = localStorage.getItem("loggedIn");
-      const user = JSON.parse(localStorage.getItem("user"));
-
-      const authButtons = document.getElementById("authButtons");
-      const profileArea = document.getElementById("profileArea");
-      const mobileAuthButtons = document.getElementById("mobileAuthButtons");
-      const mobileProfileArea = document.getElementById("mobileProfileArea");
-
-      if (loggedIn === "true" && user) {
-
-        const fullName = user.name ||
-          ((user.firstName || "") + " " + (user.lastName || ""));
-
-        // DESKTOP
-        if (authButtons) authButtons.style.display = "none";
-        if (profileArea) profileArea.style.display = "block";
-
-        if (document.getElementById("userName"))
-          document.getElementById("userName").innerText = fullName;
-
-        if (document.getElementById("userEmail"))
-          document.getElementById("userEmail").innerText = user.email || "";
-
-        // MOBILE
-        if (mobileAuthButtons) mobileAuthButtons.style.display = "none";
-        if (mobileProfileArea) mobileProfileArea.style.display = "block";
-
-        if (document.getElementById("mobileUserName"))
-          document.getElementById("mobileUserName").innerText = fullName;
-
-        if (document.getElementById("mobileUserEmail"))
-          document.getElementById("mobileUserEmail").innerText = user.email || "";
-
-      } else {
-
-        if (authButtons) authButtons.style.display = "block";
-        if (profileArea) profileArea.style.display = "none";
-
-        if (mobileAuthButtons) mobileAuthButtons.style.display = "block";
-        if (mobileProfileArea) mobileProfileArea.style.display = "none";
-      }
-
-    });
-
-    function toggleProfile() {
-      const dropdown = document.getElementById("profileDropdown");
-      if (dropdown) {
-        dropdown.style.display =
-          dropdown.style.display === "block" ? "none" : "block";
-      }
-    }
-
-    function toggleMobileProfile() {
-      const dropdown = document.getElementById("mobileProfileDropdown");
-      if (dropdown) {
-        dropdown.style.display =
-          dropdown.style.display === "block" ? "none" : "block";
-      }
-    }
-
-    function logout() {
-      localStorage.removeItem("loggedIn");
-      localStorage.removeItem("user");
-      location.reload();
-    }
-  </script>
-  <script src="assets/js/nav.js"></script>
-  <script src="assets/js/cart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/newproduct.js"></script>
 </body>
-
 </html>
