@@ -166,7 +166,15 @@ function toggleMobileProfile() {
       dropdown.style.display === "block" ? "none" : "block";
   }
 }
+function logout() {
+  // Clear auth data
+  localStorage.removeItem("loggedIn");
+  localStorage.removeItem("user");
+  localStorage.removeItem("zawaUser"); // safety if exists
 
+  // Redirect to HOME
+  window.location.href = "index.html";
+}
 
 
 // You can also attach this function to a logout button event:
@@ -182,15 +190,6 @@ if (user) {
   document.getElementById("userEmail").innerText = user.email;
 }
 
-function logout() {
-  // Clear auth data
-  localStorage.removeItem("loggedIn");
-  localStorage.removeItem("user");
-  localStorage.removeItem("zawaUser"); // safety if exists
-
-  // Redirect to HOME
-  window.location.href = "index.html";
-}
 
 function updateNavbar() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -208,10 +207,4 @@ function updateNavbar() {
   }
 }
 document.addEventListener("DOMContentLoaded", updateNavbar);
-function logout() {
-  localStorage.removeItem("loggedIn");
-  localStorage.removeItem("user");
-  updateNavbar(); // 🔥 auto refresh
-  window.location.href = "index.html";
-}
 window.addEventListener("storage", updateNavbar);

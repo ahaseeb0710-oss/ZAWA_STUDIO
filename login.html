@@ -86,7 +86,7 @@
   <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg">
   Continue with Google
 </button>
-    
+    <input type="text" id="name" placeholder="Your Name">
     <input type="email" id="email" placeholder="Email" required>
     <input type="password" id="password" placeholder="Password" required minlength="6">
     <button onclick="login()">Login</button>
@@ -118,19 +118,48 @@
       }, 3000);
     }
 
- 
+    function login() {
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  // 🔴 Empty check including name
+  if (!name || !email || !password) {
+    showPopup("Error", "Please fill all fields!", "⚠️");
+    return;
+  }
+
+  // 🔴 Check if account exists
+  if (!storedUser) {
+    showPopup("Error", "No account found! Please sign up first.", "⚠️");
+    return;
+  }
+
+  // 🔴 Match Email & Password
+  if (storedUser.email === email && storedUser.password === password) {
+    localStorage.setItem("loggedIn", "true");
+    showPopup("Success", "Login Successful!", "✓");
+
+    const redirectPage = localStorage.getItem("redirectAfterLogin");
+    setTimeout(() => {
+      if (redirectPage) {
+        localStorage.removeItem("redirectAfterLogin");
+        window.location.href = redirectPage;
+      } else {
+        window.location.href = "index.html";
+      }
+    }, 1000); // give time for popup
+  } else {
+    showPopup("Error", "Invalid Email or Password!", "❌");
+  }
+}
   </script>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
- import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signInWithEmailAndPassword,
-  setPersistence,
-  browserLocalPersistence
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup } 
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDYqOXhQK32naYdg0ZqX-T6b90yw8qDHpA",
@@ -143,62 +172,28 @@
 
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
-  setPersistence(auth, browserLocalPersistence);
   const provider = new GoogleAuthProvider();
 
-window.googleLogin = function () {
-  signInWithPopup(auth, provider)
-    .then(() => {
+  window.googleLogin = function () {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
 
-      const redirectPage = localStorage.getItem("redirectAfterLogin");
+        const userData = {
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL
+        };
 
-      if (redirectPage) {
-        localStorage.removeItem("redirectAfterLogin");
-        window.location.href = redirectPage;
-      } else {
+        localStorage.setItem("user", JSON.stringify(userData));
+        localStorage.setItem("loggedIn", "true");
+
         window.location.href = "index.html";
-      }
-
-    })
-    .catch((error) => {
-      showPopup("Error", error.message, "❌");
-    });
-};
-  window.login = function () {
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (!email || !password) {
-    showPopup("Error", "Please fill all fields!", "⚠️");
-    return;
-  }
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => {
-      showPopup("Success", "Login Successful!", "✓");
-
-      const redirectPage = localStorage.getItem("redirectAfterLogin");
-
-      setTimeout(() => {
-        if (redirectPage) {
-          localStorage.removeItem("redirectAfterLogin");
-          window.location.href = redirectPage;
-        } else {
-          window.location.href = "index.html";
-        }
-      }, 1200);
-    })
-    .catch((error) => {
-      if (error.code === "auth/user-not-found") {
-        showPopup("Error", "No account found. Please sign up or use Google.", "⚠️");
-      } else if (error.code === "auth/wrong-password") {
-        showPopup("Error", "Incorrect password.", "❌");
-      } else {
-        showPopup("Error", error.message, "❌");
-      }
-    });
-};
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
 </script>
-
 </body>
 </html>

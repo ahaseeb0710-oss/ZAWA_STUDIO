@@ -181,7 +181,7 @@ if (searchInput) {
   });
 }
 
-// Redirect to search page
+// Redirzect to search page
 function goToSearch(name) {
   window.location.href = `search.html?q=${encodeURIComponent(name)}`;
 }
