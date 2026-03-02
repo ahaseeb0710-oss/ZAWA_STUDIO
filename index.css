@@ -362,6 +362,7 @@ body {
     overflow: hidden;
     display: block;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .insta-item img {
@@ -1802,7 +1803,8 @@ h3 {
 .view-btn,
 .add-to-cart-btn {
   display: block;
-  width: 100%;
+  width: 20%;
+  margin-left: 480px;
   margin-top: 12px;
   padding: 10px;
 
@@ -1832,7 +1834,18 @@ h3 {
   transform: scale(0.98);
 }
 
-
+@media (max-width: 768px) {
+.view-btn{
+  width: auto;
+  margin: auto;
+}
+}
+@media (max-width: 1024px) {
+.view-btn{
+  width: auto;
+  margin: auto;
+}
+}
 #addToCartBtn {
   background-color: #e8d8c3;
   color: #000000;

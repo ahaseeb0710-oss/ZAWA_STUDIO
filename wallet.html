@@ -260,6 +260,53 @@ background:#4a005d;padding:15px;border-radius:8px;">
     <strong id="popupTitle"></strong>
     <p id="popupText"></p>
   </div>
+
+
+  
+    <!-- footer -->
+  <footer class="footer">
+
+    <!-- Brand & Social -->
+    <p style="margin:0; font-weight:700; font-size:18px;">
+      <span class="footer-logo-z">ZAWA</span>
+      <span class="footer-logo-s">STUDIO</span>
+    </p>
+    <p style="margin:5px 0 15px 0; font-size:14px;">
+      Luxury handcrafted crochet pieces, made with love and intention.
+    </p>
+
+    <!-- Social Icons -->
+    <p style="margin:10px 0; font-size:16px;">
+      Follow us:
+      <a href="https://www.instagram.com/zawa_studio_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="tel:+923308177359" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+       <i class="fa fa-phone" aria-hidden="true"></i>
+      </a>
+      <a href="mailto:zarajawed15@example.com" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+      </a>
+    </p>
+
+    <!-- Quick Links -->
+    <p style="margin:10px 0; font-size:14px;">
+      <a href="product.html" style="color:#d4af37; text-decoration:none; margin:0 8px;" class="footer-text">Shop</a> |
+      <a href="aboutus.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">About</a> |
+      <a href="returnpolicy.html" style="color:#d4af37; text-decoration:none; margin:0 8px;">Shipping & Returns</a>
+    </p>
+
+    <!-- Bottom Text -->
+    <p style="margin:15px 0 0 0; font-size:12px;     color: #b89ad9;">
+      © 2026 ZAWA STUDIO. ALL RIGHTS RESERVED.
+    </p>
+
+  </footer>
+
+
+
+
   <script>
 
     /* =========================
@@ -638,7 +685,30 @@ background:#4a005d;padding:15px;border-radius:8px;">
 
   </script>
 
+  <script>
+    // Get the input and search icon
+    const searchInput = document.querySelector(".search-box input");
+    const searchBtn = document.querySelector(".search-box i");
 
+    // Redirect on click of the search icon
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.trim();
+      if (query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
+
+    // Redirect on Enter key press
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const query = searchInput.value.trim();
+        if (query) {
+          window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="assets/js/nav.js"></script>
   <script src="assets/js/newproduct.js"></script>

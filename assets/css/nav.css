@@ -634,7 +634,7 @@
   border-radius: 12px;
   display: none;
   width: 220px;
-  box-shadow: 0 0 20px #c9a24d;
+  box-shadow: 0 0 20px #974dc9;
 }
 
 .profile-dropdown p {
@@ -646,7 +646,7 @@
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-  background: #c9a24d;
+    background: linear-gradient(45deg, #ff00cc, #8000ff);
   border: none;
   color: white;
   border-radius: 8px;

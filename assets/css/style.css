@@ -2987,6 +2987,7 @@ section {
     background: transparent;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    border-radius: 20px;
 }
 
 .tab-btn:hover {

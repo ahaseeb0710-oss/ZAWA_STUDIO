@@ -34,7 +34,7 @@
 
 body{
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top, #2b0036, #120018);
+      background-color: #2b0036;
   color:#f5e6ff;
 }
 
@@ -405,7 +405,30 @@ document.getElementById("contact-form")
     </p>
 
   </footer>
+  <script>
+  // Get the input and search icon
+  const searchInput = document.querySelector(".search-box input");
+  const searchBtn = document.querySelector(".search-box i");
 
+  // Redirect on click of the search icon
+  searchBtn.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if(query) {
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    }
+  });
+
+  // Redirect on Enter key press
+  searchInput.addEventListener("keypress", (e) => {
+    if(e.key === "Enter") {
+      e.preventDefault();
+      const query = searchInput.value.trim();
+      if(query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    }
+  });
+</script>
   <script src="assets/js/nav.js"></script>
 <script src="assets/js/cart.js"></script>
 </body>

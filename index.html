@@ -556,6 +556,30 @@ background:#4a005d;padding:15px;border-radius:8px;">
   </footer>
 
 
+  <script>
+  // Get the input and search icon
+  const searchInput = document.querySelector(".search-box input");
+  const searchBtn = document.querySelector(".search-box i");
+
+  // Redirect on click of the search icon
+  searchBtn.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if(query) {
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    }
+  });
+
+  // Redirect on Enter key press
+  searchInput.addEventListener("keypress", (e) => {
+    if(e.key === "Enter") {
+      e.preventDefault();
+      const query = searchInput.value.trim();
+      if(query) {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    }
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="assets/js/nav.js"></script>
