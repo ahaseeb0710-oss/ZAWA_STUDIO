@@ -292,7 +292,7 @@
           </div>
           <div class="prod-details">
             <div>
-              <a href="purplerosebouquet.html" style="text-decoration: none ; color: #ffffff;""><h3 class="
+              <a href="purplerosebouquet.html" style="text-decoration: none ; color: #ffffff;"><h3 class="
                 prod-name">CROCHET PURPLE ROSE BOUQUET</h3></a>
               <p class="prod-price">Rs.1500</p>
             </div>
@@ -457,7 +457,7 @@
 
     </div>
   </section>
-<section class="checkout" id="checkout">
+<section class="checkout" id="checkout" style="display:none;">
   <h1>Checkout</h1>
   <div class="checkout-wrapper">
     <div class="form-card">
@@ -555,7 +555,23 @@ background:#4a005d;padding:15px;border-radius:8px;">
 
   </footer>
 
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
 
+  const hiddenElements = document.querySelectorAll(
+    ".prod-card, .section-title, .section-subtitle, .divider"
+  );
+
+  hiddenElements.forEach((el) => observer.observe(el));
+</script>
   <script>
   // Get the input and search icon
   const searchInput = document.querySelector(".search-box input");
@@ -583,6 +599,6 @@ background:#4a005d;padding:15px;border-radius:8px;">
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="assets/js/nav.js"></script>
-<script src="assets/js/newproduct.js"></script>
+<script src="assets/js/index.js"></script>
 </body>
 </html>

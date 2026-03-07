@@ -1221,13 +1221,13 @@ body {
   .mobile-logo h1 {
     font-size: 16px;
     /* smaller logo */
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     /* tighter spacing */
   }
 
   .mobile-logo h1 span {
     font-size: 16px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
 
   .mobile-icons {

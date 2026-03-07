@@ -181,10 +181,13 @@ function toggleCart(){
 }
 
 function goCheckout(){
-  if(cart.length===0) return alert("Cart empty");
+  if(cart.length === 0) return alert("Cart empty");
   document.getElementById("shop").style.display="none";
   document.getElementById("checkout").style.display="block";
   toggleCart();
+
+  // Render checkout summary
+  renderCheckoutSummary();
 }
 
 function changeQty(id, delta){
@@ -206,7 +209,38 @@ function showPaymentInfo(){
   const method = document.getElementById("paymentMethod").value;
   document.getElementById("bankDetails").style.display = method==="bank" ? "block" : "none";
 }
+function renderCheckoutSummary(){
+  const summary = document.getElementById("summary");
+  if(!summary) return;
 
+  summary.innerHTML = ""; // clear previous
+
+  if(cart.length === 0){
+    summary.innerHTML = "<p>Your cart is empty</p>";
+    return;
+  }
+
+  cart.forEach(item => {
+    summary.innerHTML += `
+      <div class="checkout-item">
+        <img src="${item.img}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;">
+        <div style="flex:1;margin-left:10px;">
+          <p style="margin:0;">${item.name}</p>
+          <small>Qty: ${item.qty}</small>
+        </div>
+        <strong>${formatPrice(item.price * item.qty)}</strong>
+      </div>
+    `;
+  });
+
+  // Shipping row
+  summary.innerHTML += `
+    <div class="checkout-item">
+      <span>Shipping</span>
+      <strong>${formatPrice(SHIPPING_COST)}</strong>
+    </div>
+  `;
+}
 /* =========================
    CHECKOUT / EMAILJS
 ========================= */

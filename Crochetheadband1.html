@@ -575,31 +575,31 @@ background:#4a005d;padding:15px;border-radius:8px;">
       document.getElementById("cart").classList.toggle("open");
     }
 
-    function updateCart() {
-      const cartItems = document.getElementById("cartItems");
-      const total = document.getElementById("total");
-      const total2 = document.getElementById("total2");
-      const summary = document.getElementById("summary");
+function updateCart() {
+  const cartItems = document.getElementById("cartItems");
+  const total = document.getElementById("total");
+  const total2 = document.getElementById("total2");
+  const summary = document.getElementById("summary");
 
-      if (!cartItems) return;
+  if (!cartItems) return;
 
-      cartItems.innerHTML = "";
-      if (summary) summary.innerHTML = "";
+  cartItems.innerHTML = "";
+  if (summary) summary.innerHTML = "";
 
-      if (cart.length === 0) {
-        cartItems.innerHTML = `<p style="text-align:center;color:#bbb;">Your cart is empty</p>`;
-        if (total) total.innerText = formatPrice(0);
-        if (total2) total2.innerText = formatPrice(0);
-        return;
-      }
+  if (cart.length === 0) {
+    cartItems.innerHTML = `<p style="text-align:center;color:#bbb;">Your cart is empty</p>`;
+    if (total) total.innerText = formatPrice(0);
+    if (total2) total2.innerText = formatPrice(0);
+    return;
+  }
 
-      let subtotal = 0;
+  let subtotal = 0;
 
-      cart.forEach(item => {
-        subtotal += item.price * item.qty;
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
 
-        /* Cart sidebar */
-        cartItems.innerHTML += `
+    /* Cart sidebar items */
+    cartItems.innerHTML += `
       <div class="cart-item">
         <img src="${item.img}">
         <div class="cart-item-details">
@@ -617,9 +617,9 @@ background:#4a005d;padding:15px;border-radius:8px;">
       </div>
     `;
 
-        /* Checkout summary items */
-        if (summary) {
-          summary.innerHTML += `
+    /* Checkout summary items */
+    if (summary) {
+      summary.innerHTML += `
         <div class="checkout-item">
           <img src="${item.img}" alt="${item.name}">
           <div>
@@ -629,24 +629,32 @@ background:#4a005d;padding:15px;border-radius:8px;">
           <strong>${formatPrice(item.price * item.qty)}</strong>
         </div>
       `;
-        }
-      });
+    }
+  });
 
-      /* Shipping row (NOW VISIBLE) */
-      if (summary) {
-        summary.innerHTML += `
+  /* SHIPPING ROW IN CART SIDEBAR */
+  cartItems.innerHTML += `
+    <div class="cart-item shipping-row" style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(255,255,255,0.2);font-weight:500;">
+      <span>Shipping</span>
+      <strong>${formatPrice(SHIPPING_COST)}</strong>
+    </div>
+  `;
+
+  /* SHIPPING ROW IN CHECKOUT SUMMARY */
+  if (summary) {
+    summary.innerHTML += `
       <div class="checkout-item shipping">
         <span>Shipping</span>
         <strong>${formatPrice(SHIPPING_COST)}</strong>
       </div>
     `;
-      }
+  }
 
-      const finalTotal = subtotal + SHIPPING_COST;
+  const finalTotal = subtotal + SHIPPING_COST;
 
-      if (total) total.innerText = formatPrice(finalTotal);
-      if (total2) total2.innerText = formatPrice(finalTotal);
-    }
+  if (total) total.innerText = formatPrice(finalTotal);
+  if (total2) total2.innerText = formatPrice(finalTotal);
+}
     function changeQty(id, delta) {
       const item = cart.find(p => p.id === id);
       if (!item) return;

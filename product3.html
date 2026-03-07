@@ -10,7 +10,164 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/nav.css">
+<style>
+    .footer {
+  text-align: center;
+  padding: 60px 20px;
+  opacity: .6;
+}/* Footer */
+.footer {
 
+  padding: 70px 0;
+  /* remove side percentage padding */
+  color: #d9c6ff;
+}
+
+/* Footer */
+.footer {
+
+  padding: 70px 0;
+  /* remove side percentage padding */
+  color: #d9c6ff;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* 3 equal columns */
+  align-items: start;
+}
+
+.footer-links {
+  text-align: center;
+}
+
+/* Brand */
+.footer-brand h2 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 4px;
+  font-size: 22px;
+  color: #f1d18a;
+  /* Gold for STUDIO */
+  margin-bottom: 15px;
+}
+
+.footer-brand .zawa {
+  color: #ffffff;
+}
+
+
+.footer-brand p {
+  max-width: 280px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Headings */
+.footer h4 {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #f1d18a;
+  margin-bottom: 20px;
+}
+
+/* Links */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #d9c6ff;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #f1d18a;
+}
+
+/* Social */
+.footer-social p {
+  font-size: 14px;
+  color: white;
+}
+
+.footer-social i {
+  margin-right: 8px;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #b89ad9;
+  position: relative;
+}
+
+.footer-bottom::before {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: #f1d18a;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.zawa_studio {
+  text-decoration: none;
+  color: #f1d18a;
+}
+
+/* Responsive */
+@media(max-width:768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+@media(max-width:768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}.footer-text {
+  color: #f1d18a;
+}
+
+
+.footer-logo-z {
+  color: #ffffff;
+
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 4px;
+  font-size: 22px;
+
+  margin-bottom: 15px;
+}
+
+.footer-logo-s {
+  color: #f1d18a;
+
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 4px;
+  font-size: 22px;
+
+  margin-bottom: 15px;
+}
+</style>
 </head>
 
 <body>
@@ -429,70 +586,87 @@ background:#4a005d;padding:15px;border-radius:8px;">
             showPopup("Added to Cart", `${product.name} x${currentQty}`);
         }
 
-        function updateCart() {
-            const cartItems = document.getElementById("cartItems");
-            const total = document.getElementById("total");
-            const total2 = document.getElementById("total2");
-            const summary = document.getElementById("summary");
-            const countDesktop = document.getElementById("desktopCount");
-            const countMobile = document.getElementById("mobileCount");
-            const cartTotalSection = document.querySelector(".cart-total");
+       function updateCart(){
+  const cartItems = document.getElementById("cartItems");
+  const total = document.getElementById("total");
+  const total2 = document.getElementById("total2");
+  const summary = document.getElementById("summary");
+  const countDesktop = document.getElementById("desktopCount");
+  const countMobile = document.getElementById("mobileCount");
+  const cartTotalSection = document.querySelector(".cart-total");
 
-            if (!cartItems) return;
+  if(!cartItems) return;
 
-            cartItems.innerHTML = "";
-            if (summary) summary.innerHTML = "";
+  cartItems.innerHTML = "";
+  if(summary) summary.innerHTML = "";
 
-            if (cart.length === 0) {
-                cartItems.innerHTML = `<p style="text-align:center;color:var(--muted);margin-top:20px;">Your cart is empty</p>`;
-                if (cartTotalSection) cartTotalSection.style.display = "none";
-                if (countDesktop) countDesktop.innerText = 0;
-                if (countMobile) countMobile.innerText = 0;
-                return;
-            } else if (cartTotalSection) {
-                cartTotalSection.style.display = "block";
-            }
+  if(cart.length === 0){
+    cartItems.innerHTML = `<p style="text-align:center;color:var(--muted);margin-top:20px;">Your cart is empty</p>`;
+    if(total) total.innerText = formatPrice(0);
+    if(total2) total2.innerText = formatPrice(0);
+    if(countDesktop) countDesktop.innerText = 0;
+    if(countMobile) countMobile.innerText = 0;
+    return;
+  }
 
-            let subtotal = 0;
+  let subtotal = 0;
 
-            cart.forEach(p => {
-                subtotal += p.price * p.qty;
-                cartItems.innerHTML += `
-    <div class="cart-item">
-      <img src="${p.img}" alt="${p.name}">
-      <div class="cart-item-details">
-        <p>${p.name}</p>
-        <div class="cart-qty">
-          <button onclick="changeQty(${p.id}, -1)">-</button>
-          <span>${p.qty}</span>
-          <button onclick="changeQty(${p.id}, 1)">+</button>
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
+
+    /* CART SIDEBAR */
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.img}" alt="${item.name}">
+        <div class="cart-item-details">
+          <p>${item.name}</p>
+          <div class="cart-qty">
+            <button onclick="changeQty(${item.id}, -1)">-</button>
+            <span>${item.qty}</span>
+            <button onclick="changeQty(${item.id}, 1)">+</button>
+          </div>
         </div>
+        <strong>${formatPrice(item.price * item.qty)}</strong>
+        <button class="remove-btn" onclick="removeItem(${item.id})">
+          <i class="fa-solid fa-trash"></i>
+        </button>
       </div>
-      <strong>${formatPrice(p.price * p.qty)}</strong>
-      <button class="remove-btn" onclick="removeItem(${p.id})">
-        <i class="fa-solid fa-trash"></i>
-      </button>
-    </div>
-  `;
-            });
+    `;
 
-            // Shipping row
-            cartItems.innerHTML += `
-    <div class="cart-item">
-      <span>Shipping</span>
-      <strong>${formatPrice(SHIPPING_COST)}</strong>
-    </div>
-  `;
-            if (summary) summary.innerHTML += `<p>Shipping - ${formatPrice(SHIPPING_COST)}</p>`;
+    /* CHECKOUT SUMMARY */
+    if(summary){
+      summary.innerHTML += `
+        <div class="checkout-item">
+          <img src="${item.img}" alt="${item.name}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;">
+          <div style="flex:1;margin-left:10px;">
+            <p style="margin:0;">${item.name}</p>
+            <small>Qty: ${item.qty}</small>
+          </div>
+          <strong>${formatPrice(item.price * item.qty)}</strong>
+        </div>
+      `;
+    }
+  });
 
-            let finalTotal = subtotal + SHIPPING_COST;
-            if (total) total.innerText = formatPrice(finalTotal);
-            if (total2) total2.innerText = formatPrice(finalTotal);
+  /* SHIPPING ROW */
+  if(summary){
+    summary.innerHTML += `
+      <div class="checkout-item shipping">
+        <span>Shipping</span>
+        <strong>${formatPrice(SHIPPING_COST)}</strong>
+      </div>
+    `;
+  }
 
-            const totalQty = cart.reduce((acc, p) => acc + p.qty, 0);
-            if (countDesktop) countDesktop.innerText = totalQty;
-            if (countMobile) countMobile.innerText = totalQty;
-        }
+  const finalTotal = subtotal + SHIPPING_COST;
+
+  if(total) total.innerText = formatPrice(finalTotal);
+  if(total2) total2.innerText = formatPrice(finalTotal);
+
+  const totalQty = cart.reduce((acc,p)=>acc+p.qty,0);
+  if(countDesktop) countDesktop.innerText = totalQty;
+  if(countMobile) countMobile.innerText = totalQty;
+}
         function toggleCart() {
             document.getElementById("cart").classList.toggle("open");
         }
