@@ -554,7 +554,38 @@ background:#4a005d;padding:15px;border-radius:8px;">
     </p>
 
   </footer>
+<!-- Premium Cart Popup -->
+  <div id="cartPopup" class="cart-popup">
+    <div class="popup-content">
+      <i class="fa-solid fa-check-circle"></i>
+      <div>
+        <h4 id="popupTitle"></h4>
+        <p id="popupQty"></p>
+      </div>
+    </div>
+  </div>
 
+<!-- Order Placed Popup -->
+<div id="orderPopup" class="premium-popup">
+  <div class="popup-content">
+    <i class="fa-solid fa-check-circle"></i>
+    <div>
+      <h4>Order Placed!</h4>
+      <p>Your order has been received. You will get an email confirmation shortly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Error / Fill Fields Popup -->
+<div id="errorPopup" class="premium-popup">
+  <div class="popup-content">
+    <i class="fa-solid fa-exclamation-circle"></i>
+    <div>
+      <h4>Oops!</h4>
+      <p>Please fill in all fields and select a payment method.</p>
+    </div>
+  </div>
+</div>
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

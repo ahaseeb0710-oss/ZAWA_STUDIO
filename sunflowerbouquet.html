@@ -235,7 +235,8 @@
 
 
 
-   <section class="checkout" id="checkout">
+ 
+  <section class="checkout" id="checkout">
     <h1>Checkout</h1>
     <div class="checkout-wrapper">
       <div class="form-card">
@@ -249,12 +250,19 @@
         <h3 style="margin-top:20px;">Payment Method</h3>
 
         <select id="paymentMethod" onchange="showPaymentInfo()">
+          <option value="">Select Payment Method</option>
           <option value="bank">Bank Transfer</option>
         </select>
 
-        <div id="bankDetails" style="display:none;margin-top:15px;
-background:#4a005d;padding:15px;border-radius:8px;">
-          <p><strong>Bank:</strong> Meezan Bank</p>
+        <div id="bankDetails" style="
+  display:none;
+  margin-top:15px;
+  background:#4a005d;
+  padding:15px;
+  border-radius:8px;
+  color:#fff;
+">
+          <p><strong>Bank Name:</strong> Meezan Bank</p>
           <p><strong>Account Name:</strong> Abdul Haseeb</p>
           <p><strong>Account Number:</strong> 1234 5678 9012</p>
         </div>
@@ -262,11 +270,11 @@ background:#4a005d;padding:15px;border-radius:8px;">
         <button class="place-order" onclick="placeOrder()">Place Order</button>
       </div>
 
-      <div class="summary-card">
+      <div class="checkout-summary">
         <h3>Order Summary</h3>
         <div id="summary"></div>
         <hr style="margin:15px 0;border:1px solid #4a005d;">
-        <h3>Total: $<span id="total2">0</span></h3>
+        <h3>Total: Rs. <span id="total2">0</span></h3>
       </div>
     </div>
   </section>
@@ -295,6 +303,7 @@ background:#4a005d;padding:15px;border-radius:8px;">
 
 
   <!-- footer -->
+  <!-- footer -->
   <footer class="footer">
 
     <!-- Brand & Social -->
@@ -313,11 +322,11 @@ background:#4a005d;padding:15px;border-radius:8px;">
         style="color:#c9a24d; margin:0 8px; text-decoration:none;">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="tel:+923308177359" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-       <i class="fa fa-phone" aria-hidden="true"></i>
+      <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-facebook"></i>
       </a>
-      <a href="mailto:zarajawed15@example.com" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
-        <i class="fa fa-envelope" aria-hidden="true"></i>
+      <a href="#" style="color:#c9a24d; margin:0 8px; text-decoration:none;">
+        <i class="fab fa-twitter"></i>
       </a>
     </p>
 
@@ -336,17 +345,22 @@ background:#4a005d;padding:15px;border-radius:8px;">
   </footer>
 
 
-  
-<!-- Premium Cart Popup -->
-  <div id="cartPopup" class="cart-popup">
-    <div class="popup-content">
-      <i class="fa-solid fa-check-circle"></i>
-      <div>
-        <h4 id="popupTitle"></h4>
-        <p id="popupQty"></p>
-      </div>
+
+
+<div id="cartPopup" class="cart-popup">
+  <div class="popup-content">
+
+    <img id="popupImg" class="popup-img" src="" alt="product">
+
+    <div class="popup-info">
+      <h4 id="popupTitle"></h4>
+      <p id="popupQty"></p>
     </div>
+
+    <i class="fa-solid fa-check-circle"></i>
+
   </div>
+</div>
 
   <!-- Order Placed Popup -->
   <div id="orderPopup" class="premium-popup">
@@ -369,6 +383,11 @@ background:#4a005d;padding:15px;border-radius:8px;">
       </div>
     </div>
   </div>
+
+
+
+
+
 
 
   <script>
@@ -553,15 +572,15 @@ background:#4a005d;padding:15px;border-radius:8px;">
       const qtyInput = document.querySelector(".qty");
 
       const product = {
-        id: 8,
-        name: "CROCHET CHICK KEYCHAIN",
-        price: 500,
-        category: "Keychain",
-        img: "assets/img/keychain6.jpeg",
-        link: "CROCHETCHICKKEYCHAIN.html"
+        id: 32,
+        name: "CROCHET SUNFLOWER BOUQUET",
+        price: 1500,
+        category: "bouquet",
+        img: "assets/img/bouquet2.jpeg",
+        link: "sunflowerbouquet.html"
       };
 
-      addBtn.addEventListener("click", () => {
+          addBtn.addEventListener("click", () => {
         const qty = parseInt(qtyInput.value) || 1;
 
         const existing = cart.find(p => p.id === product.id);
@@ -575,7 +594,7 @@ background:#4a005d;padding:15px;border-radius:8px;">
         saveCart();
         updateCart();
         updateCartCounts();
-        showPopup("Added to Cart", `${product.name} x${qty}`);
+       showPopup("Added to Cart", `${product.name} x${qty}`, product.img);
       });
 
       updateCart();
@@ -590,31 +609,31 @@ background:#4a005d;padding:15px;border-radius:8px;">
       document.getElementById("cart").classList.toggle("open");
     }
 
-function updateCart() {
-  const cartItems = document.getElementById("cartItems");
-  const total = document.getElementById("total");
-  const total2 = document.getElementById("total2");
-  const summary = document.getElementById("summary");
+    function updateCart() {
+      const cartItems = document.getElementById("cartItems");
+      const total = document.getElementById("total");
+      const total2 = document.getElementById("total2");
+      const summary = document.getElementById("summary");
 
-  if (!cartItems) return;
+      if (!cartItems) return;
 
-  cartItems.innerHTML = "";
-  if (summary) summary.innerHTML = "";
+      cartItems.innerHTML = "";
+      if (summary) summary.innerHTML = "";
 
-  if (cart.length === 0) {
-    cartItems.innerHTML = `<p style="text-align:center;color:#bbb;">Your cart is empty</p>`;
-    if (total) total.innerText = formatPrice(0);
-    if (total2) total2.innerText = formatPrice(0);
-    return;
-  }
+      if (cart.length === 0) {
+        cartItems.innerHTML = `<p style="text-align:center;color:#bbb;">Your cart is empty</p>`;
+        if (total) total.innerText = formatPrice(0);
+        if (total2) total2.innerText = formatPrice(0);
+        return;
+      }
 
-  let subtotal = 0;
+      let subtotal = 0;
 
-  cart.forEach(item => {
-    subtotal += item.price * item.qty;
+      cart.forEach(item => {
+        subtotal += item.price * item.qty;
 
-    /* Cart sidebar items */
-    cartItems.innerHTML += `
+        /* Cart sidebar */
+        cartItems.innerHTML += `
       <div class="cart-item">
         <img src="${item.img}">
         <div class="cart-item-details">
@@ -632,9 +651,9 @@ function updateCart() {
       </div>
     `;
 
-    /* Checkout summary items */
-    if (summary) {
-      summary.innerHTML += `
+        /* Checkout summary items */
+        if (summary) {
+          summary.innerHTML += `
         <div class="checkout-item">
           <img src="${item.img}" alt="${item.name}">
           <div>
@@ -644,32 +663,24 @@ function updateCart() {
           <strong>${formatPrice(item.price * item.qty)}</strong>
         </div>
       `;
-    }
-  });
+        }
+      });
 
-  /* SHIPPING ROW IN CART SIDEBAR */
-  cartItems.innerHTML += `
-    <div class="cart-item shipping-row" style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(255,255,255,0.2);font-weight:500;">
-      <span>Shipping</span>
-      <strong>${formatPrice(SHIPPING_COST)}</strong>
-    </div>
-  `;
-
-  /* SHIPPING ROW IN CHECKOUT SUMMARY */
-  if (summary) {
-    summary.innerHTML += `
+      /* Shipping row (NOW VISIBLE) */
+      if (summary) {
+        summary.innerHTML += `
       <div class="checkout-item shipping">
         <span>Shipping</span>
         <strong>${formatPrice(SHIPPING_COST)}</strong>
       </div>
     `;
-  }
+      }
 
-  const finalTotal = subtotal + SHIPPING_COST;
+      const finalTotal = subtotal + SHIPPING_COST;
 
-  if (total) total.innerText = formatPrice(finalTotal);
-  if (total2) total2.innerText = formatPrice(finalTotal);
-}
+      if (total) total.innerText = formatPrice(finalTotal);
+      if (total2) total2.innerText = formatPrice(finalTotal);
+    }
     function changeQty(id, delta) {
       const item = cart.find(p => p.id === id);
       if (!item) return;
@@ -704,16 +715,23 @@ function updateCart() {
       toggleCart();
     }
 
-    function showPopup(title, text) {
-      const popup = document.getElementById("popup");
-      document.getElementById("popupTitle").innerText = title;
-      document.getElementById("popupText").innerText = text;
-      popup.style.display = "block";
+function showPopup(title, text, img) {
 
-      setTimeout(() => {
-        popup.style.display = "none";
-      }, 2500);
-    }
+  const popup = document.getElementById("cartPopup");
+  const popupTitle = document.getElementById("popupTitle");
+  const popupQty = document.getElementById("popupQty");
+  const popupImg = document.getElementById("popupImg");
+
+  popupTitle.innerText = title;
+  popupQty.innerText = text;
+  popupImg.src = img;
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 2500);
+}
 
   </script>
   <script>

@@ -269,3 +269,73 @@ function placeOrder(){
   const checkout = document.getElementById("checkout");
   if(checkout) checkout.style.display = "none";
 }
+
+function placeOrder() {
+  const name = document.querySelector('#checkout input[placeholder="Full Name"]').value;
+  const email = document.querySelector('#checkout input[placeholder="Email"]').value;
+  const phone = document.querySelector('#checkout input[placeholder="Phone"]').value;
+  const address = document.querySelector('#checkout input[placeholder="Address"]').value;
+  const paymentMethod = document.getElementById('paymentMethod').value;
+
+  if (!name || !email || !phone || !address || !paymentMethod) {
+    showErrorPopup(); // <--- PREMIUM ERROR POPUP
+    return;
+  }
+
+  // Build order table rows
+  let orderRows = cart.map(item => `
+    <tr>
+      <td>${item.name}</td>
+      <td>${item.qty}</td>
+      <td>Rs.${item.price}</td>
+      <td>Rs.${item.price * item.qty}</td>
+    </tr>
+  `).join('');
+
+  const totalAmount = cart.reduce((sum, item) => sum + item.price * item.qty, 0) + 300;
+
+  const templateParams = {
+    name, email, phone, address,
+    payment: paymentMethod,
+    order: orderRows,
+    total: "Rs." + totalAmount,
+    admin_email: "zarajawed15@example.com"
+  };
+
+  emailjs.send('service_qc9ieu9', 'template_jh9y4xd', templateParams)
+    .then(response => {
+      showOrderPopup(); // <--- PREMIUM SUCCESS POPUP
+
+      // Clear cart
+      localStorage.removeItem("zawaCart");
+      cart = [];
+      updateCart();
+      updateCartCounts();
+
+      // Hide checkout page
+      document.querySelector(".product-card").style.display = "none";
+      document.getElementById("checkout").style.display = "none";
+
+      // Redirect after popup
+      setTimeout(() => {
+        window.location.href = "Thankyou.html";
+      }, 3000);
+    })
+    .catch(error => {
+      console.log('FAILED...', error);
+      showErrorPopup(); // fallback error
+    });
+}
+  // Show Order Placed Popup
+function showOrderPopup() {
+  const popup = document.getElementById("orderPopup");
+  popup.classList.add("show");
+  setTimeout(() => popup.classList.remove("show"), 3000); // hide after 3s
+}
+
+// Show Error Popup
+function showErrorPopup() {
+  const popup = document.getElementById("errorPopup");
+  popup.classList.add("show");
+  setTimeout(() => popup.classList.remove("show"), 3000);
+}

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRODUCT| ZAWA STUDIO</title>
+<title>PRODUCT | ZAWA STUDIO</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/nav.css">
@@ -167,6 +167,120 @@
   font-size: 22px;
 
   margin-bottom: 15px;
+}
+
+
+.more-products{
+  text-align: center;
+      font-size: 20px;
+    font-weight: 400;
+    
+    color: #f5e6ff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+}
+#arrow{
+        font-size: 20px;
+    font-weight: 800;
+    
+    color: #d4af37;
+
+    font-weight: 800;
+}
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+/* tablet */
+@media (min-width:768px){
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+/* desktop */
+@media (min-width:1100px){
+  .products{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+/* PRODUCT CARD */
+.card,
+.product-card{
+  background:linear-gradient(145deg,#1b0c25,#2a0d3a);
+  border-radius:12px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+/* HOVER */
+.card:hover,
+.product-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* IMAGE */
+.card img,
+.product-card img{
+  width:100%;
+  height:180px;   /* default for mobile */
+  object-fit:cover;
+  border-radius:8px;
+  transition:.3s;
+}
+
+/* Desktop: taller images */
+@media (min-width:1100px){
+  .card img,
+  .product-card img{
+    height: 340px;   /* taller on big screens */
+  }
+}
+
+/* PRODUCT CARD */
+.card,
+.product-card{
+  background:linear-gradient(145deg,#1b0c25,#2a0d3a);
+  border-radius:12px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,0.05);
+  min-height:250px; /* ensures all cards are consistent in height */
+}
+
+/* You can also increase min-height further for desktop */
+@media (min-width:1100px){
+  .card,
+  .product-card{
+    min-height:320px;
+  }
+}
+
+/* BUTTON */
+.card button,
+.product-card button{
+  margin-top:auto;
+  background:#d6b676;
+  border:none;
+  border-radius:8px;
+  padding:8px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.card button:hover{
+  background:#c7a45f;
 }
  </style>
 </head>
@@ -359,6 +473,8 @@
   <div class="products" id="products">
     <!-- Product cards inserted dynamically via JS -->
   </div>
+  
+  <p class="more-products">MORE PRODUCTS <i class="fa fa-arrow-down" id="arrow" aria-hidden="true"></i></p>
 <nav aria-label="Page navigation">
   <ul class="pagination">
     <li class="page-item active" aria-current="page">
