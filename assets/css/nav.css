@@ -646,7 +646,7 @@
   width: 100%;
   padding: 10px;
   margin-top: 10px;
-    background: linear-gradient(45deg, #ff00cc, #8000ff);
+    background:#974dc9;
   border: none;
   color: white;
   border-radius: 8px;
@@ -744,6 +744,7 @@
   background: black;
   color: white;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 /* ===== FINAL MOBILE NAV FIX ===== */
@@ -2087,19 +2088,16 @@ h3 {
   width: 100%;
   margin-top: 12px;
   padding: 10px;
-
   background:#d6b676;
   /* same beige color */
   color: #000;
   /* dark text like old style */
   border: none;
   border-radius: 6px;
-
   text-align: center;
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
-
   transition: 0.3s ease;
 }
 
@@ -2255,3 +2253,14 @@ h3 {
 .fa-user:hover{
     color: #8947a0;
 }
+
+
+::-webkit-scrollbar{
+width:6px;
+}
+
+::-webkit-scrollbar-thumb{
+background:linear-gradient(90deg, #FFD700, #FFA500);
+border-radius:10px;
+}
+

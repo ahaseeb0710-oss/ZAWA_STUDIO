@@ -145,3 +145,4 @@ function toggleMobileProfile() {
       dropdown.style.display === "block" ? "none" : "block";
   }
 }
+

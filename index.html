@@ -30,8 +30,30 @@
 <meta property="twitter:title" content="ZAWA STUDIO | Handmade Crochet Creations">
 <meta property="twitter:description" content="Premium handmade crochet bouquets and accessories designed with elegance and care.">
 <meta property="twitter:image" content="https://ahaseeb0710-oss.github.io/ZAWA_STUDIO/aassets/img/zawalogo.jpeg">
-</head>
+<style>
+  #hero-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
 
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 0%;
+  background: linear-gradient(90deg, #FFD700, #FFA500); /* golden gradient for premium look */
+  z-index: 9999;
+  transition: width 0.25s ease-out;
+}
+</style>
+</head>
+<div id="scroll-progress"></div>
 <body>
 
 <div class="container">
@@ -207,10 +229,10 @@
         <span class="crochet-text">Crochet</span>
       </h1>
 
-      <p class="hero-description">
-        Each piece is a unique work of art, meticulously handcrafted to
-        celebrate the beauty of artisan fashion.
-      </p>
+      <p class="hero-description" id="hero-text">
+  Each piece is a unique work of art, meticulously handcrafted to
+  celebrate the beauty of artisan fashion.
+</p>
       <div class="hero-buttons">
         <div class="btn-group">
           <a href="product.html" class="btn btn-primary">
@@ -457,44 +479,7 @@
 
     </div>
   </section>
-<section class="checkout" id="checkout" style="display:none;">
-  <h1>Checkout</h1>
-  <div class="checkout-wrapper">
-    <div class="form-card">
-      <h3>Shipping Info</h3>
-      <input placeholder="Full Name">
-      <input placeholder="Email">
-      <input placeholder="Phone">
-      <input placeholder="Address">
-      <input placeholder="City">
-      
-      <h3 style="margin-top:20px;">Payment Method</h3>
-
-<select id="paymentMethod" onchange="showPaymentInfo()">
-  <option value="bank">Bank Transfer</option>
-</select>
-
-<div id="bankDetails" style="display:none;margin-top:15px;
-background:#4a005d;padding:15px;border-radius:8px;">
-  <p><strong>Bank:</strong> Meezan Bank</p>
-  <p><strong>Account Name:</strong> Abdul Haseeb</p>
-  <p><strong>Account Number:</strong> 1234 5678 9012</p>
-</div>
-
-<button class="place-order" onclick="placeOrder()">Place Order</button>
-    </div>
-
-    <div class="summary-card">
-      <h3>Order Summary</h3>
-      <div id="summary"></div>
-      <hr style="margin:15px 0;border:1px solid #4a005d;">
-      <h3>Total: $<span id="total2">0</span></h3>
-    </div>
-  </div>
-</section>
-
-</div>
-
+<!-- CART SIDEBAR -->
 <div class="cart" id="cart">
   <div class="cart-header">
     <h2>Your Cart</h2>
@@ -508,10 +493,61 @@ background:#4a005d;padding:15px;border-radius:8px;">
   </div>
 </div>
 
-<!-- Popup -->
-<div id="popup" style="position:fixed;top:20px;right:20px;background:var(--accent);color:black;padding:20px;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.3);display:none;z-index:9999;min-width:250px;">
-  <strong id="popupTitle"></strong>
-  <p id="popupText"></p>
+<!-- CHECKOUT SECTION -->
+<section class="checkout" id="checkout" style="display:none;">
+  <h1>Checkout</h1>
+  <div class="checkout-wrapper">
+    <div class="form-card">
+      <h3>Shipping Info</h3>
+      <input placeholder="Full Name">
+      <input placeholder="Email">
+      <input placeholder="Phone">
+      <input placeholder="Address">
+      <input placeholder="City">
+
+      <h3 style="margin-top:20px;">Payment Method</h3>
+      <select id="paymentMethod" onchange="showPaymentInfo()">
+        <option value="">Select Payment Method</option>
+        <option value="bank">Bank Transfer</option>
+      </select>
+
+      <div id="bankDetails" style="display:none;margin-top:15px;background:#4a005d;padding:15px;border-radius:8px;color:#fff;">
+        <p><strong>Bank Name:</strong> Meezan Bank</p>
+        <p><strong>Account Name:</strong> Abdul Haseeb</p>
+        <p><strong>Account Number:</strong> 1234 5678 9012</p>
+      </div>
+
+      <button class="place-order" onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <div class="checkout-summary">
+      <h3>Order Summary</h3>
+      <div id="summary"></div>
+      <hr style="margin:15px 0;border:1px solid #4a005d;">
+      <h3>Total: Rs. <span id="total2">0</span></h3>
+    </div>
+  </div>
+</section>
+
+
+<div id="orderPopup" class="premium-popup">
+  <div class="popup-content">
+    <i class="fa-solid fa-check-circle"></i>
+    <div>
+      <h4>Order Placed!</h4>
+      <p>Your order has been received. You will get an email confirmation shortly.</p>
+    </div>
+  </div>
+</div>
+
+<div id="errorPopup" class="premium-popup">
+  <div class="popup-content">
+    <i class="fa-solid fa-exclamation-circle"></i>
+    <div>
+      <h4>Oops!</h4>
+      <p>Please fill in all fields and select a payment method.</p>
+    </div>
+  </div>
 </div>
 
 
@@ -554,38 +590,9 @@ background:#4a005d;padding:15px;border-radius:8px;">
     </p>
 
   </footer>
-<!-- Premium Cart Popup -->
-  <div id="cartPopup" class="cart-popup">
-    <div class="popup-content">
-      <i class="fa-solid fa-check-circle"></i>
-      <div>
-        <h4 id="popupTitle"></h4>
-        <p id="popupQty"></p>
-      </div>
-    </div>
-  </div>
 
-<!-- Order Placed Popup -->
-<div id="orderPopup" class="premium-popup">
-  <div class="popup-content">
-    <i class="fa-solid fa-check-circle"></i>
-    <div>
-      <h4>Order Placed!</h4>
-      <p>Your order has been received. You will get an email confirmation shortly.</p>
-    </div>
-  </div>
-</div>
 
-<!-- Error / Fill Fields Popup -->
-<div id="errorPopup" class="premium-popup">
-  <div class="popup-content">
-    <i class="fa-solid fa-exclamation-circle"></i>
-    <div>
-      <h4>Oops!</h4>
-      <p>Please fill in all fields and select a payment method.</p>
-    </div>
-  </div>
-</div>
+
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -626,6 +633,42 @@ background:#4a005d;padding:15px;border-radius:8px;">
       }
     }
   });
+</script>
+
+
+
+
+
+
+
+
+<!-- typing effect of hero description -->
+<script>
+  const textElement = document.getElementById("hero-text");
+const text = textElement.innerText;
+textElement.innerText = ""; // clear text to start typing
+
+let index = 0;
+
+function typeEffect() {
+  if (index < text.length) {
+    textElement.innerText += text.charAt(index);
+    index++;
+    setTimeout(typeEffect, 40); // typing speed (ms)
+  }
+}
+
+typeEffect();
+</script>
+
+<!-- progress-bar -->
+<script>
+  window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
+  document.getElementById("scroll-progress").style.width = scrollPercent + "%";
+});
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
